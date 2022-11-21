@@ -61,7 +61,13 @@ void check_if_file_can_be_opened(std::fstream& file){
 
 void skip_header_line_of_storage_file(std::fstream& file, const std::string& storage_file_header){
     // skip the first header line and '\n'
-  file.seekg(file.beg + std::string{storage_file_header}.size() + 2); 
+    // whether '\n' is represented by one or two characters is OS dependent
+    // only on Windows OS two characters are used
+    size_t line_break_length{1};
+    #if defined(_WIN32) || defined(_WIN64)
+      line_break_length = 2;
+    #endif
+    file.seekg(file.beg + std::string{storage_file_header}.size() + line_break_length); 
 };
 
 void check_if_file_name_is_empty(const std::string& storage_file_name){
