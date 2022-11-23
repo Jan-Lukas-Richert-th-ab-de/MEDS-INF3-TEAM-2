@@ -1,21 +1,22 @@
 #include <iostream>
-#include "ER_Person.h"
+#include "ER_Patient.h"
 #include "FD_View.h"
-#include "FD_Person_View.h"
-#include "IA_Person_Presenter.h"
-#include "FD_DA_Person_Repository_FileBasedImpl.h"
-#include "AR_UCI_Person_Administration.h"
-#include "IA_Person_Controller.h"
+#include "FD_Patient_View.h"
+#include "IA_Patient_Presenter.h"
+#include "FD_DA_Patient_Repository_FileBasedImpl.h"
+#include "AR_UCI_Patient_Administration.h"
+#include "IA_Patient_Controller.h"
 #include "IA_Master_Controller.h"
 
 using namespace std;
 
-int main() {
-    FD_Person_View person_view{};
-    IA_Person_Presenter person_presenter{person_view};
-    FD_DA_Person_Repository_FileBasedImpl person_repository{};
-    AR_UCI_Person_Administration person_administration_use_case{person_presenter, person_repository};
-    IA_Person_Controller person_controller{person_administration_use_case};
+int main()
+{
+    FD_Patient_View person_view{};
+    IA_Patient_Presenter person_presenter{person_view};
+    FD_DA_Patient_Repository_FileBasedImpl person_repository{};
+    AR_UCI_Patient_Administration person_administration_use_case{person_presenter, person_repository};
+    IA_Patient_Controller person_controller{person_administration_use_case};
 
     FD_View main_view{};
     IA_Master_Controller application_master_controller{person_controller};
