@@ -1,32 +1,40 @@
-#include "ER_Person.h"
+#include "ER_Appointment.h"
 
-ER_Person::ER_Person(std::string fn, std::string ln)
-   : first_name{fn}, last_name{ln} {};
+ER_Appointment::ER_Appointment(std::string d, std::string m, std::string y)
+   : day{d}, month{m}, year{y} {};
 
-ER_Person::ER_Person(unsigned int id, std::string fn, std::string ln)
-   : id{id}, first_name{fn}, last_name{ln} {};
+ER_Appointment::ER_Appointment(unsigned int id, std::string d, std::string m, std::string y)
+   : id{id}, day{d}, month{m}, year{y} {};
 
-unsigned int ER_Person::get_id() const {
+unsigned int ER_Appointment::get_id() const {
 	return id;
 };
 
-std::string ER_Person::get_first_name() const {
-	return first_name;
+std::string ER_Appointment::get_day() const {
+	return day;
 };
-std::string ER_Person::get_last_name() const {
-	return last_name;
+std::string ER_Appointment::get_month() const {
+	return month;
 };
-void ER_Person::set_first_name(std::string fn) {
-    first_name = fn;
+std::string ER_Appointment::get_year() const {
+	return year;
+};
+void ER_Appointment::set_day(std::string d) {
+    day = d;
 }; 
-void ER_Person::set_last_name(std::string ln) {
-    last_name = ln;
+void ER_Appointment::set_month(std::string m) {
+    month = m;
+}; 
+void ER_Appointment::set_year(std::string y) {
+    year = y;
 }; 
 
-std::string ER_Person::get_full_name() const {
+std::string ER_Appointment::get_date() const {
 	std::string result{""};
-	result.append(first_name);
-	result.append(" ");
-	result.append(last_name);
+	result.append(day);
+	result.append(".");
+	result.append(month);
+	result.append(".");
+	result.append(year);
     return result;
 }

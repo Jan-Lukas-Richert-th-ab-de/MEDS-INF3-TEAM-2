@@ -1,23 +1,28 @@
-#ifndef ER_PERSON_H
-#define ER_PERSON_H
+#iddef ER_APPOINTMENT_H
+#define ER_APPOINTMENT_H
 #include <string>
 
-class ER_Person {
+class ER_Appointment {
 public:
-    ER_Person() = delete;
-    ER_Person(std::string fn, std::string ln);
-    ER_Person(unsigned int id, std::string fn, std::string ln);
+    ER_Appointment() = delete;
+    ER_Appointment(std::string d, std::string m, std::string y); //d, m, y
+    ER_Appointment(unsigned int id, std::string d, std::string m, std::string y); // d, m, y
     unsigned int get_id() const;
-    std::string get_first_name() const;
-    std::string get_last_name() const;
-    std::string get_full_name() const;
-    void set_first_name(std::string fn); 
-    void set_last_name(std::string ln); 
+    std::string get_day() const; //Tag
+    std::string get_month() const;//Monat
+    std::string get_year() const; // Jahr noch dazu eingefügt
+    std::string get_date() const; //Datum
+    void set_day(std::string d); //Tag
+    void set_month(std::string m); //Monat
+    void set_year(std::string y); // Jahr noch dazu 
+
 
 private:
     unsigned int id{0};
-    std::string first_name{};
-    std::string last_name{};
+    std::string day{};//Tag
+    std::string month{};//Monat
+    std::string year{}; //Jahr noch dazu
+
 };
 
-#endif /* ER_PERSON_H */
+#endif /* ER_Appointment_H */
