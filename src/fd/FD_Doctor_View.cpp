@@ -48,7 +48,7 @@ void FD_Doctor_View::show_list_contents(const std::vector<std::map<std::string, 
         std::cout << " - ";
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["last_name"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["doctor_specialties"];
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["doctors_specialties"];
         std::cout << '\n';
     };
 };

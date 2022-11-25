@@ -5,7 +5,7 @@
 TEST_SUITE_BEGIN("FD_DA_Doctor_Repository_FileBasedImpl");
 TEST_CASE("save doctor, find doctor")
 {
-    ER_Doctor a_doctor{"Maria", "Musterfrau"};
+    ER_Doctor a_doctor{"Maria", "Musterfrau", "tester"};
     FD_DA_Doctor_Repository_FileBasedImpl a_doctor_repo{};
     a_doctor_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
     a_doctor_repo.remove_all();
@@ -14,6 +14,7 @@ TEST_CASE("save doctor, find doctor")
     CHECK(a_restored_doctor.get_id() == a_created_doctor.get_id());
     CHECK(a_restored_doctor.get_first_name() == "Maria");
     CHECK(a_restored_doctor.get_last_name() == "Musterfrau");
+    CHECK(a_restored_doctor.get_doctors_specialties() == "tester");
     a_doctor_repo.remove_all();
 }
 
@@ -22,9 +23,9 @@ TEST_CASE("save two doctors, find second doctor")
     FD_DA_Doctor_Repository_FileBasedImpl a_doctor_repo{};
     a_doctor_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
     a_doctor_repo.remove_all();
-    ER_Doctor a_doctor{"Maria", "Musterfrau"};
+    ER_Doctor a_doctor{"Maria", "Musterfrau", "tester"};
     ER_Doctor a_created_doctor = a_doctor_repo.save(a_doctor);
-    ER_Doctor a_doctor2{"Max", "Mustermann"};
+    ER_Doctor a_doctor2{"Max", "Mustermann", "tester"};
     ER_Doctor a_created_doctor2 = a_doctor_repo.save(a_doctor2);
 
     ER_Doctor a_restored_doctor2 = a_doctor_repo.find(a_created_doctor2.get_id());
@@ -36,11 +37,13 @@ TEST_CASE("save three doctors, remove second doctor, find all")
     FD_DA_Doctor_Repository_FileBasedImpl a_doctor_repo{};
     a_doctor_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
     a_doctor_repo.remove_all();
-    ER_Doctor a_doctor{"Maria", "Musterfrau"};
+    ER_Doctor a_doctor{"Maria", "Musterfrau", "tester"};
     ER_Doctor a_created_doctor = a_doctor_repo.save(a_doctor);
-    ER_Doctor a_doctor2{"Max", "Mustermann"};
+    ER_Doctor a_doctor2{
+        "Max", "Mustermann,",
+        "tester"};
     ER_Doctor a_created_doctor2 = a_doctor_repo.save(a_doctor2);
-    ER_Doctor a_doctor3{"Eva", "Musterfrau"};
+    ER_Doctor a_doctor3{"Eva", "Musterfrau", "tester"};
     ER_Doctor a_created_doctor3 = a_doctor_repo.save(a_doctor3);
     a_doctor_repo.remove(a_created_doctor2.get_id());
     std::vector<ER_Doctor> all_stored_doctors = a_doctor_repo.find_all();
@@ -57,11 +60,11 @@ TEST_CASE("save three doctors, update second doctor, find all")
     FD_DA_Doctor_Repository_FileBasedImpl a_doctor_repo{};
     a_doctor_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
     a_doctor_repo.remove_all();
-    ER_Doctor a_doctor{"Maria", "Musterfrau"};
+    ER_Doctor a_doctor{"Maria", "Musterfrau", "tester"};
     ER_Doctor a_created_doctor = a_doctor_repo.save(a_doctor);
-    ER_Doctor a_doctor2{"Max", "Mustermann"};
+    ER_Doctor a_doctor2{"Max", "Mustermann", "tester"};
     ER_Doctor a_created_doctor2 = a_doctor_repo.save(a_doctor2);
-    ER_Doctor a_doctor3{"Eva", "Musterfrau"};
+    ER_Doctor a_doctor3{"Eva", "Musterfrau", "tester"};
     ER_Doctor a_created_doctor3 = a_doctor_repo.save(a_doctor3);
     a_created_doctor2.set_last_name("Meier");
     ER_Doctor an_updated_doctor2 = a_doctor_repo.save(a_created_doctor2);

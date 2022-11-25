@@ -24,7 +24,7 @@ void AR_UCI_Doctor_Administration::list_all()
 };
 void AR_UCI_Doctor_Administration::create(std::string first_name, std::string last_name, std::string doctors_specialties)
 {
-  ER_Doctor a_Doctor{first_name, last_name};
+  ER_Doctor a_Doctor{first_name, last_name, doctors_specialties};
   resource_repository.save(a_Doctor);
   list_all();
 };

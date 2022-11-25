@@ -1,7 +1,7 @@
 #include "ER_Doctor.h"
 
-ER_Doctor::ER_Doctor(std::string fn, std::string ln)
-	: first_name{fn}, last_name{ln} {};
+ER_Doctor::ER_Doctor(std::string fn, std::string ln, std::string dc)
+	: first_name{fn}, last_name{ln}, doctors_specialties{dc} {};
 
 ER_Doctor::ER_Doctor(unsigned int id, std::string fn, std::string ln, std::string dc)
 	: id{id}, first_name{fn}, last_name{ln}, doctors_specialties{dc} {};
@@ -42,5 +42,7 @@ std::string ER_Doctor::get_full_name() const
 	result.append(first_name);
 	result.append(" ");
 	result.append(last_name);
+	result.append(" ");
+	result.append(doctors_specialties);
 	return result;
 }

@@ -4,9 +4,9 @@
 TEST_SUITE_BEGIN("Doctor");
 TEST_CASE("create doctor, get_id, get_fullname")
 {
-    ER_Doctor a_doctor{"Maria", "Musterfrau"};
+    ER_Doctor a_doctor{"Maria", "Musterfrau", "tester"};
     CHECK(a_doctor.get_id() == 0);
-    CHECK(a_doctor.get_full_name() == "Maria Musterfrau");
+    CHECK(a_doctor.get_full_name() == "Maria Musterfrau tester");
 }
 TEST_CASE("create doctor with id, get_fullname")
 {

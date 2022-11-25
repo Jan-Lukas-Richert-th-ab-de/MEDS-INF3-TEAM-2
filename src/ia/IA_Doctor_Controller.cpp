@@ -18,9 +18,9 @@ void IA_Doctor_Controller::control_create()
     std::string last_name{};
     std::cin >> last_name;
     std::cout << MESSAGE_CREATE_DOCTOR_DOCTOR_SPECIALTIES_PROMPT;
-    std::string doctor_specialties{};
-    std::cin >> doctor_specialties;
-    resource_uci.create(first_name, last_name, doctor_specialties);
+    std::string doctors_specialties{};
+    std::cin >> doctors_specialties;
+    resource_uci.create(first_name, last_name, doctors_specialties);
 };
 
 void IA_Doctor_Controller::control_update()
@@ -35,10 +35,10 @@ void IA_Doctor_Controller::control_update()
     std::string last_name{};
     std::cin >> last_name;
     std::cout << MESSAGE_UPDATE_DOCTOR_DOCTOR_SPECIALTIES_PROMPT;
-    std::string doctor_specialties{};
-    std::cin >> doctor_specialties;
+    std::string doctors_specialties{};
+    std::cin >> doctors_specialties;
 
-    resource_uci.update(id, first_name, last_name, doctor_specialties);
+    resource_uci.update(id, first_name, last_name, doctors_specialties);
 };
 
 void IA_Doctor_Controller::control_remove()
