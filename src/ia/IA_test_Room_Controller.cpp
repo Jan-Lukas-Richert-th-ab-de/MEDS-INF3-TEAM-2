@@ -1,16 +1,16 @@
-#include "IA_Master_Controller.h"
+#include "IA_test_Room_Controller.h"
 #include <iostream>
 
-IA_Master_Controller::IA_Master_Controller(IA_Room_Controller &a_room_controller)
-    : room_controller(a_room_controller){};
+IA_test_Room_Controller::IA_test_Room_Controller(IA_Room_Controller &a_room_Controller)
+    : room_Controller(a_room_Controller){};
 
-void IA_Master_Controller::control_application_start()
+void IA_test_Room_Controller::control_application_start()
 {
-    room_controller.control_list_all();
-    control_menu_choice();
+    room_Controller.control_list_all();
+    chooce_Room();
 };
 
-void IA_Master_Controller::control_menu_choice()
+void IA_test_Room_Controller::chooce_Room()
 {
     while (true)
     {
@@ -19,17 +19,17 @@ void IA_Master_Controller::control_menu_choice()
         std::cin >> choice;
         if (choice == '1')
         {
-            room_controller.control_create();
+            room_Controller.control_create();
             continue;
         }
         if (choice == '2')
         {
-            room_controller.control_update();
+            room_Controller.control_update();
             continue;
         }
         if (choice == '3')
         {
-            room_controller.control_remove();
+            room_Controller.control_remove();
             continue;
         }
         if (choice == '4')
@@ -40,11 +40,11 @@ void IA_Master_Controller::control_menu_choice()
     }
 };
 
-void IA_Master_Controller::show_menu_message_prompt()
+void IA_test_Room_Controller::show_menu_message_prompt()
 {
     std::cout << "Please enter the number of the option you choose: ";
 };
-void IA_Master_Controller::show_menu_message_unexpected_input()
+void IA_test_Room_Controller::show_menu_message_unexpected_input()
 {
     std::cout << "Unexpected Input! Please try again!\n";
 };
