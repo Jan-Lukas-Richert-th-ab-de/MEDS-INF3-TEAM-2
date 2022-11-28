@@ -1,12 +1,12 @@
 #include "IA_Master_Controller.h"
 #include <iostream>
 
-IA_Master_Controller::IA_Master_Controller(IA_Doctor_Controller &a_doctor_controller)
-    : doctor_controller(a_doctor_controller){};
+IA_Master_Controller::IA_Master_Controller(IA_Room_Controller &a_room_controller)
+    : room_controller(a_room_controller){};
 
 void IA_Master_Controller::control_application_start()
 {
-    doctor_controller.control_list_all();
+    room_controller.control_list_all();
     control_menu_choice();
 };
 
@@ -19,17 +19,17 @@ void IA_Master_Controller::control_menu_choice()
         std::cin >> choice;
         if (choice == '1')
         {
-            doctor_controller.control_create();
+            room_controller.control_create();
             continue;
         }
         if (choice == '2')
         {
-            doctor_controller.control_update();
+            room_controller.control_update();
             continue;
         }
         if (choice == '3')
         {
-            doctor_controller.control_remove();
+            room_controller.control_remove();
             continue;
         }
         if (choice == '4')

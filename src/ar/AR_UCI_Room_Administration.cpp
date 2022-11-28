@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 #include <algorithm>
-#include "ER_Room.h"
+#include "Room/ER_Room.h"
 
 AR_UCI_Room_Administration::AR_UCI_Room_Administration(
     AR_UCI_Room_Administration_OB &presenter, AR_DAI_Room_Repository &repository)
