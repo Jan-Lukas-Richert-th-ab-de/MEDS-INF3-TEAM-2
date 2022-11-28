@@ -6,6 +6,7 @@ IA_test_Doctor_Controller::IA_test_Doctor_Controller(IA_Doctor_Controller &a_doc
 
 void IA_test_Doctor_Controller::control_application_start()
 {
+    system("cls");
     doctor_Controller.control_list_all();
     choose_Doctor();
 };
@@ -14,6 +15,8 @@ void IA_test_Doctor_Controller::choose_Doctor()
 {
     while (true)
     {
+        system("cls");
+        doctor_Controller.control_list_all();
         show_menu_message_prompt();
         char choice;
         std::cin >> choice;

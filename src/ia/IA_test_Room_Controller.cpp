@@ -6,7 +6,6 @@ IA_test_Room_Controller::IA_test_Room_Controller(IA_Room_Controller &a_room_Cont
 
 void IA_test_Room_Controller::control_application_start()
 {
-    room_Controller.control_list_all();
     chooce_Room();
 };
 
@@ -14,6 +13,8 @@ void IA_test_Room_Controller::chooce_Room()
 {
     while (true)
     {
+        system("cls");
+        room_Controller.control_list_all();
         show_menu_message_prompt();
         char choice;
         std::cin >> choice;

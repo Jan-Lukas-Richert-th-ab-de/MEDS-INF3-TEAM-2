@@ -64,6 +64,7 @@ target_sources(ia
         src/ia/IA_Patient_Presenter.cpp
         src/ia/IA_Patient_Controller.cpp
         src/ia/IA_test_Room_Controller.cpp
+        src/ia/IA_test_Room_Presenter.cpp
         src/ia/IA_test_Patient_Controller.cpp
         src/ia/IA_test_Doctor_Controller.cpp
         src/ia/IA_Master_Controller_test.cpp
@@ -75,6 +76,7 @@ target_sources(ia
         src/ia/IA_Patient_Presenter.h
         src/ia/IA_Patient_Controller.h
         src/ia/IA_test_Room_Controller.h
+        src/ia/IA_test_Room_Presenter.h
         src/ia/IA_test_Patient_Controller.h
         src/ia/IA_test_Doctor_Controller.h
         src/ia/IA_Master_Controller_test.h
@@ -89,17 +91,21 @@ add_library(fd STATIC "")
 target_sources(fd
     PRIVATE
         src/fd/FD_View.cpp
+        src/fd/FD_View_test.cpp
         src/fd/FD_Room_View.cpp
+        src/fd/FD_Resource_View_test.cpp
         src/fd/FD_DA_Room_Repository_FileBasedImpl.cpp
         src/fd/FD_Doctor_View.cpp
-        src/fd/FD_DA_DOctor_Repository_FileBasedImpl.cpp
+        src/fd/FD_DA_Doctor_Repository_FileBasedImpl.cpp
         src/fd/FD_Patient_View.cpp
         src/fd/FD_DA_Patient_Repository_FileBasedImpl.cpp
         src/fd/FD_general_utility_functions.cpp
         src/fd/FD_Text_File_Record_Storage.cpp
     PUBLIC
         src/fd/FD_View.h
+        src/fd/FD_View_test.h
         src/fd/FD_Resource_View.h
+        src/fd/FD_Resource_View_test.h
         src/fd/FD_Room_View.h
         src/fd/FD_DA_Room_Repository_FileBasedImpl.h
         src/fd/FD_Doctor_View.h

@@ -3,6 +3,7 @@
 #include "ER_Doctor.h"
 #include "ER_Patient.h"
 #include "FD_View.h"
+#include "FD_View_test.h"
 #include "FD_Room_View.h"
 #include "FD_Doctor_View.h"
 #include "FD_Patient_View.h"
@@ -25,6 +26,7 @@ using namespace std;
 
 int main()
 {
+
     FD_Room_View room_view{};
     FD_Doctor_View doctor_view{};
     FD_Patient_View patient_view{};
@@ -43,9 +45,12 @@ int main()
     IA_test_Doctor_Controller test_Doctor_Controller{doctor_controller};
     IA_test_Room_Controller test_Room_Controller{room_controller};
     IA_test_Patient_Controller test_Patient_Controller{patient_controller};
+    FD_Resource_View_test resource_view_test{};
+    IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
 
     FD_View main_view{};
-    IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Patient_Controller, test_Doctor_Controller};
+    FD_View_test test_view{};
+    IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller, test_Patient_Controller, test_Room_Presenter};
 
     application_master_controller_test.control_application_start();
 }

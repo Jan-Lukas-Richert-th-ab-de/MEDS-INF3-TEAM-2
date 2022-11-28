@@ -6,7 +6,7 @@ IA_test_Patient_Controller::IA_test_Patient_Controller(IA_Patient_Controller &a_
 
 void IA_test_Patient_Controller::control_application_start()
 {
-    patient_Controller.control_list_all();
+
     choose_Patient();
 };
 
@@ -14,6 +14,8 @@ void IA_test_Patient_Controller::choose_Patient()
 {
     while (true)
     {
+        system("cls");
+        patient_Controller.control_list_all();
         show_menu_message_prompt();
         char choice;
         std::cin >> choice;
@@ -47,4 +49,6 @@ void IA_test_Patient_Controller::show_menu_message_prompt()
 void IA_test_Patient_Controller::show_menu_message_unexpected_input()
 {
     std::cout << "Unexpected Input! Please try again!\n";
+    system("pause");
+    system("cls");
 };
