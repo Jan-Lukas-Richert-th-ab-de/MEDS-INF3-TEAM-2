@@ -1,10 +1,10 @@
-#ifndef FD_STANDART_REPORTING_VIEW_H
-#define FD_STANDART_REPORTING_VIEW_H
+#ifndef FD_STANDARD_REPORTING_VIEW.H
+#define FD_STANDARD_REPORTING_VIEW.H
 #include "FD_Resource_View.h"
 #include <vector>
 #include <map>
 
-class FD_Standart_Reporting_View : public FD_Resource_View
+class FD_Standard_Reporting_View : public FD_Resource_View
 {
 public:
     void show_list_view(const std::vector<std::map<std::string, std::string>> &data);
