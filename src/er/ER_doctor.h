@@ -6,7 +6,7 @@ class ER_Doctor
 {
 public:
     ER_Doctor() = delete;
-    ER_Doctor(std::string fn, std::string ln);
+    ER_Doctor(std::string fn, std::string ln, std::string dc);
     ER_Doctor(unsigned int id, std::string fn, std::string ln, std::string dc);
     unsigned int get_id() const;
     std::string get_first_name() const;
