@@ -1,17 +1,17 @@
 #include "doctest.h"
-#include "ER_Person.h"
+#include "ER_Appointment.h"
 
-TEST_SUITE_BEGIN("Person");
-TEST_CASE("create person, get_id, get_fullname") 
+TEST_SUITE_BEGIN("Appointment");
+TEST_CASE("create appointment, get_id, get_date") 
 {
-    ER_Person a_person{"Maria", "Musterfrau"};
-    CHECK(a_person.get_id()==0);
-    CHECK(a_person.get_full_name()=="Maria Musterfrau");
+    ER_Appointment a_appointment{"01", ".", "01", ".", "2022"}; //??????
+    CHECK(a_appointment.get_id()==0);
+    CHECK(a_appointment.get_full_date()=="01.01.2022"); //??????
 }
-TEST_CASE("create person with id, get_fullname") 
+TEST_CASE("create appointment with id, get_date") 
 {
-    ER_Person a_person{1, "Max", "Mustermann"};
-    CHECK(a_person.get_id()==1);
-    CHECK(a_person.get_full_name()=="Max Mustermann");
+    ER_Appointment a_appointment{1, "01", ".", "01", ".", "2022"}; //??????
+    CHECK(a_appointment.get_id()==1);
+    CHECK(a_appointment.get_full_date()=="01.01.2022"); //?????????
 }
 TEST_SUITE_END();
