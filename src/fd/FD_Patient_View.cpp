@@ -29,22 +29,22 @@ void FD_Patient_View::show_list_header()
 };
 void FD_Patient_View::show_column_header()
 {
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "ID";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "First Name";
+    std::cout << std::left << std::setfill(' ') << std::setw(20) << "First Name";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Last Name";
+    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Last Name";
     std::cout << '\n';
 };
 void FD_Patient_View::show_list_contents(const std::vector<std::map<std::string, std::string>> &data)
 {
     for (auto current_element : data)
     {
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["id"];
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["id"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["first_name"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["first_name"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["last_name"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["last_name"];
         std::cout << '\n';
     };
 };

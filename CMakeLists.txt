@@ -21,12 +21,12 @@ target_sources(er
         src/er/ER_Doctor.cpp
         src/er/ER_Patient.cpp
         src/er/Room/ER_Room.cpp
-        src/er/Room/ER_Appointment.cpp
+        src/er/ER_Appointment.cpp
     PUBLIC
         src/er/Room/ER_Room.h
         src/er/ER_Doctor.h
         src/er/ER_Patient.h
-        src/er/Room/ER_Appointment.h
+        src/er/ER_Appointment.h
 )
 
 # add library target

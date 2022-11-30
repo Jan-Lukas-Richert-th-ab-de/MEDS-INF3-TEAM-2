@@ -29,22 +29,22 @@ void FD_Room_View::show_list_header()
 };
 void FD_Room_View::show_column_header()
 {
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "Room ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room ID";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room Description";
+    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Room Number";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room Number";
+    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Room Description";
     std::cout << '\n';
 };
 void FD_Room_View::show_list_contents(const std::vector<std::map<std::string, std::string>> &data)
 {
     for (auto current_element : data)
     {
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["id"];
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["id"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["room_description"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["room_number"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["room_number"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["room_description"];
         std::cout << '\n';
     };
 };
