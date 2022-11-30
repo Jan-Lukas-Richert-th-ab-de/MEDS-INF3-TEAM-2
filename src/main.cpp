@@ -21,6 +21,17 @@
 #include "IA_test_Patient_Controller.h"
 #include "IA_test_Room_Controller.h"
 #include "IA_Master_Controller_test.h"
+#include "AR_DAI_Appointment_Repository.h"
+#include "AR_UCI_Appointment_Administration_IB.h"
+#include "AR_UCI_Appointment_Administration_OB.h"
+#include "AR_UCI_Appointment_Administration.h"
+#include "ER_Appointment.h"
+#include "FD_Appointment_View.h"
+#include "FD_DA_Appointment_Repository_FileBasedImpl.h"
+#include "IA_Appointment_Controller.h"
+#include "IA_Appointment_Presenter.h"
+
+
 
 using namespace std;
 
@@ -51,6 +62,9 @@ int main()
     FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller, test_Patient_Controller, test_Room_Presenter};
+
+    
+
 
     application_master_controller_test.control_application_start();
 }
