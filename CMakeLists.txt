@@ -21,10 +21,12 @@ target_sources(er
         src/er/ER_Doctor.cpp
         src/er/ER_Patient.cpp
         src/er/Room/ER_Room.cpp
+        src/er/ER_Appointment.cpp
     PUBLIC
         src/er/Room/ER_Room.h
         src/er/ER_Doctor.h
         src/er/ER_Patient.h
+        src/er/ER_Appointment.h
 )
 
 # add library target
@@ -34,6 +36,7 @@ target_sources(ar
         src/ar/AR_UCI_Room_Administration.cpp
         src/ar/AR_UCI_Doctor_Administration.cpp
         src/ar/AR_UCI_Patient_Administration.cpp
+        src/ar/AR_UCI_Appointment_Administration.cpp
     PUBLIC
         src/ar/AR_UCI_Room_Administration_IB.h
         src/ar/AR_UCI_Room_Administration_OB.h
@@ -47,6 +50,10 @@ target_sources(ar
         src/ar/AR_UCI_Patient_Administration_OB.h
         src/ar/AR_UCI_Patient_Administration.h
         src/ar/AR_DAI_Patient_Repository.h
+        src/ar/AR_UCI_Appointment_Administration_IB.h
+        src/ar/AR_UCI_Appointment_Administration_OB.h
+        src/ar/AR_UCI_Appointment_Administration.h
+        src/ar/AR_DAI_Appointment_Repository.h
 )
 target_include_directories(ar PRIVATE src/er)
 target_include_directories(ar PRIVATE src/fd)
@@ -63,6 +70,8 @@ target_sources(ia
         src/ia/IA_Doctor_Controller.cpp
         src/ia/IA_Patient_Presenter.cpp
         src/ia/IA_Patient_Controller.cpp
+        src/ia/IA_Appointment_Presenter.cpp
+        src/ia/IA_Appointment_Controller.cpp
         src/ia/IA_test_Room_Controller.cpp
         src/ia/IA_test_Room_Presenter.cpp
         src/ia/IA_test_Patient_Controller.cpp
@@ -75,6 +84,8 @@ target_sources(ia
         src/ia/IA_Doctor_Controller.h
         src/ia/IA_Patient_Presenter.h
         src/ia/IA_Patient_Controller.h
+        src/ia/IA_Appointment_Presenter.h
+        src/ia/IA_Appointment_Controller.h
         src/ia/IA_test_Room_Controller.h
         src/ia/IA_test_Room_Presenter.h
         src/ia/IA_test_Patient_Controller.h
@@ -99,6 +110,8 @@ target_sources(fd
         src/fd/FD_DA_Doctor_Repository_FileBasedImpl.cpp
         src/fd/FD_Patient_View.cpp
         src/fd/FD_DA_Patient_Repository_FileBasedImpl.cpp
+        src/fd/FD_Appointment_View.cpp
+        src/fd/FD_DA_Appointment_Repository_FileBasedImpl.cpp
         src/fd/FD_general_utility_functions.cpp
         src/fd/FD_Text_File_Record_Storage.cpp
     PUBLIC
@@ -112,6 +125,8 @@ target_sources(fd
         src/fd/FD_DA_Doctor_Repository_FileBasedImpl.h
         src/fd/FD_Patient_View.h
         src/fd/FD_DA_Patient_Repository_FileBasedImpl.h
+        src/fd/FD_Appointment_View.h
+        src/fd/FD_DA_Appointment_Repository_FileBasedImpl.h
         src/fd/FD_general_utility_functions.h
         src/fd/FD_Text_File_Record_Storage.h
 )
