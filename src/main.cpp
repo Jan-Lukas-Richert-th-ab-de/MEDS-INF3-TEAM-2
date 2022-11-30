@@ -58,13 +58,19 @@ int main()
     IA_test_Patient_Controller test_Patient_Controller{patient_controller};
     FD_Resource_View_test resource_view_test{};
     IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
-
+    
+    //Appointment
+    FD_Appointment_View appointment_view{};
+    IA_Appointment_Presenter appointment_presenter{appointment_view};
+    FD_DA_Appointment_Repository_FileBasedImpl appointment_repository{};
+    AR_UCI_Appointment_Administration appointment_administration_use_case{appointment_presenter, appointment_repository};
+    IA_Appointment_Controller appointment_controller{appointment_administration_use_case};
+   
     FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller, test_Patient_Controller, test_Room_Presenter};
 
     
-
 
     application_master_controller_test.control_application_start();
 }
