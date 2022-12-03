@@ -68,5 +68,6 @@ std::string FD_DA_Doctor_Repository_FileBasedImpl::create_storage_record_from_do
   result.append(doctor.get_last_name());
   result.append(",");
   result.append(doctor.get_doctors_specialties());
+
   return result;
 };
