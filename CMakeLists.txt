@@ -55,7 +55,6 @@ target_sources(ar
         src/ar/AR_UCI_Appointment_Administration_OB.h
         src/ar/AR_UCI_Appointment_Administration.h
         src/ar/AR_DAI_Appointment_Repository.h
-        src/ar/AR_DAI_Standard_Reporting.h
         src/ar/AR_UCI_Standard_Reporting_IB.h
         scr/ar/AR_UCI_Standard_Reporting_OB.h
         scr/ar/AR_UCI_Standard_Reporting.h
