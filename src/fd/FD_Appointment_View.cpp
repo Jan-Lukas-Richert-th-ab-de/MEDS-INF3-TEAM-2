@@ -2,44 +2,53 @@
 #include <iostream>
 #include <iomanip>
 
-void FD_Appointment_View::show_list_view(const std::vector<std::map<std::string, std::string>>& data){
+void FD_Appointment_View::show_list_view(const std::vector<std::map<std::string, std::string>> &data)
+{
     show_header();
     show_list_header();
-    if(data.size()==0){
+    if (data.size() == 0)
+    {
         show_list_empty_message();
-    } else {
+    }
+    else
+    {
         show_column_header();
     }
     show_list_contents(data);
     show_separator();
     show_menu();
-}; 
+};
 
-void FD_Appointment_View::show_list_empty_message(){
+void FD_Appointment_View::show_list_empty_message()
+{
     std::cout << "No appointments stored!" << '\n';
 };
-void FD_Appointment_View::show_list_header(){
+void FD_Appointment_View::show_list_header()
+{
     std::cout << "Appointment List:" << '\n';
 };
-void FD_Appointment_View::show_column_header(){
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "ID";
+void FD_Appointment_View::show_column_header()
+{
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "ID";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Day";
+    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Date";
+    /*std::cout << " . ";
+    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Month";
     std::cout << " . ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Month";
-    std::cout << " . ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Year";
+    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Year";*/
     std::cout << '\n';
 };
-void FD_Appointment_View::show_list_contents(const std::vector<std::map<std::string, std::string>>& data){
-    for(auto current_element : data){
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["id"];
+void FD_Appointment_View::show_list_contents(const std::vector<std::map<std::string, std::string>> &data)
+{
+    for (auto current_element : data)
+    {
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["id"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["day"];
-        std::cout << " . ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["month"];
-        std::cout << " . ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["year"];
+        std::cout << std::left << std::setfill(' ') << std::setw(0) << current_element["day"];
+        std::cout << ".";
+        std::cout << std::left << current_element["month"];
+        std::cout << ".";
+        std::cout << std::left << current_element["year"];
         std::cout << '\n';
     };
 };

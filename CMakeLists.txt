@@ -81,6 +81,7 @@ target_sources(ia
         src/ia/IA_test_Room_Presenter.cpp
         src/ia/IA_test_Patient_Controller.cpp
         src/ia/IA_test_Doctor_Controller.cpp
+        src/ia/IA_test_Appointment_Controller.cpp
         src/ia/IA_Master_Controller_test.cpp
         scr/ia/IA_Standard_Reporting_Controller.cpp
         scr/ia/IA_Standard_Reporting_Presenter.cpp
@@ -97,6 +98,7 @@ target_sources(ia
         src/ia/IA_test_Room_Presenter.h
         src/ia/IA_test_Patient_Controller.h
         src/ia/IA_test_Doctor_Controller.h
+        src/ia/IA_test_Appointment_Controller.h
         src/ia/IA_Master_Controller_test.h
         scr/ia/IA_Standard_Reporting_Controller.h
         scr/ia/IA_Standard_Reporting_Presenter.h

@@ -3,9 +3,11 @@
 
 IA_Master_Controller_test::IA_Master_Controller_test(
     IA_test_Room_Controller &a_test_Room_Controller, IA_test_Doctor_Controller &a_test_Doctor_Controller,
-    IA_test_Patient_Controller &a_test_Patient_Controller, IA_test_Room_Presenter &a_view)
+    IA_test_Patient_Controller &a_test_Patient_Controller, IA_test_Appointment_Controller &a_test_Appointment_Controller,
+    IA_test_Room_Presenter &a_view)
     : test_Room_Controller(a_test_Room_Controller), test_Patient_Controller(a_test_Patient_Controller),
-      test_Doctor_Controller(a_test_Doctor_Controller), view(a_view){};
+      test_Doctor_Controller(a_test_Doctor_Controller), test_Appointment_Controller(a_test_Appointment_Controller),
+      view(a_view){};
 
 void IA_Master_Controller_test::control_application_start()
 {
@@ -38,6 +40,11 @@ void IA_Master_Controller_test::control_menu_choice()
             continue;
         }
         if (choice == '4')
+        {
+            test_Appointment_Controller.control_application_start();
+            continue;
+        }
+        if (choice == '5')
         {
             break;
         }
