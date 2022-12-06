@@ -20,31 +20,42 @@ void IA_Master_Controller_test::control_menu_choice()
     while (true)
     {
         system("cls");
-        view.present_all();
+        view.present_all_MAIN();
         show_menu_message_prompt();
         char choice;
         std::cin >> choice;
         if (choice == '1')
         {
-            test_Patient_Controller.control_application_start();
-            continue;
+            system("cls");
+            view.present_all_CORE_RESURCES();
+            std::cin >> choice;
+            if (choice == '1')
+            {
+                test_Patient_Controller.control_application_start();
+                continue;
+            }
+            if (choice == '2')
+            {
+                test_Doctor_Controller.control_application_start();
+                continue;
+            }
+            if (choice == '3')
+            {
+                test_Room_Controller.control_application_start();
+                continue;
+            }
+            if (choice == '4')
+            {
+                break;
+            }
         }
         if (choice == '2')
         {
-            test_Doctor_Controller.control_application_start();
-            continue;
-        }
-        if (choice == '3')
-        {
-            test_Room_Controller.control_application_start();
-            continue;
-        }
-        if (choice == '4')
-        {
+            system("cls");
             test_Appointment_Controller.control_application_start();
             continue;
         }
-        if (choice == '5')
+        if (choice == '3')
         {
             break;
         }

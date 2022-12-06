@@ -20,3 +20,23 @@ void FD_View_test::show_menu()
         ++option_number;
     }
 };
+void FD_View_test::show_menu_CORE_RESSURCES()
+{
+    int option_number{1};
+    std::cout << OPTIONS_HEADER << '\n';
+    for (auto current_option : OPTIONS_LIST_CORE_RESSURCES)
+    {
+        std::cout << std::setfill(' ') << std::setw(2) << option_number << ": " << current_option << '\n';
+        ++option_number;
+    }
+};
+void FD_View_test::show_menu_MAIN()
+{
+    int option_number{1};
+    std::cout << OPTIONS_HEADER << '\n';
+    for (auto current_option : OPTIONS_LIST_MAIN)
+    {
+        std::cout << std::setfill(' ') << std::setw(2) << option_number << ": " << current_option << '\n';
+        ++option_number;
+    }
+};

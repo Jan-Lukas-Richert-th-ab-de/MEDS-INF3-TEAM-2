@@ -1,13 +1,15 @@
 #ifndef FD_RESOURCE_VIEW_TEST_H
 #define FD_RESOURCE_VIEW_TEST_H
-#include "FD_View_test.h"
+#include "FD_View.h"
 #include <vector>
 #include <map>
 
-class FD_Resource_View_test : public FD_View_test
+class FD_Resource_View_test : public FD_View
 {
 public:
    virtual void show_list_view();
+   virtual void show_list_view_MAIN();
+   virtual void show_list_view_CORE_RESSURCES();
 
    virtual ~FD_Resource_View_test() = default;
    FD_Resource_View_test() = default;

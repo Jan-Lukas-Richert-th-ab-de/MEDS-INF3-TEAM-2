@@ -8,7 +8,9 @@ class IA_test_Room_Presenter
 {
 public:
     IA_test_Room_Presenter(FD_Resource_View_test &view);
-    void present_all();
+    // void present_all();
+    void present_all_CORE_RESURCES();
+    void present_all_MAIN();
 
 private:
     FD_Resource_View_test &resource_view_test;

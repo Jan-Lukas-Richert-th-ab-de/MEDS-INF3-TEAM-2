@@ -7,6 +7,7 @@
 #include "FD_Room_View.h"
 #include "FD_Doctor_View.h"
 #include "FD_Patient_View.h"
+#include "FD_Resource_View_test.h"
 #include "IA_Room_Presenter.h"
 #include "IA_Doctor_Presenter.h"
 #include "IA_Patient_Presenter.h"
