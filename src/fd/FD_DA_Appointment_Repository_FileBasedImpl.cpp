@@ -46,7 +46,9 @@ ER_Appointment FD_DA_Appointment_Repository_FileBasedImpl::create_appointment_fr
   std::string found_day{line_tokens.at(1)};
   std::string found_month{line_tokens.at(2)};
   std::string found_year{line_tokens.at(3)};
-  ER_Appointment result{current_id,found_day,found_month, found_year};
+  std::string found_time_start{line_tokens.at(4)};
+  std::string found_time{line_tokens.at(5)};
+  ER_Appointment result{current_id, found_day, found_month, found_year, found_time_start, found_time};
   return result;
 };
 
@@ -59,7 +61,10 @@ std::string FD_DA_Appointment_Repository_FileBasedImpl::create_storage_record_fr
   result.append(appointment.get_month());
   result.append(".");
   result.append(appointment.get_year());
-
+  result.append(".");
+  result.append(appointment.get_time_start());
+  result.append(".");
+  result.append(appointment.get_time());
   return result;
 };
 

@@ -18,7 +18,13 @@ void IA_Appointment_Controller::control_create(){
     std::cout << MESSAGE_CREATE_APPOINTMENT_YEAR_PROMPT;  
     std::string year{};
     std::cin >> year;
-    resource_uci.create(day, month, year);
+    std::cout << MESSAGE_CREATE_APPOINTMENT_TIME_START_PROMPT;  
+    std::string time_start{};
+    std::cin >> time_start;
+    std::cout << MESSAGE_CREATE_APPOINTMENT_TIME_PROMPT;  
+    std::string time{};
+    std::cin >> time;
+    resource_uci.create(day, month, year, time_start, time);
 };
 
 void IA_Appointment_Controller::control_update(){
@@ -34,7 +40,13 @@ void IA_Appointment_Controller::control_update(){
     std::cout << MESSAGE_UPDATE_APPOINTMENT_YEAR_PROMPT;  
     std::string year{};
     std::cin >> year;
-    resource_uci.update(id, day, month, year );
+    std::cout << MESSAGE_UPDATE_APPOINTMENT_TIME_START_PROMPT;  
+    std::string time_start{};
+    std::cin >> time_start;
+    std::cout << MESSAGE_UPDATE_APPOINTMENT_TIME_PROMPT;  
+    std::string time{};
+    std::cin >> time;
+    resource_uci.update(id, day, month, year, time_start, time  );
 };
 
 void IA_Appointment_Controller::control_remove(){

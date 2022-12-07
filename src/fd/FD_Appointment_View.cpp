@@ -29,6 +29,10 @@ void FD_Appointment_View::show_column_header(){
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Month";
     std::cout << " . ";
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Year";
+    std::cout << " . ";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time_start";
+    std::cout << " . ";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time";
     std::cout << '\n';
 };
 void FD_Appointment_View::show_list_contents(const std::vector<std::map<std::string, std::string>>& data){
@@ -40,6 +44,10 @@ void FD_Appointment_View::show_list_contents(const std::vector<std::map<std::str
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["month"];
         std::cout << " . ";
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["year"];
+        std::cout << " . ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["time_start"];
+        std::cout << " . ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["time"];
         std::cout << '\n';
     };
 };

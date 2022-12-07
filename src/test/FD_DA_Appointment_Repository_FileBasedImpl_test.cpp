@@ -5,7 +5,7 @@
 TEST_SUITE_BEGIN("FD_DA_Appointment_Repository_FileBasedImpl");
 TEST_CASE("save appointment, find appointment") 
 {
-    ER_Appointment a_appointment{"01", ".", "01", ".", "2022"};
+    ER_Appointment a_appointment{"01", ".", "01", ".", "2022", ".", "10:00", ".", "1"};
     FD_DA_Appointment_Repository_FileBasedImpl a_appointment_repo{};
     a_appointment_repo.set_storage_file_name("appointment_LIST_TEST_DATA.txt");
     a_appointment_repo.remove_all();
@@ -15,6 +15,8 @@ TEST_CASE("save appointment, find appointment")
     CHECK(a_restored_appointment.get_day()=="01");
     CHECK(a_restored_appointment.get_month()=="01");
     CHECK(a_restored_appointment.get_year()=="2022"); //+year
+    CHECK(a_restored_appointment.get_time_start()=="10:00"); //+ts
+    CHECK(a_restored_appointment.get_time()=="1"); //+t
 
     a_appointment_repo.remove_all();
 }
@@ -24,9 +26,9 @@ TEST_CASE("save two appointments, find second appointment")
     FD_DA_Appointment_Repository_FileBasedImpl a_appointment_repo{};
     a_appointment_repo.set_storage_file_name("APPOINTMENT_LIST_TEST_DATA.txt");
     a_appointment_repo.remove_all();
-    ER_Appointment a_appointment{"01", ".", "01", ".", "2022"}; // Maria
+    ER_Appointment a_appointment{"01", ".", "01", ".", "2022", ".", "10:00", ".", "1"}; // Maria
     ER_Appointment a_created_appointment = a_appointment_repo.save(a_appointment);
-    ER_Appointment a_appointment2{"02", ".", "02", ".", "2022"}; // Max
+    ER_Appointment a_appointment2{"02", ".", "02", ".", "2022", ".", "10:00", ".", "2"}; // Max
     ER_Appointment a_created_appointment2 = a_appointment_repo.save(a_appointment2);
 
     ER_Appointment a_restored_appointment2 = a_appointment_repo.find(a_created_appointment2.get_id());
@@ -38,11 +40,11 @@ TEST_CASE("save three appointments, remove second appointment, find all")
     FD_DA_Appointment_Repository_FileBasedImpl a_appointment_repo{};
     a_appointment_repo.set_storage_file_name("APPOINTMENT_LIST_TEST_DATA.txt");
     a_appointment_repo.remove_all();
-    ER_Appointment a_appointment{"01", ".", "01", ".", "2022"}; //Maria
+    ER_Appointment a_appointment{"01", ".", "01", ".", "2022", ".", "10:00", ".", "1"}; //Maria
     ER_Appointment a_created_appointment = a_appointment_repo.save(a_appointment);
-    ER_Appointment a_appointment2{"02", ".", "02", ".", "2022"}; //Max
+    ER_Appointment a_appointment2{"02", ".", "02", ".", "2022", ".", "10:00", ".", "2"}; //Max
     ER_Appointment a_created_appointment2 = a_appointment_repo.save(a_appointment2);
-    ER_Appointment a_appointment3{"03", ".", "03", ".", "2022"}; //Eva
+    ER_Appointment a_appointment3{"03", ".", "03", ".", "2022", ".", "10:00", ".", "3"}; //Eva
     ER_Appointment a_created_appointment3 = a_appointment_repo.save(a_appointment3);
     a_appointment_repo.remove(a_created_appointment2.get_id());
     std::vector<ER_Appointment> all_stored_appointments = a_appointment_repo.find_all();
@@ -59,11 +61,11 @@ TEST_CASE("save three appointments, update second appointment, find all")
     FD_DA_Appointment_Repository_FileBasedImpl a_appointment_repo{};
     a_appointment_repo.set_storage_file_name("APPOINTMENT_LIST_TEST_DATA.txt");
     a_appointment_repo.remove_all();
-    ER_Appointment a_appointment{"01", ".", "01", ".", "2022"};
+    ER_Appointment a_appointment{"01", ".", "01", ".", "2022", ".", "10:00", ".", "1"};
     ER_Appointment a_created_appointment = a_appointment_repo.save(a_appointment);
-    ER_Appointment a_appointment2{"02", ".", "02", ".", "2022"};
+    ER_Appointment a_appointment2{"02", ".", "02", ".", "2022"}, ".", "10:00", ".", "2";
     ER_Appointment a_created_appointment2 = a_appointment_repo.save(a_appointment2);
-    ER_Appointment a_appointment3{"03", ".", "03", ".", "2022"};
+    ER_Appointment a_appointment3{"03", ".", "03", ".", "2022", ".", "10:00", ".", "3"};
     ER_Appointment a_created_appointment3 = a_appointment_repo.save(a_appointment3);
     a_created_appointment2.set_month("02");
     ER_Appointment  an_updated_appointment2 = a_appointment_repo.save(a_created_appointment2);
@@ -78,6 +80,9 @@ TEST_CASE("save three appointments, update second appointment, find all")
     CHECK((all_stored_appointments.at(2)).get_day() == "02");
     CHECK((all_stored_appointments.at(2)).get_month() == "02");
     CHECK((all_stored_appointments.at(2)).get_year() == "2022"); //+year
+    CHECK((all_stored_appointments.at(2)).get_time_start() == "10:00"); //+ts
+    CHECK((all_stored_appointments.at(2)).get_time() == "2"); //+t
+
     a_appointment_repo.remove_all();
 }
 

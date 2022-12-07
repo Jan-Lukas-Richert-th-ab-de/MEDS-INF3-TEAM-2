@@ -19,7 +19,7 @@ class FD_DA_Appointment_Repository_FileBasedImpl : public AR_DAI_Appointment_Rep
        std::string create_storage_record_from_appointment(unsigned int id, const ER_Appointment& appointment);
 
        std::string storage_file_name{"APPOINTMENT_LIST_APP_DATA.csv"};
-       const std::string STORAGE_FILE_HEADER_LINE{"ID,DAY, MONTH, YEAR"};
+       const std::string STORAGE_FILE_HEADER_LINE{"ID,DAY, MONTH, YEAR, TIME_START; TIME"};
 };
 
 #endif /* FD_DA_APPOINTMENT_REPOSITORY_FILEBASEDIMPL_H */

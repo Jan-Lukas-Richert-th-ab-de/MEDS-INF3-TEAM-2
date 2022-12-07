@@ -24,16 +24,18 @@ void AR_UCI_Appointment_Administration::list_all(){
   }
   resource_presenter.present_all(output_data);
 };
-void AR_UCI_Appointment_Administration::create(std::string day, std::string month, std::string year){
-  ER_Appointment a_appointment{day, month, year};
+void AR_UCI_Appointment_Administration::create(std::string day, std::string month, std::string year, std::string time_start, std::string time){
+  ER_Appointment a_appointment{day, month, year, time_start, time};
   resource_repository.save(a_appointment);
   list_all();
 };
-void AR_UCI_Appointment_Administration::update(unsigned int id, std::string day, std::string month, std::string year){
+void AR_UCI_Appointment_Administration::update(unsigned int id, std::string day, std::string month, std::string year, std::string time_start, std::string time){
   ER_Appointment a_appointment_to_be_updated = resource_repository.find(id);
   a_appointment_to_be_updated.set_day(day);
   a_appointment_to_be_updated.set_month(month);
   a_appointment_to_be_updated.set_year(year);
+  a_appointment_to_be_updated.set_time_start(time_start);
+  a_appointment_to_be_updated.set_time(time);
 
   resource_repository.save(a_appointment_to_be_updated);
   list_all();
@@ -49,6 +51,8 @@ std::map<std::string, std::string> AR_UCI_Appointment_Administration::get_data_m
     data_map.insert({"day",a_appointment.get_day()});
     data_map.insert({"month",a_appointment.get_month()});
     data_map.insert({"year",a_appointment.get_year()});
+    data_map.insert({"time_start",a_appointment.get_time_start()});
+    data_map.insert({"time",a_appointment.get_time()});
     return data_map;
 };
 

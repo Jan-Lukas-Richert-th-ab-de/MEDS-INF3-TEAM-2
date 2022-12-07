@@ -15,10 +15,14 @@ class IA_Appointment_Controller {
         const std::string MESSAGE_CREATE_APPOINTMENT_DAY_PROMPT{"Please enter the day of the appointment:\n"};
         const std::string MESSAGE_CREATE_APPOINTMENT_MONTH_PROMPT{"Please enter the month of the appointment:\n"};
         const std::string MESSAGE_CREATE_APPOINTMENT_YEAR_PROMPT{"Please enter the year of the appointment:\n"}; //+year
+        const std::string MESSAGE_CREATE_APPOINTMENT_TIME_START_PROMPT{"Please enter the time_start of the appointment:\n"}; //+time_start
+        const std::string MESSAGE_CREATE_APPOINTMENT_TIME_PROMPT{"Please enter the time of the appointment:\n"}; //+time
         const std::string MESSAGE_UPDATE_APPOINTMENT_ID_PROMPT{"Please enter the ID of the appointment you want to update:\n"};
         const std::string MESSAGE_UPDATE_APPOINTMENT_DAY_PROMPT{"Please enter the updated day of the appointment:\n"};
         const std::string MESSAGE_UPDATE_APPOINTMENT_MONTH_PROMPT{"Please enter the updated month of the appointment:\n"};
         const std::string MESSAGE_UPDATE_APPOINTMENT_YEAR_PROMPT{"Please enter the updated year of the appointment:\n"}; //+year
+        const std::string MESSAGE_UPDATE_APPOINTMENT_TIME_START_PROMPT{"Please enter the updated time_start of the appointment:\n"}; //+ts
+        const std::string MESSAGE_UPDATE_APPOINTMENT_TIME_PROMPT{"Please enter the updated time of the appointment:\n"}; //+t
         const std::string MESSAGE_REMOVE_APPOINTMENT_ID_PROMPT{"Please enter the ID of the appointment you want to delete:\n"};
         const std::string MESSAGE_REMOVE_APPOINTMENT_CONFIRMATION_PROMPT{"Are you sure you want to delete the entry? [y/n]\n"};
 };
