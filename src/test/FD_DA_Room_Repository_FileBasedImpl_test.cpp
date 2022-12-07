@@ -1,5 +1,5 @@
 #include "doctest.h"
-#include "Room/ER_Room.h"
+#include "ER_Room.h"
 #include "FD_DA_Room_Repository_FileBasedImpl.h"
 
 TEST_SUITE_BEGIN("FD_DA_Room_Repository_FileBasedImpl");

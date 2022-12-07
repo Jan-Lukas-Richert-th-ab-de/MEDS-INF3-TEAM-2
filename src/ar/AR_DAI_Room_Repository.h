@@ -1,7 +1,7 @@
 #ifndef AR_DAI_ROOM_REPOSITORY_H
 #define AR_DAI_ROOM_REPOSITORY_H
 #include <vector>
-#include "Room/ER_Room.h"
+#include "ER_Room.h"
 
 class AR_DAI_Room_Repository
 {

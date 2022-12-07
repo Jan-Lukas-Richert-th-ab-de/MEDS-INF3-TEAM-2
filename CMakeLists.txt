@@ -20,10 +20,10 @@ target_sources(er
     PRIVATE
         src/er/ER_Doctor.cpp
         src/er/ER_Patient.cpp
-        src/er/Room/ER_Room.cpp
+        src/er/ER_Room.cpp
         src/er/ER_Appointment.cpp
     PUBLIC
-        src/er/Room/ER_Room.h
+        src/er/ER_Room.h
         src/er/ER_Doctor.h
         src/er/ER_Patient.h
         src/er/ER_Appointment.h
@@ -37,7 +37,6 @@ target_sources(ar
         src/ar/AR_UCI_Doctor_Administration.cpp
         src/ar/AR_UCI_Patient_Administration.cpp
         src/ar/AR_UCI_Appointment_Administration.cpp
-        scr/ar/AR_UCI_Standard_Reporting.cpp
     PUBLIC
         src/ar/AR_UCI_Room_Administration_IB.h
         src/ar/AR_UCI_Room_Administration_OB.h
@@ -55,9 +54,7 @@ target_sources(ar
         src/ar/AR_UCI_Appointment_Administration_OB.h
         src/ar/AR_UCI_Appointment_Administration.h
         src/ar/AR_DAI_Appointment_Repository.h
-        src/ar/AR_UCI_Standard_Reporting_IB.h
-        scr/ar/AR_UCI_Standard_Reporting_OB.h
-        scr/ar/AR_UCI_Standard_Reporting.h
+
 )
 target_include_directories(ar PRIVATE src/er)
 target_include_directories(ar PRIVATE src/fd)
@@ -82,8 +79,6 @@ target_sources(ia
         src/ia/IA_test_Doctor_Controller.cpp
         src/ia/IA_test_Appointment_Controller.cpp
         src/ia/IA_Master_Controller_test.cpp
-        scr/ia/IA_Standard_Reporting_Controller.cpp
-        scr/ia/IA_Standard_Reporting_Presenter.cpp
     PUBLIC
         src/ia/IA_Room_Presenter.h
         src/ia/IA_Room_Controller.h
@@ -99,8 +94,7 @@ target_sources(ia
         src/ia/IA_test_Doctor_Controller.h
         src/ia/IA_test_Appointment_Controller.h
         src/ia/IA_Master_Controller_test.h
-        scr/ia/IA_Standard_Reporting_Controller.h
-        scr/ia/IA_Standard_Reporting_Presenter.h
+
 )
 target_include_directories(ia PRIVATE src/ar)
 target_include_directories(ia PRIVATE src/fd)
@@ -124,7 +118,6 @@ target_sources(fd
         src/fd/FD_DA_Appointment_Repository_FileBasedImpl.cpp
         src/fd/FD_general_utility_functions.cpp
         src/fd/FD_Text_File_Record_Storage.cpp
-        scr/fd/FD_Standard_Reporting_View.cpp
     PUBLIC
         src/fd/FD_View.h
         src/fd/FD_View_test.h
@@ -140,7 +133,6 @@ target_sources(fd
         src/fd/FD_DA_Appointment_Repository_FileBasedImpl.h
         src/fd/FD_general_utility_functions.h
         src/fd/FD_Text_File_Record_Storage.h
-        scr/fd/FD_Standard_Reporting_View.h
 )
 target_include_directories(fd PRIVATE src/er)
 target_include_directories(fd PRIVATE src/ar)
