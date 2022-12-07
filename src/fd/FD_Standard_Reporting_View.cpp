@@ -21,11 +21,11 @@ void FD_Standard_Reporting_View::show_list_view(const std::vector<std::map<std::
 
 void FD_Standard_Reporting_View::show_list_empty_message()
 {
-    std::cout << "No patients stored!" << '\n';
+    std::cout << "No Report stored!" << '\n';
 };
 void FD_Standard_Reporting_View::show_list_header()
 {
-    std::cout << "Patient List:" << '\n';
+    std::cout << "Report List:" << '\n';
 };
 void FD_Standard_Reporting_View::show_column_header()
 {
