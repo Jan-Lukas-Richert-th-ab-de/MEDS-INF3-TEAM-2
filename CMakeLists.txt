@@ -73,11 +73,11 @@ target_sources(ia
         src/ia/IA_Appointment_Presenter.cpp
         src/ia/IA_Appointment_Controller.cpp
         src/ia/IA_test_Room_Controller.cpp
-        src/ia/IA_test_Room_Presenter.cpp
+        src/ia/IA_Master_Presenter.cpp
         src/ia/IA_test_Patient_Controller.cpp
         src/ia/IA_test_Doctor_Controller.cpp
         src/ia/IA_test_Appointment_Controller.cpp
-        src/ia/IA_Master_Controller_test.cpp
+        src/ia/IA_Master_Controller.cpp
     PUBLIC
         src/ia/IA_Room_Presenter.h
         src/ia/IA_Room_Controller.h
@@ -88,11 +88,11 @@ target_sources(ia
         src/ia/IA_Appointment_Presenter.h
         src/ia/IA_Appointment_Controller.h
         src/ia/IA_test_Room_Controller.h
-        src/ia/IA_test_Room_Presenter.h
+        src/ia/IA_Master_Presenter.h
         src/ia/IA_test_Patient_Controller.h
         src/ia/IA_test_Doctor_Controller.h
         src/ia/IA_test_Appointment_Controller.h
-        src/ia/IA_Master_Controller_test.h
+        src/ia/IA_Master_Controller.h
 
 )
 target_include_directories(ia PRIVATE src/ar)
@@ -105,7 +105,6 @@ add_library(fd STATIC "")
 target_sources(fd
     PRIVATE
         src/fd/FD_View.cpp
-        src/fd/FD_View_test.cpp
         src/fd/FD_Room_View.cpp
         src/fd/FD_Resource_View_test.cpp
         src/fd/FD_DA_Room_Repository_FileBasedImpl.cpp
@@ -119,7 +118,6 @@ target_sources(fd
         src/fd/FD_Text_File_Record_Storage.cpp
     PUBLIC
         src/fd/FD_View.h
-        src/fd/FD_View_test.h
         src/fd/FD_Resource_View.h
         src/fd/FD_Resource_View_test.h
         src/fd/FD_Room_View.h

@@ -1,13 +1,13 @@
-#ifndef IA_MAIN_PRESENTER_TEST_H
-#define IA_MAIN_PRESENTER_TEST_H
+#ifndef IA_MASTER_PRESENTER_TEST_H
+#define IA_MASTER_PRESENTER_TEST_H
 #include "FD_Resource_View_test.h"
 #include <vector>
 #include <map>
 
-class IA_test_Room_Presenter
+class IA_Master_Presenter
 {
 public:
-    IA_test_Room_Presenter(FD_Resource_View_test &view);
+    IA_Master_Presenter(FD_Resource_View_test &view);
     // void present_all();
     void present_all_CORE_RESURCES();
     void present_all_MAIN();

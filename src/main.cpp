@@ -3,7 +3,6 @@
 #include "ER_Doctor.h"
 #include "ER_Patient.h"
 #include "FD_View.h"
-#include "FD_View_test.h"
 #include "FD_Room_View.h"
 #include "FD_Doctor_View.h"
 #include "FD_Patient_View.h"
@@ -20,9 +19,9 @@
 #include "IA_Room_Controller.h"
 #include "IA_test_Doctor_Controller.h"
 #include "IA_test_Patient_Controller.h"
-#include "IA_test_Room_Controller.h"
+#include "IA_Master_Controller.h"
 #include "IA_test_Appointment_Controller.h"
-#include "IA_Master_Controller_test.h"
+#include "IA_Master_Controller.h"
 #include "AR_DAI_Appointment_Repository.h"
 #include "AR_UCI_Appointment_Administration_IB.h"
 #include "AR_UCI_Appointment_Administration_OB.h"
@@ -63,14 +62,13 @@ int main()
     IA_test_Patient_Controller test_Patient_Controller{patient_controller};
     IA_test_Appointment_Controller test_Appointment_Controller{appointment_controller};
     FD_Resource_View_test resource_view_test{};
-    IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
+    IA_Master_Presenter Master_Presenter{resource_view_test};
 
     // Appointment
 
     FD_View main_view{};
-    FD_View_test test_view{};
-    IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
-                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter};
+    IA_Master_Controller application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
+                                                            test_Patient_Controller, test_Appointment_Controller, Master_Presenter};
 
     application_master_controller_test.control_application_start();
 }
