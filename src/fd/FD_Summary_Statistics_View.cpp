@@ -1,3 +1,5 @@
+
+
 #include "FD_Summary_Statistics_View.h"
 #include <iostream>
 
@@ -5,6 +7,7 @@
 // Display the summary statistics on the screen
 void SummaryStatisticsView::display() const
 {
+   
     // Calculate the average occupancy period
     double average_occupancy_period = calculateAverageOccupancyPeriod(data_);
 
