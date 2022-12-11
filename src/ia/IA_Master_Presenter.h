@@ -1,5 +1,5 @@
-#ifndef IA_MASTER_PRESENTER_TEST_H
-#define IA_MASTER_PRESENTER_TEST_H
+#ifndef IA_MASTER_PRESENTER_H
+#define IA_MASTER_PRESENTER_H
 #include "FD_Resource_View_test.h"
 #include <vector>
 #include <map>
