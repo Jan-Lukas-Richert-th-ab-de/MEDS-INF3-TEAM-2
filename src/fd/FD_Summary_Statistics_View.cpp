@@ -1,41 +1,26 @@
 #include "FD_Summary_Statistics_View.h"
 #include <iostream>
-#include <iomanip>
 
-void FD_Summary_Statistics_View::show_list_view(const std::vector<std::map<std::string, std::string>>& data){
-    show_header();
-    show_list_header();
-    if(data.size()==0){
-        show_list_empty_message();
-    } else {
-        show_column_header();
+
+// Display the summary statistics on the screen
+void SummaryStatisticsView::display() const
+{
+    // Calculate the average occupancy period
+    double average_occupancy_period = calculateAverageOccupancyPeriod(data_);
+
+    // Calculate the average deployment duration
+    double average_deployment_duration = calculateAverageDeploymentDurationp(data_);
+
+    // Create a vector of summary statistics
+    std::vector<std::pair<std::string, double>> summary_statistics;
+    summary_statistics.push_back({"Average occupancy period", average_occupancy_period});
+    summary_statistics.push_back({"Average deployment duration", average_deployment_duration});
+
+    // Display the summary statistics in a list format
+    std::cout << "Summary statistics:" << std::endl;
+    for (const auto& stat : summary_statistics)
+    {
+        std::cout << " - " << stat.first << ": " << stat.second << std::endl;
     }
-    show_list_contents(data);
-    show_separator();
-    show_menu();
-}; 
+}
 
-void FD_Summary_Statistics_View::show_list_empty_message(){
-    std::cout << "No persons stored!" << '\n';
-};
-void FD_Summary_Statistics_View::show_list_header(){
-    std::cout << "Person List:" << '\n';
-};
-void FD_Summary_Statistics_View::show_column_header(){
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "ID";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "First Name";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Last Name";
-    std::cout << '\n';
-};
-void FD_Summary_Statistics_View::show_list_contents(const std::vector<std::map<std::string, std::string>>& data){
-    for(auto current_element : data){
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["id"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["first_name"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["last_name"];
-        std::cout << '\n';
-    };
-};

@@ -1,5 +1,5 @@
 #include "doctest.h"
-#include "Room/ER_Room.h"
+#include "ER_Room.h"
 
 TEST_SUITE_BEGIN("Room");
 TEST_CASE("create room, get_id, get_fullname")

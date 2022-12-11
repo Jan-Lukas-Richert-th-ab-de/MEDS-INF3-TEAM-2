@@ -9,10 +9,10 @@ class AR_UCI_Appointment_Administration_IB {
       virtual void update(unsigned int id, std::string day, std::string month, std::string year, std::string time_start, std::string time) = 0; //d, m +y +ts, +t
       virtual void remove(unsigned int id) = 0;
 
-      virtual ~AR_UCI_Appointment_Administration_IB() = default;
-      AR_UCI_Appointment_Administration_IB() = default;
-      AR_UCI_Appointment_Administration_IB(const AR_UCI_Appointment_Administration_IB&) = default;
-      AR_UCI_Appointment_Administration_IB& operator=(const AR_UCI_Appointment_Administration_IB&) = default;
+   virtual ~AR_UCI_Appointment_Administration_IB() = default;
+   AR_UCI_Appointment_Administration_IB() = default;
+   AR_UCI_Appointment_Administration_IB(const AR_UCI_Appointment_Administration_IB &) = default;
+   AR_UCI_Appointment_Administration_IB &operator=(const AR_UCI_Appointment_Administration_IB &) = default;
 };
 
 #endif /* AR_UCI_Appointment_ADMINISTRATION_IB_H */

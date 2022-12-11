@@ -7,17 +7,21 @@ ER_Appointment::ER_Appointment(unsigned int id, std::string d, std::string m, st
    : id{id}, day{d}, month{m}, year{y}, time_start{ts}, time{t} {};
    
 
-unsigned int ER_Appointment::get_id() const {
+unsigned int ER_Appointment::get_id() const
+{
 	return id;
 };
 
-std::string ER_Appointment::get_day() const {
+std::string ER_Appointment::get_day() const
+{
 	return day;
 };
-std::string ER_Appointment::get_month() const {
+std::string ER_Appointment::get_month() const
+{
 	return month;
 };
-std::string ER_Appointment::get_year() const {
+std::string ER_Appointment::get_year() const
+{
 	return year;
 };
 std::string ER_Appointment::get_time_start() const {
@@ -44,12 +48,13 @@ void ER_Appointment::set_time(std::string t) {
 
 
 
-std::string ER_Appointment::get_date() const {
+std::string ER_Appointment::get_date() const
+{
 	std::string result{""};
 	result.append(day);
-	result.append(".");
+	result.append(" ");
 	result.append(month);
-	result.append(".");
+	result.append(" ");
 	result.append(year);
 	result.append(".");
 	result.append(time_start);

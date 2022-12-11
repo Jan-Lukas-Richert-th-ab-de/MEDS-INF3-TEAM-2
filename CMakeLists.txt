@@ -20,10 +20,10 @@ target_sources(er
     PRIVATE
         src/er/ER_Doctor.cpp
         src/er/ER_Patient.cpp
-        src/er/Room/ER_Room.cpp
+        src/er/ER_Room.cpp
         src/er/ER_Appointment.cpp
     PUBLIC
-        src/er/Room/ER_Room.h
+        src/er/ER_Room.h
         src/er/ER_Doctor.h
         src/er/ER_Patient.h
         src/er/ER_Appointment.h
@@ -54,6 +54,7 @@ target_sources(ar
         src/ar/AR_UCI_Appointment_Administration_OB.h
         src/ar/AR_UCI_Appointment_Administration.h
         src/ar/AR_DAI_Appointment_Repository.h
+
 )
 target_include_directories(ar PRIVATE src/er)
 target_include_directories(ar PRIVATE src/fd)
@@ -76,6 +77,7 @@ target_sources(ia
         src/ia/IA_test_Room_Presenter.cpp
         src/ia/IA_test_Patient_Controller.cpp
         src/ia/IA_test_Doctor_Controller.cpp
+        src/ia/IA_test_Appointment_Controller.cpp
         src/ia/IA_Master_Controller_test.cpp
     PUBLIC
         src/ia/IA_Room_Presenter.h
@@ -90,7 +92,9 @@ target_sources(ia
         src/ia/IA_test_Room_Presenter.h
         src/ia/IA_test_Patient_Controller.h
         src/ia/IA_test_Doctor_Controller.h
+        src/ia/IA_test_Appointment_Controller.h
         src/ia/IA_Master_Controller_test.h
+
 )
 target_include_directories(ia PRIVATE src/ar)
 target_include_directories(ia PRIVATE src/fd)
