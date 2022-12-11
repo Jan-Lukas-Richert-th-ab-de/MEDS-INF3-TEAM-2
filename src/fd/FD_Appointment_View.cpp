@@ -32,7 +32,7 @@ void FD_Appointment_View::show_column_header()
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "ID";
     std::cout << " - ";
     std::cout << std::left << std::setfill(' ') << std::setw(20) << "Date";
-    /*std::cout << " . ";
+    std::cout << " . ";
     std::cout << std::left << std::setfill(' ') << std::setw(20) << "Month";
     std::cout << " . ";
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Month";

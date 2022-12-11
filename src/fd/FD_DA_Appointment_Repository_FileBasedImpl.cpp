@@ -70,9 +70,9 @@ std::string FD_DA_Appointment_Repository_FileBasedImpl::create_storage_record_fr
   result.append(appointment.get_month());
   result.append(",");
   result.append(appointment.get_year());
-  result.append(".");
+  result.append(",");
   result.append(appointment.get_time_start());
-  result.append(".");
+  result.append(",");
   result.append(appointment.get_time());
   return result;
 };
