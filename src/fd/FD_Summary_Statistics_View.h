@@ -1,6 +1,6 @@
 #ifndef FD_SUMMARY_STATISTICS_VIEW_H
 #define FD_SUMMARY_STATISTICS_VIEW_H
-
+#include "AR_summarystatistics.h"
 
 #include <string>
 #include <vector>
