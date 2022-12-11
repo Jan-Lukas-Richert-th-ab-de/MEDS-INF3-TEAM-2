@@ -37,7 +37,6 @@ target_sources(ar
         src/ar/AR_UCI_Doctor_Administration.cpp
         src/ar/AR_UCI_Patient_Administration.cpp
         src/ar/AR_UCI_Appointment_Administration.cpp
-        src/ar/AR_Summary_Statistics.cpp
     PUBLIC
         src/ar/AR_UCI_Room_Administration_IB.h
         src/ar/AR_UCI_Room_Administration_OB.h
@@ -55,7 +54,6 @@ target_sources(ar
         src/ar/AR_UCI_Appointment_Administration_OB.h
         src/ar/AR_UCI_Appointment_Administration.h
         src/ar/AR_DAI_Appointment_Repository.h
-        src/ar/AR_Summary_Statistics.h
 
 )
 target_include_directories(ar PRIVATE src/er)
@@ -120,7 +118,6 @@ target_sources(fd
         src/fd/FD_DA_Appointment_Repository_FileBasedImpl.cpp
         src/fd/FD_general_utility_functions.cpp
         src/fd/FD_Text_File_Record_Storage.cpp
-        src/fd/FD_Summary_Statistics_View.cpp
     PUBLIC
         src/fd/FD_View.h
         src/fd/FD_View_test.h
@@ -136,7 +133,6 @@ target_sources(fd
         src/fd/FD_DA_Appointment_Repository_FileBasedImpl.h
         src/fd/FD_general_utility_functions.h
         src/fd/FD_Text_File_Record_Storage.h
-        src/fd/FD_Summary_Statistics_View.h
 )
 target_include_directories(fd PRIVATE src/er)
 target_include_directories(fd PRIVATE src/ar)
