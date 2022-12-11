@@ -72,3 +72,4 @@ double calculateAverageOccupancyPeriodPerDay(const std::vector<Room>& rooms, int
 double calculateAverageDeploymentDurationPerDay(const std::vector<Doctor>& doctors, int week);
 
 #endif // AR_SUMMARY_STATISTICS_H
+
