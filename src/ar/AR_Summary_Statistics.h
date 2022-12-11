@@ -1,15 +1,16 @@
 #ifndef AR_SUMMARY_STATISTICS_H
 #define AR_SUMMARY_STATISTICS_H
-
+#include "AR_DAI_Appointment_Repository.h"
 #include <string>
 #include <vector>
 
 
 
 // Class for representing rooms
-class Room
+class Room  : public AR_DAI_Appointment_Repository
 {
-public:
+public: 
+    
     // Constructor
     Room(int number, const std::vector<std::pair<int, int>>& occupancy_times)
         : number_(number), occupancy_times_(occupancy_times)
@@ -37,7 +38,8 @@ private:
 
 
 // Class for representing doctors
-class Doctor
+class Doctor  : public AR_DAI_Appointment_Repository
+{
 {
 public:
     // Constructor
