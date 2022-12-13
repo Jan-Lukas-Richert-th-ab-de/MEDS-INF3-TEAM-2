@@ -6,52 +6,42 @@
 #include "ER_doctor.h"
 #include "ER_Room.h"
 #include "ER_appointment.h"
+#include "AR_DAI_Appointment_Repository.h"
+#include "AR_DAI_Doctor_Repository.h"
+#include "AR_DAI_Room_Repository.h"
 
 
 AR_UCI_Standard_Reporting::AR_UCI_Standard_Reporting(
-    AR_UCI_Standard_Reporting_OB &presenter
-  , AR_DAI_Doctor_Repository& repositoryDoctor
-  , AR_DAI_Room_Repository& repositoryRoom)
-    : resource_presenter(presenter)
-    , resource_repository(repositoryDoctor)
-    , resource_repository(repositorRoom) {};
+    AR_UCI_Standard_Reporting_OB& doctor_presenter
+    , AR_UCI_Standard_Reporting_OB& room_presenter
+    , AR_UCI_Standard_Reporting_OB& appointment_presenter
+          , AR_DAI_Doctor_Repository& doctor_repository
+          , AR_DAI_Room_Repository& room_repository
+          , AR_DAI_Appointment_Repository& appointment_repository)
+            : doctor_resource_presenter(doctor_presenter) 
+            , room_resource_presenter(room_presenter) 
+            , appointment_resource_presenter(appointment_presenter) 
+            , doctor_resource_repository (doctor_repository)
+            , room_resource_repository (room_repository)
+            , appointment_resource_repository (appointment_repository) {};
 
 
-void AR_UCI_Standard_Reporting::list_all()
+void AR_UCI_Standard_Reporting::report_doctor_timeplan(){
+  std::vector<ER_Doctor> resources_list = doctor_resource_repository.find_all();
+  size_t doctor_timeplan = resources_list.size();
+  doctor_resource_presenter.present_report_doctor_timeplan(doctor_timeplan);
 
-{
-  std::vector<std::map<std::string, std::string>> output_data;
-  std::vector<ER_Doctor> all_doctors = resource_repository.find_all();
+};            
+
+void AR_UCI_Standard_Reporting::report_room_occupancy_plan(){
+  std::vector<ER_Room> resources_list = room_resource_repository.find_all();
+  size_t room_occupancy_plan = resources_list.size();
+  room_resource_presenter.present_report_room_occupancy_plan(room_occupancy_plan);
   
+};    
 
-  sort_doctors_by_id(all_doctors);
-  for (auto current_doctor : all_doctors)
-  {
-    std::map<std::string, std::string> data_map_for_current_doctor =
-        get_data_map_for_doctor(current_doctor);
-    output_data.push_back(data_map_for_current_doctor);
-  }
- 
-
- 
-  sort_rooms_by_id(all_room);
-  for (auto current_room: all_room)
-  {
-    std::map<std::string, std::string> data_map_for_current_room =
-        get_data_map_for_room(current_room);
-    output_data.push_back(data_map_for_current_room);
-  }
-  
-
-
- sort_appointment_by_id(all_appointment);
-  for (auto current_appointment: all_appointment)
-  {
-    std::map<std::string, std::string> data_map_for_current_apponintment =
-        get_data_map_for_appointment(current_apponintment);
-    output_data.push_back(data_map_for_current_appointment);
-  }
-
-
-  resource_presenter.present_all(output_data);
-};
+void AR_UCI_Standard_Reporting::report_appointment(){
+  std::vector<ER_Appointment> resources_list = appointment_resource_repository.find_all();
+  size_t appointment = resources_list.size();
+  appointment_resource_presenter.present_report_appointment (appointment);
+};    

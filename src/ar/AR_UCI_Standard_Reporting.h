@@ -3,24 +3,38 @@
 #include "FD_Resource_View.h"
 #include "AR_UCI_Standard_Reporting_IB.h"
 #include "AR_UCI_Standard_Reporting_OB.h"
-#include "AR_DAI_Person_Repository.h"
+#include "AR_DAI_Doctor_Repository.h"
+#include "AR_DAI_Room_Repository.h"
+#include "AR_DAI_Appointment_Repository.h"
+
 
 class AR_UCI_Standard_Reporting : public AR_UCI_Standard_Reporting_IB {
     public:
         AR_UCI_Standard_Reporting(
-            AR_UCI_Standard_Reporting_OB& presenter
-          , AR_DAI_Doctor_Repository& repositoryDoctor;
-          , AR_DAI_Room_Repository& repositoryRoom);
-        void list_all();
-        
+            AR_UCI_Standard_Reporting_OB& doctor_presenter
+          , AR_UCI_Standard_Reporting_OB& room_presenter
+          , AR_UCI_Standard_Reporting_OB& appointment_presenter
+          , AR_DAI_Doctor_Repository& doctor_repository
+          , AR_DAI_Room_Repository& room_repository
+          , AR_DAI_Appointment_Repository& appointment_repository);
 
+        void list_all();
+
+        void report_doctor_timeplan(); 
+        void report_room_occupancy_plan(); 
+        void report_appointment(); 
+        
     private:
-        AR_UCI_Standard_Reporting_OB& resource_presenter;
-        AR_DAI_Person_Repository& resource_repository;
-        std::map<std::string, std::string> get_data_map_for_doctor(const ER_Doctor& a_doctor);
-        std::map<std::string, std::string> get_data_map_for_room(const ER_Room& a_room);
-        void sort_doctors_by_id (std::vector<ER_Doctor>& doctor_list);
-        void sort_rooms_by_id (std::vector<ER_Roomr>& room_list);
+        AR_UCI_Standard_Reporting_OB& doctor_resource_presenter;
+        AR_UCI_Standard_Reporting_OB& room_resource_presenter;
+        AR_UCI_Standard_Reporting_OB& appointment_resource_presenter;
+
+
+
+        AR_DAI_Doctor_Repository& doctor_resource_repository;
+        AR_DAI_Room_Repository& room_resource_repository;
+        AR_DAI_Appointment_Repository& appointment_resource_repository;
 
 };
+
 #endif /* AR_UCI_Standard_Reporting_H */
