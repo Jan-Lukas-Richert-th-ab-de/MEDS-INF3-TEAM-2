@@ -5,9 +5,11 @@
 class AR_UCI_Standard_Reporting_IB {
    public:
       virtual void list_all() = 0; 
-      virtual void create(std::string first_name, std::string last_name) = 0;
-      virtual void update(unsigned int id, std::string first_name, std::string last_name) = 0;
-      virtual void remove(unsigned int id) = 0;
+
+      virtual void report_doctor_timeplan() = 0; 
+      virtual void report_room_occupancy_plan() = 0; 
+      virtual void report_appointment() = 0; 
+      
 
       virtual ~AR_UCI_Standard_Reporting_IB() = default;
       AR_UCI_Standard_Reporting_IB() = default;
