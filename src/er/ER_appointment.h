@@ -2,6 +2,7 @@
 #define ER_APPOINTMENT_H
 #include <string>
 
+
 class ER_Appointment
 {
 public:
@@ -27,8 +28,10 @@ private:
     std::string day{};   // Tag
     std::string month{}; // Monat
     std::string year{};  // Jahr noch dazu
-    std::string time_start{}; //Zeitanfang+++++++++++++++++++++++++++++++++++++++++wann?
-    std::string time{}; //Termindauer++++++++++++++++++++++++++++++++++++wie lange?
-};
+    std::string time_start{}; //Zeitanfang++++wann?
+    std::string time{}; //Termindauer++++++++++wie lange?
+
+   
+  
 
 #endif /* ER_Appointment_H */
