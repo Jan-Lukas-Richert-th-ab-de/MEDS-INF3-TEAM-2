@@ -1,28 +1,25 @@
 #ifndef FD_SUMMARY_STATISTICS_VIEW_H
 #define FD_SUMMARY_STATISTICS_VIEW_H
-#include "AR_summarystatistics.h"
-
+#include "FD_Room_View.h"
+#include "FD_Doctor_View.h"
+#include "AR_Summary_Statistics.h"
+#include "FD_Resource_View.h"
 #include <string>
 #include <vector>
+#include <map>
 
- // AR_SUMMARY_STATISTICS_H
-// Class for displaying summary statistics
-class SummaryStatisticsView
+class FD_Summary_Statistics_View : public FD_Resource_View
 {
-
-    
 public:
-    // Constructor
-    SummaryStatisticsView(const  OccupancyAndDeploymentData& data) : data_(data)
-    {
-    }
-
-    // Display the summary statistics on the screen
-    void display() const;
+    void show_list_view(const std::vector<std::map<std::string, std::string>> &data);
 
 private:
-    const int OccupancyAndDeploymentData& data_;
-
+    void show_list_empty_message();
+    void show_list_header();
+    void show_column_header();
+    void show_list_contents(const std::vector<std::map<std::string, std::string>> &data);
 };
 
-#endif // FD_SUMMARY_STATISTICS_VIEW_H
+
+
+#endif

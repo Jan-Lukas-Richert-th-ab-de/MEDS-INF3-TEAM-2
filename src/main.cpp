@@ -31,8 +31,12 @@
 #include "FD_DA_Appointment_Repository_FileBasedImpl.h"
 #include "IA_Appointment_Controller.h"
 #include "IA_Appointment_Presenter.h"
-// #include "AR_Summary_Statistics.h"
-// #include "FD_Summary_Statistics_View.h"
+#include "AR_Summary_Statistics.h"
+#include "FD_Summary_Statistics_View.h"
+#include "IA_Summary_Statistics_Presenter.h"
+#include "IA_Summary_Statistics_Controller.h"
+#include "AR_UCI_Summary_Statistics_Administration_IB.h"
+#include "AR_UCI_Summary_Statistics_Administration.h"
 using namespace std;
 
 int main()
@@ -65,7 +69,7 @@ int main()
     FD_Resource_View_test resource_view_test{};
     IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
     // AR_Summary_Statistics summary_statistics{};
-    // FD_Summary_Statistics_View summary_statistics_view{summary_statistics};
+    FD_Summary_Statistics_View summary_statistics_view{};
 
     // Appointment
 
