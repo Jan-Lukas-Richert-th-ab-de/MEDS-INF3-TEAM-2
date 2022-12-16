@@ -5,13 +5,13 @@
 #include <vector>
 #include <map>
 
-#include "AR_UCI_Summary_Statistics_Administration_OB.h"
+#include "AR_UCI_Summary_Statistics_Reporting_OB.h"
 
-class IA_Summary_Statistics_Presenter : public AR_UCI_Summary_Statistics_Administration_OB {
+class IA_Summary_Statistics_Presenter : public AR_UCI_Summary_Statistics_Reporting_OB {
     public:
         IA_Summary_Statistics_Presenter(FD_Resource_View& view);
         void present_all(const std::vector<std::map<std::string, std::string>>& data);
     private:
-        FD_Resource_View& resource_view;
+        FD_Resource_View &resource_view;
 };
 #endif /* IA_Summary_Statistics_PRESENTER_H */
