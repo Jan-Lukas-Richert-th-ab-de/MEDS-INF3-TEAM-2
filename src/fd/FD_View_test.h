@@ -18,7 +18,7 @@ protected:
 
 private:
    const std::string OPTIONS_HEADER{"Options:"};
-   const std::array<std::string, 6> OPTIONS_LIST{
-       "Administer Patient", "Administer Doctor", "Administer Room", "Administer Appointments", "Quit","Report"};
+   const std::array<std::string, 5> OPTIONS_LIST{
+       "Administer Patient", "Administer Doctor", "Administer Room", "Administer Appointments", "Quit"};
 };
 #endif /* FD_VIEW_H */

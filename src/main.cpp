@@ -86,10 +86,10 @@ IA_Summary_Statistics_Presenter Summary_Statistic_presenter{ summary_statistics_
 
     // Appointment
 
-   /* FD_View main_view{};
+   FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
-                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter};*/
+                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter};
 
-   // application_master_controller_test.control_application_start();
+    application_master_controller_test.control_application_start();
 }
