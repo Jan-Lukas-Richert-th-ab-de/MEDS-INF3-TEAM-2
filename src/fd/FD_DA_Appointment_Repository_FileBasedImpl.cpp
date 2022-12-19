@@ -50,13 +50,16 @@ void FD_DA_Appointment_Repository_FileBasedImpl::set_storage_file_name(std::stri
 ER_Appointment FD_DA_Appointment_Repository_FileBasedImpl::create_appointment_from_storage_record(const std::string &line)
 {
   std::vector<std::string> line_tokens{split(line, ",")};
-  unsigned int current_id{static_cast<unsigned int>(stoi(line_tokens.at(0)))};
-  std::string found_day{line_tokens.at(1)};
-  std::string found_month{line_tokens.at(2)};
-  std::string found_year{line_tokens.at(3)};
-  std::string found_time_start{line_tokens.at(4)};
-  std::string found_time{line_tokens.at(5)};
-  ER_Appointment result{current_id, found_day, found_month, found_year, found_time_start, found_time};
+  unsigned int current_id{static_cast<unsigned int>(stoi(line_tokens.at(1)))};
+  std::string found_day{line_tokens.at(2)};
+  std::string found_month{line_tokens.at(3)};
+  std::string found_year{line_tokens.at(4)};
+  std::string found_time_start{line_tokens.at(5)};
+  std::string found_time{line_tokens.at(6)};
+  ER_Doctor found_doctor{line_tokens.at(7)};
+  ER_Patient &found_patient{line_tokens.at(8)};
+  ER_Room found_room{line_tokens.at(9)};
+  ER_Appointment result{current_id, found_day, found_month, found_year, found_time_start, found_time, found_doctor, found_patient, found_room};
   return result;
 };
 
