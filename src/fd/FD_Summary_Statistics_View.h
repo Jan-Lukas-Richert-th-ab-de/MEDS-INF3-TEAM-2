@@ -1,10 +1,7 @@
 #ifndef FD_SUMMARY_STATISTICS_VIEW_H
 #define FD_SUMMARY_STATISTICS_VIEW_H
-#include "FD_Room_View.h"
-#include "FD_Doctor_View.h"
-#include "AR_Summary_Statistics.h"
 #include "FD_Resource_View.h"
-#include <string>
+
 #include <vector>
 #include <map>
 
@@ -20,6 +17,4 @@ private:
     void show_list_contents(const std::vector<std::map<std::string, std::string>> &data);
 };
 
-
-
-#endif
+#endif /* FD_ROOM_VIEW_H */

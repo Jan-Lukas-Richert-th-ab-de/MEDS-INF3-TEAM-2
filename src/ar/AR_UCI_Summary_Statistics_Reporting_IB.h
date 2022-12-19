@@ -7,8 +7,8 @@ class AR_UCI_Summary_Statistics_Reporting_IB {
    public:
       virtual void list_all() = 0; 
       virtual void report(unsigned int id, std::string day, std::string month, std::string year) = 0;
-      virtual void report_doctor_Summary_Statistics() = 0; 
-      virtual void report_room_occupancy_Summary_Statistics() = 0; 
+      virtual void report_doctor_Summary_Statistics(unsigned int id, std::string day, std::string month, std::string year) = 0; 
+      virtual void report_room_occupancy_Summary_Statistics(unsigned int id, std::string day, std::string month, std::string year) = 0; 
       
       
 

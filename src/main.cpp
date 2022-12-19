@@ -72,24 +72,24 @@ int main()
     // AR_Summary_Statistics summary_statistics{};
 
 //summary statistics
-/*AR_UCI_Summary_Statistics_Reporting_OB doctor_presenter;
-AR_UCI_Summary_Statistics_Reporting_OB room_presenter;
-AR_DAI_Doctor_Repository doctor_repository;
-AR_DAI_Room_Repository room_repository;
-AR_UCI_Summary_Statistics_Reporting summary_statistics_reporting(doctor_presenter, room_presenter, doctor_repository, room_repository);
-*/
-//summary_statistics_reporting.list_all();
-//summary_statistics_reporting.report_doctor_Summary_Statistics();
+
+FD_Summary_Statistics_View summary_statistics_view{};
+
+IA_Summary_Statistics_Presenter Summary_Statistic_presenter{ summary_statistics_view};
+
+//AR_UCI_Summary_Statistics_Reporting summary_statistics_use_case{ ummary_statistics_presenter, doctor_repository, room_repository};
+//IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistic_presenter};
+//IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
 
 
 
 
     // Appointment
 
-    FD_View main_view{};
+   /* FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
-                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter};
+                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter};*/
 
-    application_master_controller_test.control_application_start();
+   // application_master_controller_test.control_application_start();
 }

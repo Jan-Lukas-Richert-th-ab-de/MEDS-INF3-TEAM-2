@@ -1,11 +1,10 @@
 #ifndef IA_SUMMARY_STATISTICS_PRESENTER_H
 #define IA_SUMMARY_STATISTICS_PRESENTER_H
 #include "FD_Resource_View.h"
-
+#include "AR_UCI_Summary_Statistics_Reporting_OB.h"
 #include <vector>
 #include <map>
 
-#include "AR_UCI_Summary_Statistics_Reporting_OB.h"
 
 class IA_Summary_Statistics_Presenter : public AR_UCI_Summary_Statistics_Reporting_OB {
     public:
