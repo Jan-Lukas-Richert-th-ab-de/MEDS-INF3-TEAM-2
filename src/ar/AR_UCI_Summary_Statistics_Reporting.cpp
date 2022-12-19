@@ -57,9 +57,11 @@ void AR_UCI_Summary_Statistics_Reporting::report_room_occupancy_Summary_Statisti
    
      for (const ER_Appointment& appointment : appointments)
      {
-        if (appointment.get_id() == room.get_room_id()/* && appointment.get_week() == week*/)
+      
+        if (appointment.get_id() == room.get_room_id() && appointment.get_date() == appointment.get_date())
         {
-           //total_duration += appointment.get_time();
+        int time = std::stoi(appointment.get_time());
+           total_duration += time;
            appointment_count++;
         }
      }
@@ -88,7 +90,9 @@ std::map<std::string, double> result;
      {
         if (appointment.get_id() == doctor.get_id() /*&& appointment.get_week() == week*/)
         {
-          // total_duration += appointment.get_time();
+          
+        int time = std::stoi(appointment.get_time());
+           total_duration += time;
            appointment_count++;
         }
      }

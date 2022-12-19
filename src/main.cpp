@@ -71,8 +71,18 @@ int main()
     IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
     // AR_Summary_Statistics summary_statistics{};
 
+//summary statistics
+/*AR_UCI_Summary_Statistics_Reporting_OB doctor_presenter;
+AR_UCI_Summary_Statistics_Reporting_OB room_presenter;
+AR_DAI_Doctor_Repository doctor_repository;
+AR_DAI_Room_Repository room_repository;
+AR_UCI_Summary_Statistics_Reporting summary_statistics_reporting(doctor_presenter, room_presenter, doctor_repository, room_repository);
+*/
+//summary_statistics_reporting.list_all();
+//summary_statistics_reporting.report_doctor_Summary_Statistics();
 
-    
+
+
 
     // Appointment
 
