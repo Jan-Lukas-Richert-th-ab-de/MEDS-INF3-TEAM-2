@@ -19,7 +19,7 @@ class IA_Standard_Reporting_Controller {
     private:
       AR_UCI_Standard_Reporting_IB& report_room_uci;
       AR_UCI_Standard_Reporting_IB& report_doctor_uci;
-      AR_UCI_Standard_Reporting_IB& report_appointment_uci;
+      AR_UCI_Standard_Reporting_IB& report_appointment_uc;
          
 };
 #endif /* IA_Standard_Reporting_CONTROLLER_H */
