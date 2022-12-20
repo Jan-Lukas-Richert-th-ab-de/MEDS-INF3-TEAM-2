@@ -1,77 +1,27 @@
-#ifndef AR_SUMMARY_STATISTICS_H
+/*#ifndef AR_SUMMARY_STATISTICS_H
 #define AR_SUMMARY_STATISTICS_H
-#include "AR_DAI_Appointment_Repository.h"
-#include <string>
+
 #include <vector>
+#include <map>
+#include <string>
+#include "ER_appointment.h"
+#include "ER_doctor.h"
+#include "ER_Room.h"
+#include <memory>
 
 
-
-// Class for representing rooms
-class Room  : public AR_DAI_Appointment_Repository
-{
-public: 
-    
-    // Constructor
-    Room(int number, const std::vector<std::pair<int, int>>& occupancy_times)
-        : number_(number), occupancy_times_(occupancy_times)
-    {
-    }
-
-    // Get the room number
-    int number() const
-    {
-        return number_;
-    }
-
-    // Get the occupancy times for the room
-    const std::vector<std::pair<int, int>>& occupancyTimes() const
-    {
-        return occupancy_times_;
-    }
-    
-
-private:
-    int number_;
-    std::vector<std::pair<int, int>> occupancy_times_;
-};
-
-
-
-// Class for representing doctors
-class Doctor  : public AR_DAI_Appointment_Repository
-{
+class AR_Summary_Statistics
 {
 public:
-    // Constructor
-    Doctor(const std::string& name, const std::vector<std::pair<int, int>>& deployment_times)
-        : name_(name), deployment_times_(deployment_times)
-    {
-    }
 
-    // Get the doctor's name
-    const std::string& name() const
-    {
-        return name_;
-    }
+  virtual std::map<std::string, double> get_average_room_occupancy(const std::vector<ER_Appointment>& appointments, const std::vector<ER_Room>& rooms, const std::string& week) = 0;
 
-    // Get the deployment times for the doctor
-    const std::vector<std::pair<int, int>>& deploymentTimes() const
-    {
-        return deployment_times_;
-    }
+  virtual std::map<std::string, double> get_average_doctor_utilization(const std::vector<ER_Appointment>& appointments, const std::vector<ER_Doctor>& doctors, const std::string& week) = 0;
 
-private:
-    std::string name_;
-    std::vector<std::pair<int, int>> deployment_times_;
+  virtual ~AR_Summary_Statistics() = default;
+  AR_Summary_Statistics() = default;
+  AR_Summary_Statistics(const AR_Summary_Statistics &) = default;
+  AR_Summary_Statistics &operator=(const AR_Summary_Statistics &) = default;
+   static std::unique_ptr<AR_Summary_Statistics> create();
 };
-
-// Function for calculating the average occupancy period of consulting rooms
-// per day for a given week
-double calculateAverageOccupancyPeriodPerDay(const std::vector<Room>& rooms, int week);
-
-// Function for calculating the average duration of deployment of doctors
-// per day for a given week
-double calculateAverageDeploymentDurationPerDay(const std::vector<Doctor>& doctors, int week);
-
-#endif // AR_SUMMARY_STATISTICS_H
-
+#endif /* AR_SUMMARY_STATISTICS_H */

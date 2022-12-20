@@ -5,17 +5,21 @@
 
 class IA_Standard_Reporting_Controller {
     public:
-        IA_Standard_Reporting_Controller(AR_UCI_Standard_Reporting_IB& uci);
+        IA_Standard_Reporting_Controller(
+              AR_UCI_Standard_Reporting_IB& room_uci
+            , AR_UCI_Standard_Reporting_IB& doctor_uci
+            , AR_UCI_Standard_Reporting_IB& appointment_uci);
+
         void control_list_all();
+
+        void controll_report_room();
+        void controll_report_doctor();
+        void controll_report_appointment();
         
     private:
-        AR_UCI_Standard_Reporting_IB& resource_uci;
-        const std::string MESSAGE_CREATE_PERSON_FIRST_NAME_PROMPT{"Please enter the first name of the Report:\n"};
-        const std::string MESSAGE_CREATE_PERSON_LAST_NAME_PROMPT{"Please enter the last name of the Report:\n"};
-        const std::string MESSAGE_UPDATE_PERSON_ID_PROMPT{"Please enter the ID of the Report you want to update:\n"};
-        const std::string MESSAGE_UPDATE_PERSON_FIRST_NAME_PROMPT{"Please enter the updated first name of the Report:\n"};
-        const std::string MESSAGE_UPDATE_PERSON_LAST_NAME_PROMPT{"Please enter the updated last name of the Report:\n"};
-        const std::string MESSAGE_REMOVE_PERSON_ID_PROMPT{"Please enter the ID of the Report you want to delete:\n"};
-        const std::string MESSAGE_REMOVE_PERSON_CONFIRMATION_PROMPT{"Are you sure you want to delete the entry? [y/n]\n"};
+      AR_UCI_Standard_Reporting_IB& report_room_uci;
+      AR_UCI_Standard_Reporting_IB& report_doctor_uci;
+      AR_UCI_Standard_Reporting_IB& report_appointment_uc;
+         
 };
-#endif /* IA_Standard_Reporting_Controller_H */
+#endif /* IA_Standard_Reporting_CONTROLLER_H */

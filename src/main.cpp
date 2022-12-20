@@ -31,8 +31,13 @@
 #include "FD_DA_Appointment_Repository_FileBasedImpl.h"
 #include "IA_Appointment_Controller.h"
 #include "IA_Appointment_Presenter.h"
-// #include "AR_Summary_Statistics.h"
-// #include "FD_Summary_Statistics_View.h"
+#include "FD_Summary_Statistics_View.h"
+#include "IA_Summary_Statistics_Presenter.h"
+#include "IA_Summary_Statistics_Controller.h"
+#include "AR_UCI_Summary_Statistics_Reporting_IB.h"
+#include "AR_UCI_Summary_Statistics_Reporting.h"
+#include "AR_UCI_Summary_Statistics_Reporting_OB.h"
+#include "IA_test_Summary_Statistics_Controller.h"
 using namespace std;
 
 int main()
@@ -65,11 +70,23 @@ int main()
     FD_Resource_View_test resource_view_test{};
     IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
     // AR_Summary_Statistics summary_statistics{};
-    // FD_Summary_Statistics_View summary_statistics_view{summary_statistics};
+
+//summary statistics
+
+FD_Summary_Statistics_View summary_statistics_view{};
+
+IA_Summary_Statistics_Presenter Summary_Statistic_presenter{ summary_statistics_view};
+
+//AR_UCI_Summary_Statistics_Reporting summary_statistics_use_case{ ummary_statistics_presenter, doctor_repository, room_repository};
+//IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistic_presenter};
+//IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
+
+
+
 
     // Appointment
 
-    FD_View main_view{};
+   FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
                                                                  test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter};
