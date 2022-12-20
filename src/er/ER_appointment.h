@@ -31,7 +31,7 @@ private:
     std::string time_start{}; //Zeitanfang++++wann?
     std::string time{}; //Termindauer++++++++++wie lange?
 
-   
+}
   
 
 #endif /* ER_Appointment_H */
