@@ -34,9 +34,9 @@
 #include "FD_Summary_Statistics_View.h"
 #include "IA_Summary_Statistics_Presenter.h"
 #include "IA_Summary_Statistics_Controller.h"
-#include "AR_UCI_Summary_Statistics_Reporting_IB.h"
-#include "AR_UCI_Summary_Statistics_Reporting.h"
-#include "AR_UCI_Summary_Statistics_Reporting_OB.h"
+#include "AR_UCI_Summary_Statistics_Creation_IB.h"
+#include "AR_UCI_Summary_Statistics_Creation.h"
+#include "AR_UCI_Summary_Statistics_Creation_OB.h"
 #include "IA_test_Summary_Statistics_Controller.h"
 using namespace std;
 
@@ -69,19 +69,17 @@ int main()
     IA_test_Appointment_Controller test_Appointment_Controller{appointment_controller};
     FD_Resource_View_test resource_view_test{};
     IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
-    // AR_Summary_Statistics summary_statistics{};
-
-//summary statistics
-
-FD_Summary_Statistics_View summary_statistics_view{};
-
-IA_Summary_Statistics_Presenter Summary_Statistic_presenter{ summary_statistics_view};
-
-//AR_UCI_Summary_Statistics_Reporting summary_statistics_use_case{ ummary_statistics_presenter, doctor_repository, room_repository};
-//IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistic_presenter};
-//IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
 
 
+FD_Summary_Statistics_View Summary_Statistic_view{};
+IA_Summary_Statistics_Presenter Summary_Statistic_presenter{Summary_Statistic_view};
+
+
+AR_UCI_Summary_Statistics_Creation Summary_Statistics_use_case( Summary_Statistic_presenter, appointment_repository,doctor_repository, room_repository);
+
+IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistics_use_case};
+
+IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
 
 
     // Appointment
@@ -89,7 +87,7 @@ IA_Summary_Statistics_Presenter Summary_Statistic_presenter{ summary_statistics_
    FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
-                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter};
+                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter, test_Summary_Statistics_Controller};
 
     application_master_controller_test.control_application_start();
 }

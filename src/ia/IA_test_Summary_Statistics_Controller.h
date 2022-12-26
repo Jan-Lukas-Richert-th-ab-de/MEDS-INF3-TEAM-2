@@ -1,5 +1,6 @@
-#ifndef IA_TEST_SUMMARY_STATISTICS_CONTROLLER
-#define IA_TEST_SUMMARY_STATISTICST_CONTROLLER
+#pragma once
+#ifndef IA_TEST_SUMMARY_STATISTICS_CONTROLLER_H
+#define IA_TEST_SUMMARY_STATISTICST_CONTROLLER_H
 #include "IA_Summary_Statistics_Controller.h"
 
 class IA_test_Summary_Statistics_Controller

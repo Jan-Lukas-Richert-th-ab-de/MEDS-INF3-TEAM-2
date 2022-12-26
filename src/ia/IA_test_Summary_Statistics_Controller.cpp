@@ -6,13 +6,10 @@ IA_test_Summary_Statistics_Controller::IA_test_Summary_Statistics_Controller(IA_
 
 void IA_test_Summary_Statistics_Controller::control_application_start()
 {
-    system("cls");
-    Summary_Statistics_Controller.control_list_all();
     chooce_Summary_Statistics();
 };
-
 void IA_test_Summary_Statistics_Controller::chooce_Summary_Statistics()
-{
+{ 
     while (true)
     {
         system("cls");
@@ -21,13 +18,17 @@ void IA_test_Summary_Statistics_Controller::chooce_Summary_Statistics()
         char choice;
         std::cin >> choice;
       
-        if (choice == '2')
+        if (choice == '1')
         {
-            Summary_Statistics_Controller.control_report();
+            Summary_Statistics_Controller.control_report_room_occupancy_Summary_Statistics();
             continue;
         }
       
-        if (choice == '4')
+        if (choice == '2')
+        {Summary_Statistics_Controller.control_report_doctor_Summary_Statistics();
+            continue;
+        }
+        if (choice == '3')
         {
             break;
         }

@@ -5,12 +5,15 @@
 #include <vector>
 #include <map>
 
-class FD_Summary_Statistics_View : public FD_Resource_View
+
+
+class FD_Summary_Statistics_View : public FD_Resource_View_S
 {
 public:
     void show_list_view(const std::vector<std::map<std::string, std::string>> &data);
 
 private:
+
     void show_list_empty_message();
     void show_list_header();
     void show_column_header();

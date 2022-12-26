@@ -38,7 +38,7 @@ target_sources(ar
         src/ar/AR_UCI_Patient_Administration.cpp
         src/ar/AR_UCI_Appointment_Administration.cpp
         
-        src/ar/AR_UCI_Summary_Statistics_Reporting.cpp
+        src/ar/AR_UCI_Summary_Statistics_Creation.cpp
     PUBLIC
         src/ar/AR_UCI_Room_Administration_IB.h
         src/ar/AR_UCI_Room_Administration_OB.h
@@ -57,9 +57,10 @@ target_sources(ar
         src/ar/AR_UCI_Appointment_Administration.h
         src/ar/AR_DAI_Appointment_Repository.h
        
-        src/ar/AR_UCI_Summary_Statistics_Reporting_IB.h
-        src/ar/AR_UCI_Summary_Statistics_Reporting_OB.h
-        src/ar/AR_UCI_Summary_Statistics_Reporting.h
+        src/ar/AR_UCI_Summary_Statistics_Creation_IB.h
+        src/ar/AR_UCI_Summary_Statistics_Creation_OB.h
+        src/ar/AR_UCI_Summary_Statistics_Creation.h
+       
 
 )
 target_include_directories(ar PRIVATE src/er)
@@ -84,10 +85,10 @@ target_sources(ia
         src/ia/IA_test_Patient_Controller.cpp
         src/ia/IA_test_Doctor_Controller.cpp
         src/ia/IA_test_Appointment_Controller.cpp
-        src/ia/IA_Master_Controller_test.cpp
         src/ia/IA_Summary_Statistics_Controller.cpp
         src/ia/IA_Summary_Statistics_Presenter.cpp
         src/ia/IA_test_Summary_Statistics_Controller.cpp
+        src/ia/IA_Master_Controller_test.cpp
     PUBLIC
         src/ia/IA_Room_Presenter.h
         src/ia/IA_Room_Controller.h
@@ -102,11 +103,11 @@ target_sources(ia
         src/ia/IA_test_Patient_Controller.h
         src/ia/IA_test_Doctor_Controller.h
         src/ia/IA_test_Appointment_Controller.h
-        src/ia/IA_Master_Controller_test.h
+        
         src/ia/IA_Summary_Statistics_Controller.h
         src/ia/IA_Summary_Statistics_Presenter.h
         src/ia/IA_test_Summary_Statistics_Controller.h
-
+        src/ia/IA_Master_Controller_test.h
 
 
 )

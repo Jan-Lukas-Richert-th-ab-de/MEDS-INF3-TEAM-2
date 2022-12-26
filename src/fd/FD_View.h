@@ -21,4 +21,16 @@ private:
    const std::array<std::string, 4> OPTIONS_LIST{
        "Create Entry", "Update Entry", "Delete Entry", "Quit"};
 };
+class FD_View_S : public FD_View 
+
+{  protected:
+   void show_header();
+   void show_separator();
+   void show_menu();
+   
+private:
+   const std::string OPTIONS_HEADER{"Options:"};
+   const std::array<std::string, 3> OPTIONS_LIST{
+       "Report room occupancy", "Report doctor Summary_Statistics", "Quit"};
+};
 #endif /* FD_VIEW_H */
