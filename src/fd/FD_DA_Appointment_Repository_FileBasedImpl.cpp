@@ -49,18 +49,23 @@ void FD_DA_Appointment_Repository_FileBasedImpl::set_storage_file_name(std::stri
 
 ER_Appointment FD_DA_Appointment_Repository_FileBasedImpl::create_appointment_from_storage_record(const std::string &line)
 {
-  std::vector<std::string> line_tokens{split(line, ",")}; //Vektor mit string
+  std::vector<std::string> line_tokens{split(line, ",")}; // Vektor mit string
   unsigned int current_id{static_cast<unsigned int>(stoi(line_tokens.at(1)))};
   std::string found_day{line_tokens.at(2)};
   std::string found_month{line_tokens.at(3)};
   std::string found_year{line_tokens.at(4)};
   std::string found_time_start{line_tokens.at(5)};
   std::string found_time{line_tokens.at(6)};
-
-  ER_Doctor found_doctor{line_tokens.at(7)}//----------------------
-  ER_Patient &found_patient{line_tokens.at(8)};//----------------
-  ER_Room found_room{line_tokens.at(9)};
-  ER_Appointment result{current_id, found_day, found_month, found_year, found_time_start, found_time, found_doctor, found_patient, found_room};
+  std::string found_a_doctor{line_tokens.at(7)};
+  std::string found_a_patient{line_tokens.at(8)};
+  std::string found_a_room{line_tokens.at(9)};
+  FD_DA_Doctor_Repository_FileBasedImpl doctor_repository;
+  ER_Doctor result_doctor = doctor_repository.find(static_cast<unsigned int>(stoi(found_a_doctor)));
+  FD_DA_Patient_Repository_FileBasedImpl patient_repository;
+  ER_Patient result_patient = patient_repository.find(static_cast<unsigned int>(stoi(found_a_patient)));
+  FD_DA_Room_Repository_FileBasedImpl room_repository;
+  ER_Room result_room = room_repository.find(static_cast<unsigned int>(stoi(found_a_room)));
+  ER_Appointment result{current_id, found_day, found_month, found_year, found_time_start, found_time, result_doctor, result_patient, result_room};
   return result;
 };
 
@@ -78,5 +83,11 @@ std::string FD_DA_Appointment_Repository_FileBasedImpl::create_storage_record_fr
   result.append(appointment.get_time_start());
   result.append(",");
   result.append(appointment.get_time());
+  result.append(",");
+  result.append(appointment.get_doctor_full_name());
+  result.append(",");
+  result.append(appointment.get_patient_full_name());
+  result.append(",");
+  result.append(appointment.get_room_full_name());
   return result;
 };

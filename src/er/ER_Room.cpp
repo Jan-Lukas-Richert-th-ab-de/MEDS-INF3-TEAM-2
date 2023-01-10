@@ -36,7 +36,7 @@ std::string ER_Room::get_full_name() const
 {
 	std::string result{""};
 	result.append(room_description);
-	result.append(" ");
+	result.append("");
 	result.append(room_number);
 
 	return result;

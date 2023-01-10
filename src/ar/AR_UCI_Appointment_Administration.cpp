@@ -8,8 +8,8 @@
 // A- oder appointmennt;
 
 AR_UCI_Appointment_Administration::AR_UCI_Appointment_Administration(
-    AR_UCI_Appointment_Administration_OB &presenter, AR_DAI_Appointment_Repository &repository)
-    : resource_presenter(presenter), resource_repository(repository){};
+    AR_UCI_Appointment_Administration_OB &presenter, AR_DAI_Appointment_Repository &repository, AR_DAI_Doctor_Repository &doctor_repository, AR_DAI_Patient_Repository &patient_repository, AR_DAI_Room_Repository &room_repository)
+    : resource_presenter(presenter), resource_repository(repository), resource_repository_doctor(doctor_repository), resource_repository_patient(patient_repository), resource_repository_room(room_repository){};
 
 void AR_UCI_Appointment_Administration::list_all()
 {
@@ -24,18 +24,29 @@ void AR_UCI_Appointment_Administration::list_all()
   }
   resource_presenter.present_all(output_data);
 };
-void AR_UCI_Appointment_Administration::create(std::string day, std::string month, std::string year, std::string time_start, std::string time){
-  ER_Appointment a_appointment{day, month, year, time_start, time};
+void AR_UCI_Appointment_Administration::create(std::string day, std::string month, std::string year, std::string time_start, std::string time, unsigned int doctor_id, unsigned int patient_id, unsigned int room_id)
+{
+  ER_Doctor found_doctor = resource_repository_doctor.find(doctor_id);
+  ER_Patient found_patient = resource_repository_patient.find(patient_id);
+  ER_Room found_room = resource_repository_room.find(room_id);
+  ER_Appointment a_appointment{day, month, year, time_start, time, found_doctor, found_patient, found_room};
   resource_repository.save(a_appointment);
   list_all();
 };
-void AR_UCI_Appointment_Administration::update(unsigned int id, std::string day, std::string month, std::string year, std::string time_start, std::string time){
+void AR_UCI_Appointment_Administration::update(unsigned int id, std::string day, std::string month, std::string year, std::string time_start, std::string time, unsigned int doctor_id, unsigned int patient_id, unsigned int room_id)
+{
   ER_Appointment a_appointment_to_be_updated = resource_repository.find(id);
   a_appointment_to_be_updated.set_day(day);
   a_appointment_to_be_updated.set_month(month);
   a_appointment_to_be_updated.set_year(year);
   a_appointment_to_be_updated.set_time_start(time_start);
   a_appointment_to_be_updated.set_time(time);
+  ER_Doctor found_doctor = resource_repository_doctor.find(doctor_id);
+  a_appointment_to_be_updated.set_doctor(found_doctor);
+  ER_Patient found_patient = resource_repository_patient.find(patient_id);
+  a_appointment_to_be_updated.set_patient(found_patient);
+  ER_Room found_room = resource_repository_room.find(room_id);
+  a_appointment_to_be_updated.set_room(found_room);
 
   resource_repository.save(a_appointment_to_be_updated);
   list_all();
@@ -46,15 +57,20 @@ void AR_UCI_Appointment_Administration::remove(unsigned int id)
   list_all();
 };
 
-std::map<std::string, std::string> AR_UCI_Appointment_Administration::get_data_map_for_appointment(const ER_Appointment& a_appointment){
-    std::map<std::string, std::string> data_map{};
-    data_map.insert({"id",std::to_string(a_appointment.get_id())});
-    data_map.insert({"day",a_appointment.get_day()});
-    data_map.insert({"month",a_appointment.get_month()});
-    data_map.insert({"year",a_appointment.get_year()});
-    data_map.insert({"time_start",a_appointment.get_time_start()});
-    data_map.insert({"time",a_appointment.get_time()});
-    return data_map;
+std::map<std::string, std::string> AR_UCI_Appointment_Administration::get_data_map_for_appointment(const ER_Appointment &a_appointment)
+{
+  std::map<std::string, std::string> data_map{};
+  data_map.insert({"id", std::to_string(a_appointment.get_id())});
+  data_map.insert({"day", a_appointment.get_day()});
+  data_map.insert({"month", a_appointment.get_month()});
+  data_map.insert({"year", a_appointment.get_year()});
+  data_map.insert({"time_start", a_appointment.get_time_start()});
+  data_map.insert({"time", a_appointment.get_time()});
+  data_map.insert({"doctor", a_appointment.get_doctor_full_name()});
+  data_map.insert({"patient", a_appointment.get_patient_full_name()});
+  data_map.insert({"room", a_appointment.get_room_full_name()});
+
+  return data_map;
 };
 
 void AR_UCI_Appointment_Administration::sort_appointments_by_id(std::vector<ER_Appointment> &appointment_list)

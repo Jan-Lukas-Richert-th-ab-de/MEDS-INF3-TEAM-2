@@ -42,6 +42,12 @@ void FD_Appointment_View::show_column_header()
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time_start";
     std::cout << " . ";
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time";
+    std::cout << " . ";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Doctor_id";
+    std::cout << " . ";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Patient_id";
+    std::cout << " . ";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room_id";
     std::cout << '\n';
 };
 void FD_Appointment_View::show_list_contents(const std::vector<std::map<std::string, std::string>> &data)
@@ -59,6 +65,12 @@ void FD_Appointment_View::show_list_contents(const std::vector<std::map<std::str
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["time_start"];
         std::cout << " . ";
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["time"];
+        std::cout << " - ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["doctor"];
+        std::cout << " - ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["patient"];
+        std::cout << " - ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["room"];
         std::cout << '\n';
     };
 };

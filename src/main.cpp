@@ -58,7 +58,7 @@ int main()
     AR_UCI_Room_Administration room_administration_use_case{room_presenter, room_repository};
     AR_UCI_Doctor_Administration doctor_administration_use_case{doctor_presenter, doctor_repository};
     AR_UCI_Patient_Administration patient_administration_use_case{patient_presenter, patient_repository};
-    AR_UCI_Appointment_Administration appointment_administration_use_case{appointment_presenter, appointment_repository};
+    AR_UCI_Appointment_Administration appointment_administration_use_case{appointment_presenter, appointment_repository, doctor_repository, patient_repository, room_repository};
     IA_Room_Controller room_controller{room_administration_use_case};
     IA_Doctor_Controller doctor_controller{doctor_administration_use_case};
     IA_Patient_Controller patient_controller{patient_administration_use_case};
@@ -70,21 +70,18 @@ int main()
     FD_Resource_View_test resource_view_test{};
     IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
 
+    FD_Summary_Statistics_View Summary_Statistic_view{};
+    IA_Summary_Statistics_Presenter Summary_Statistic_presenter{Summary_Statistic_view};
 
-FD_Summary_Statistics_View Summary_Statistic_view{};
-IA_Summary_Statistics_Presenter Summary_Statistic_presenter{Summary_Statistic_view};
+    AR_UCI_Summary_Statistics_Creation Summary_Statistics_use_case(Summary_Statistic_presenter, appointment_repository, doctor_repository, room_repository);
 
+    IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistics_use_case};
 
-AR_UCI_Summary_Statistics_Creation Summary_Statistics_use_case( Summary_Statistic_presenter, appointment_repository,doctor_repository, room_repository);
-
-IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistics_use_case};
-
-IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
-
+    IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
 
     // Appointment
 
-   FD_View main_view{};
+    FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
                                                                  test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter, test_Summary_Statistics_Controller};

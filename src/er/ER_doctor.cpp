@@ -40,9 +40,9 @@ std::string ER_Doctor::get_full_name() const
 {
 	std::string result{""};
 	result.append(first_name);
-	result.append(" ");
+	result.append("");
 	result.append(last_name);
-	result.append(" ");
+	result.append("");
 	result.append(doctors_specialties);
 	return result;
 }

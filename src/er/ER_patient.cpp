@@ -32,7 +32,7 @@ std::string ER_Patient::get_full_name() const
 {
 	std::string result{""};
 	result.append(first_name);
-	result.append(" ");
+	result.append("");
 	result.append(last_name);
 	return result;
 }

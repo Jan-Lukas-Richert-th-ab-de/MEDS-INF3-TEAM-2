@@ -1,6 +1,9 @@
 #ifndef FD_DA_APPOINTMENT_REPOSITORY_FILEBASEDIMPL_H
 #define FD_DA_APPOINTMENT_REPOSITORY_FILEBASEDIMPL_H
 #include "AR_DAI_Appointment_Repository.h"
+#include "FD_DA_Doctor_Repository_FileBasedImpl.h"
+#include "FD_DA_Patient_Repository_FileBasedImpl.h"
+#include "FD_DA_Room_Repository_FileBasedImpl.h"
 #include <string>
 
 class FD_DA_Appointment_Repository_FileBasedImpl : public AR_DAI_Appointment_Repository
@@ -19,8 +22,8 @@ private:
    ER_Appointment create_appointment_from_storage_record(const std::string &line);
    std::string create_storage_record_from_appointment(unsigned int id, const ER_Appointment &appointment);
 
-       std::string storage_file_name{"APPOINTMENT_LIST_APP_DATA.csv"};
-       const std::string STORAGE_FILE_HEADER_LINE{"ID,DAY, MONTH, YEAR, TIME_START; TIME"};
+   std::string storage_file_name{"APPOINTMENT_LIST_APP_DATA.csv"};
+   const std::string STORAGE_FILE_HEADER_LINE{"ID,DAY, MONTH, YEAR, TIME_START, TIME, DOCTOR, PATIENT, ROOM"};
 };
 
 #endif /* FD_DA_APPOINTMENT_REPOSITORY_FILEBASEDIMPL_H */
