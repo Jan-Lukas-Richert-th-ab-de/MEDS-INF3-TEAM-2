@@ -66,9 +66,9 @@ std::map<std::string, std::string> AR_UCI_Appointment_Administration::get_data_m
   data_map.insert({"year", a_appointment.get_year()});
   data_map.insert({"time_start", a_appointment.get_time_start()});
   data_map.insert({"time", a_appointment.get_time()});
-  data_map.insert({"doctor", a_appointment.get_doctor_full_name()}); //?????????????????????? 
-  data_map.insert({"patient", a_appointment.get_patient_full_name()}); //?????????????????????
-  data_map.insert({"room", a_appointment.get_room_full_name()});
+  data_map.insert({"doctor", std::to_string(a_appointment.get_doctor())}); ////std::string
+  data_map.insert({"patient", std::to_string(a_appointment.get_patient())}); 
+  data_map.insert({"room", std::to_string(a_appointment.get_room())});
 
   return data_map;
 };
