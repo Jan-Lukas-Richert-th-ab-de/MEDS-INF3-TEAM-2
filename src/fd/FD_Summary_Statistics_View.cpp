@@ -40,8 +40,8 @@ void FD_Summary_Statistics_View::show_column_header()
     std::cout << std::left << std::setfill(' ') << std::setw(20) << "Total Appointments";
     std::cout << " - ";
     std::cout << std::left << std::setfill(' ') << std::setw(20) << "Average Appointments";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Average duration";
+    //std::cout << " - ";
+    //std::cout << std::left << std::setfill(' ') << std::setw(20) << "Average duration";
     std::cout << '\n';
 };
 void FD_Summary_Statistics_View::show_list_contents(const std::vector<std::map<std::string, std::string>> &data)
@@ -55,8 +55,8 @@ void FD_Summary_Statistics_View::show_list_contents(const std::vector<std::map<s
         std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["appointment_count"];
         std::cout << " - ";
         std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["result"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["average_duration"];
+        //std::cout << " - ";
+        //std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["average_duration"];
         std::cout << '\n';
     };
 };

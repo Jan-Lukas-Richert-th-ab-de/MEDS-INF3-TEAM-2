@@ -31,6 +31,6 @@ class FD_View_S : public FD_View
 private:
    const std::string OPTIONS_HEADER{"Options:"};
    const std::array<std::string, 3> OPTIONS_LIST{
-       "Report room occupancy", "Report doctor Summary_Statistics", "Quit"};
+       "room occupancy Statistics", "doctor Summary Statistics", "Quit"};
 };
 #endif /* FD_VIEW_H */

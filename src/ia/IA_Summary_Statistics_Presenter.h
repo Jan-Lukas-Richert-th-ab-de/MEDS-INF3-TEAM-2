@@ -7,10 +7,14 @@
 
 
 class IA_Summary_Statistics_Presenter : public AR_UCI_Summary_Statistics_Creation_OB {
-    public:
-        IA_Summary_Statistics_Presenter(FD_Resource_View_S& view);
-        void present_all(const std::vector<std::map<std::string, std::string>>& data);
+   
     private:
-        FD_Resource_View_S &resource_view;
+        FD_Resource_View_S &resource_view_S;
+        void present_all(const std::vector<std::map<std::string, std::string>>& data);
+  
+    public:
+        IA_Summary_Statistics_Presenter(FD_Resource_View_S& view) : resource_view_S(view) {};
 };
 #endif /* IA_Summary_Statistics_PRESENTER_H */
+
+
