@@ -46,12 +46,12 @@ void FD_DA_Appointment_Repository_FileBasedImpl::set_storage_file_name(std::stri
 {
   storage_file_name = file_name;
 };
-
+ //speichern als Textdokument
 ER_Appointment FD_DA_Appointment_Repository_FileBasedImpl::create_appointment_from_storage_record(const std::string &line)
 {
   std::vector<std::string> line_tokens{split(line, ",")}; // Vektor mit string
   unsigned int current_id{static_cast<unsigned int>(stoi(line_tokens.at(1)))};
-  std::string found_day{line_tokens.at(2)};
+  std::string found_day{line_tokens.at(2)}; // Line tokens, Reihenfolge
   std::string found_month{line_tokens.at(3)};
   std::string found_year{line_tokens.at(4)};
   std::string found_time_start{line_tokens.at(5)};
