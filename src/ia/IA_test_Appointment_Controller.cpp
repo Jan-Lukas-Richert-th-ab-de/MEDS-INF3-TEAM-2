@@ -7,7 +7,7 @@ IA_test_Appointment_Controller::IA_test_Appointment_Controller(IA_Appointment_Co
 void IA_test_Appointment_Controller::control_application_start()
 {
     system("cls");
-    appointment_Controller.control_list_all();
+    // appointment_Controller.control_list_all();
     chooce_Appointment();
 };
 
@@ -37,6 +37,7 @@ void IA_test_Appointment_Controller::chooce_Appointment()
         }
         if (choice == '4')
         {
+            system("cls");
             break;
         }
         show_menu_message_unexpected_input();

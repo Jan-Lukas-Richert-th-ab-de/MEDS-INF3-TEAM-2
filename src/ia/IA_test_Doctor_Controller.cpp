@@ -7,7 +7,7 @@ IA_test_Doctor_Controller::IA_test_Doctor_Controller(IA_Doctor_Controller &a_doc
 void IA_test_Doctor_Controller::control_application_start()
 {
     system("cls");
-    doctor_Controller.control_list_all();
+    // doctor_Controller.control_list_all();
     choose_Doctor();
 };
 
@@ -37,6 +37,7 @@ void IA_test_Doctor_Controller::choose_Doctor()
         }
         if (choice == '4')
         {
+            system("cls");
             break;
         }
         show_menu_message_unexpected_input();

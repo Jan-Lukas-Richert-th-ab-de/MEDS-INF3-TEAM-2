@@ -6,7 +6,7 @@ IA_test_Patient_Controller::IA_test_Patient_Controller(IA_Patient_Controller &a_
 
 void IA_test_Patient_Controller::control_application_start()
 {
-
+    system("cls");
     choose_Patient();
 };
 
@@ -36,6 +36,7 @@ void IA_test_Patient_Controller::choose_Patient()
         }
         if (choice == '4')
         {
+            system("cls");
             break;
         }
         show_menu_message_unexpected_input();
