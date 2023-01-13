@@ -37,7 +37,7 @@ target_sources(ar
         src/ar/AR_UCI_Doctor_Administration.cpp
         src/ar/AR_UCI_Patient_Administration.cpp
         src/ar/AR_UCI_Appointment_Administration.cpp
-        
+        src/ar/AR_UCI_Standard_Reporting.cpp
         src/ar/AR_UCI_Summary_Statistics_Creation.cpp
     PUBLIC
         src/ar/AR_UCI_Room_Administration_IB.h
@@ -56,7 +56,10 @@ target_sources(ar
         src/ar/AR_UCI_Appointment_Administration_OB.h
         src/ar/AR_UCI_Appointment_Administration.h
         src/ar/AR_DAI_Appointment_Repository.h
-       
+        src/ar/AR_UCI_Standard_Reporting_OB.h
+        src/ar/AR_UCI_Standard_Reporting.h
+        src/ar/AR_UCI_Standard_Reporting_IB.h
+        
         src/ar/AR_UCI_Summary_Statistics_Creation_IB.h
         src/ar/AR_UCI_Summary_Statistics_Creation_OB.h
         src/ar/AR_UCI_Summary_Statistics_Creation.h
