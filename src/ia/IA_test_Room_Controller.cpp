@@ -6,6 +6,7 @@ IA_test_Room_Controller::IA_test_Room_Controller(IA_Room_Controller &a_room_Cont
 
 void IA_test_Room_Controller::control_application_start()
 {
+    system("cls");
     chooce_Room();
 };
 
@@ -35,6 +36,7 @@ void IA_test_Room_Controller::chooce_Room()
         }
         if (choice == '4')
         {
+            system("cls");
             break;
         }
         show_menu_message_unexpected_input();

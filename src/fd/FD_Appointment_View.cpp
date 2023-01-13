@@ -27,7 +27,7 @@ void FD_Appointment_View::show_list_header()
 {
     std::cout << "Appointment List:" << '\n';
 };
-void FD_Appointment_View::show_column_header()
+void FD_Appointment_View::show_column_header() //Position, Abstand
 {
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "ID";
     std::cout << " - ";

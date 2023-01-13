@@ -18,7 +18,7 @@ private:
     const std::string MESSAGE_CREATE_APPOINTMENT_MONTH_PROMPT{"Please enter the month of the appointment:\n"};
     const std::string MESSAGE_CREATE_APPOINTMENT_YEAR_PROMPT{"Please enter the year of the appointment:\n"};                    //+year
     const std::string MESSAGE_CREATE_APPOINTMENT_TIME_START_PROMPT{"Please enter the time_start of the appointment:\n"};        //+time_start
-    const std::string MESSAGE_CREATE_APPOINTMENT_TIME_PROMPT{"Please enter the time of the appointment:\n"};                    //+time
+    const std::string MESSAGE_CREATE_APPOINTMENT_TIME_PROMPT{"Please enter the time in minutes of the appointment:\n"};                    //+time
     const std::string MESSAGE_CREATE_APPOINTMENT_DOCTOR_ID_PROMPT{"Please enter the doctor_id of the appointment:\n"};          //+doctor_id
     const std::string MESSAGE_CREATE_APPOINTMENT_PATIENT_ID_PROMPT{"Please enter the patient_id of the appointment:\n"};        //+patient_id
     const std::string MESSAGE_CREATE_APPOINTMENT_ROOM_ID_PROMPT{"Please enter the room_id of the appointment:\n"};              //+room_id
@@ -27,7 +27,7 @@ private:
     const std::string MESSAGE_UPDATE_APPOINTMENT_MONTH_PROMPT{"Please enter the updated month of the appointment:\n"};
     const std::string MESSAGE_UPDATE_APPOINTMENT_YEAR_PROMPT{"Please enter the updated year of the appointment:\n"};             //+year
     const std::string MESSAGE_UPDATE_APPOINTMENT_TIME_START_PROMPT{"Please enter the updated time_start of the appointment:\n"}; //+ts
-    const std::string MESSAGE_UPDATE_APPOINTMENT_TIME_PROMPT{"Please enter the updated time of the appointment:\n"};             //+t
+    const std::string MESSAGE_UPDATE_APPOINTMENT_TIME_PROMPT{"Please enter the updated time in minutes of the appointment:\n"};             //+t
     const std::string MESSAGE_UPDATE_APPOINTMENT_DOCTOR_ID_PROMPT{"Please enter the updated doctor_id of the appointment:\n"};   //+doctor_id
     const std::string MESSAGE_UPDATE_APPOINTMENT_PATIENT_ID_PROMPT{"Please enter the updated patient_id of the appointment:\n"}; //+patient_id
     const std::string MESSAGE_UPDATE_APPOINTMENT_ROOM_ID_PROMPT{"Please enter the updated room_id of the appointment:\n"};       //+room_id

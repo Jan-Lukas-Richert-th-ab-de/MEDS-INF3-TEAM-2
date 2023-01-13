@@ -22,8 +22,8 @@ public:
     std::string get_time() const;              // Termindauer noch dazu eingefügt
     std::string get_date() const;              // Datum
     std::string get_doctor_full_name() const;  // Arzt
-    std::string get_patient_full_name() const; // Arzt
-    std::string get_room_full_name() const;    // Arzt
+    std::string get_patient_full_name() const; // Patient
+    std::string get_room_full_name() const;    // Raum
 
     void set_day(std::string d);         // Tag
     void set_month(std::string m);       // Monat
@@ -39,10 +39,10 @@ private:
     std::string day{};        // Tag
     std::string month{};      // Monat
     std::string year{};       // Jahr noch dazu
-    std::string time_start{}; // Zeitanfang++++wann?
-    std::string time{};       // Termindauer++++++++++wie lange?
+    std::string time_start{}; // Zeitanfang wann?
+    std::string time{};       // Termindauer wie lange?
 
-    ER_Doctor doctor_id;
+    ER_Doctor doctor_id; // cnst referenz benutzen, aber am Ende
     ER_Patient patient_id;
     ER_Room room_id;
 };

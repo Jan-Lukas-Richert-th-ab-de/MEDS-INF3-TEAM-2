@@ -3,7 +3,7 @@
 #include <vector>
 #include "ER_Appointment.h"
 
-class AR_DAI_Appointment_Repository {  //Person->Appointment
+class AR_DAI_Appointment_Repository {  //Appointment
    public:
       virtual std::vector<ER_Appointment> find_all() = 0; 
       virtual ER_Appointment find(unsigned int id) = 0;

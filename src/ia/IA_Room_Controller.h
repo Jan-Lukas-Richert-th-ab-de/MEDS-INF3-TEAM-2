@@ -14,11 +14,11 @@ public:
 
 private:
     AR_UCI_Room_Administration_IB &resource_uci;
-    const std::string MESSAGE_CREATE_ROOM_ROOM_DESCRIPTION_PROMPT{"Please enter the room number of the room:\n"};
-    const std::string MESSAGE_CREATE_ROOM_ROOM_NUMBER_PROMPT{"Please enter the room description of the room:\n"};
+    const std::string MESSAGE_CREATE_ROOM_ROOM_DESCRIPTION_PROMPT{"Please enter the room description of the room:\n"};
+    const std::string MESSAGE_CREATE_ROOM_ROOM_NUMBER_PROMPT{"Please enter the room number of the room:\n"};
     const std::string MESSAGE_UPDATE_ROOM_ID_PROMPT{"Please enter the ID of the room you want to update:\n"};
-    const std::string MESSAGE_UPDATE_ROOM_ROOM_DESCRIPTION_PROMPT{"Please enter the updated room number of the room:\n"};
-    const std::string MESSAGE_UPDATE_ROOM_ROOM_NUMBER_PROMPT{"Please enter the updated room description of the room:\n"};
+    const std::string MESSAGE_UPDATE_ROOM_ROOM_DESCRIPTION_PROMPT{"Please enter the updated room description of the room:\n"};
+    const std::string MESSAGE_UPDATE_ROOM_ROOM_NUMBER_PROMPT{"Please enter the updated room number of the room:\n"};
     const std::string MESSAGE_REMOVE_ROOM_ID_PROMPT{"Please enter the ID of the room you want to delete:\n"};
     const std::string MESSAGE_REMOVE_ROOM_CONFIRMATION_PROMPT{"Are you sure you want to delete the entry? [y/n]\n"};
 };
