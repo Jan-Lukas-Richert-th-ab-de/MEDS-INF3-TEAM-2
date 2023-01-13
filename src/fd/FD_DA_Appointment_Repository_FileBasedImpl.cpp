@@ -85,7 +85,7 @@ std::string FD_DA_Appointment_Repository_FileBasedImpl::create_storage_record_fr
   result.append(",");
   result.append(appointment.get_time());
   result.append(",");
-  result.append(std::to_string(appointment.get_doctor())); // std::string
+  result.append(std::to_string(appointment.get_doctor())); // std::string ID
   result.append(",");
   result.append(std::to_string(appointment.get_patient())); // std::string
   result.append(",");
