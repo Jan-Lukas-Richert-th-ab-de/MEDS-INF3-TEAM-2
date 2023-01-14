@@ -46,8 +46,8 @@ std::map<std::string, std::string> row;
 row["ID"] = std::to_string(appointment.get_id());
 row["Date"] = appointment.get_date();
 row["Time"] = appointment.get_time();
-//row["Doctor"] = appointment.get_doctor_name();
-//row["Room"] = appointment.get_room_name();
+row["Doctor"] = appointment.get_doctor();
+row["Room"] = appointment.get_room();
 data.push_back(row);
 }
 
@@ -97,10 +97,11 @@ for (const auto& room : rooms) {
 double total_duration = 0;
 int appointment_count = 0;
 for (const auto& appointment : appointments) {
-/*if (appointment.get_room_name() == room.get_full_name() && appointment.get_week() == week) {
-total_duration += appointment.get_duration();
+if (appointment.get_room() == room.get_room_id() /*&& appointment.get_week() == week*/) {
+  int time = std::stoi(appointment.get_time());
+total_duration += time;
 appointment_count++;
-}*/
+}
 }
 double average_duration = total_duration / appointment_count;
 room_occupancy[room.get_full_name()] = average_duration;
@@ -117,10 +118,11 @@ for (const auto& doctor : doctors) {
 double total_duration = 0;
 int appointment_count = 0;
 for (const auto& appointment : appointments) {
-/*if (appointment.get_doctor_name() == doctor.get_full_name() && appointment.get_week() == week) {
-total_duration += appointment.get_duration();
+if (appointment.get_id() == doctor.get_id() /*&& appointment.get_week() == week*/) {
+  int time = std::stoi(appointment.get_time());
+total_duration += time;
 appointment_count++;
-}*/
+}
 }
 double average_duration = total_duration / appointment_count;
 doctor_statistics[doctor.get_full_name()] = average_duration;
