@@ -2,18 +2,26 @@
 #define IA_APPOINTMENT_CONTROLLER_H
 #include <string>
 #include "AR_UCI_Appointment_Administration_IB.h"
+#include "AR_UCI_Doctor_Administration_IB.h"
+#include "AR_UCI_Patient_Administration_IB.h"
+#include "AR_UCI_Room_Administration_IB.h"
 
 class IA_Appointment_Controller
 {
 public:
-    IA_Appointment_Controller(AR_UCI_Appointment_Administration_IB &uci);
+    IA_Appointment_Controller(AR_UCI_Appointment_Administration_IB &uci, AR_UCI_Doctor_Administration_IB &doctor_uci, AR_UCI_Patient_Administration_IB &patient_uci,AR_UCI_Room_Administration_IB &room_uci);
+
     void control_list_all();
     void control_create();
     void control_update();
     void control_remove();
+    
 
 private:
     AR_UCI_Appointment_Administration_IB &resource_uci;
+    AR_UCI_Doctor_Administration_IB &resource_doctor_uci;
+    AR_UCI_Patient_Administration_IB &resource_patient_uci;
+    AR_UCI_Room_Administration_IB &resource_room_uci;
     const std::string MESSAGE_CREATE_APPOINTMENT_DAY_PROMPT{"Please enter the day of the appointment:\n"};
     const std::string MESSAGE_CREATE_APPOINTMENT_MONTH_PROMPT{"Please enter the month of the appointment:\n"};
     const std::string MESSAGE_CREATE_APPOINTMENT_YEAR_PROMPT{"Please enter the year of the appointment:\n"};                    //+year
