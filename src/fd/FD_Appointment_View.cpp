@@ -18,6 +18,21 @@ void FD_Appointment_View::show_list_view(const std::vector<std::map<std::string,
     show_separator();
     show_menu();
 };
+void FD_Appointment_View::show_list_view_data(const std::vector<std::map<std::string, std::string>> &data)
+{
+    show_header();
+    show_list_header();
+    if (data.size() == 0)
+    {
+        show_list_empty_message();
+    }
+    else
+    {
+        show_column_header();
+    }
+    show_list_contents(data);
+    show_separator();
+};
 
 void FD_Appointment_View::show_list_empty_message()
 {
@@ -27,7 +42,7 @@ void FD_Appointment_View::show_list_header()
 {
     std::cout << "Appointment List:" << '\n';
 };
-void FD_Appointment_View::show_column_header() //Position, Abstand
+void FD_Appointment_View::show_column_header() // Position, Abstand
 {
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "ID";
     std::cout << " - ";

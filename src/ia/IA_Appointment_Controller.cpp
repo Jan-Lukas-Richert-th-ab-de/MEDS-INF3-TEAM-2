@@ -2,8 +2,8 @@
 #include <iostream>
 #include <string>
 
-IA_Appointment_Controller::IA_Appointment_Controller(AR_UCI_Appointment_Administration_IB &uci) // Kontrolle über Use-Cases-Aufruf
-    : resource_uci(uci){};
+IA_Appointment_Controller::IA_Appointment_Controller(AR_UCI_Appointment_Administration_IB &uci, AR_UCI_Doctor_Administration_IB &uci_doctor, AR_UCI_Patient_Administration_IB &uci_patient, AR_UCI_Room_Administration_IB &uci_room) // Kontrolle über Use-Cases-Aufruf
+    : resource_uci(uci), resource_uci_doctor(uci_doctor), resource_uci_patient(uci_patient), resource_uci_room(uci_room){};
 void IA_Appointment_Controller::control_list_all()
 {
     resource_uci.list_all();
@@ -26,12 +26,15 @@ void IA_Appointment_Controller::control_create()
     std::cout << MESSAGE_CREATE_APPOINTMENT_TIME_PROMPT;
     std::string time{};
     std::cin >> time;
+    resource_uci_doctor.list_all_data();
     std::cout << MESSAGE_CREATE_APPOINTMENT_DOCTOR_ID_PROMPT;
     unsigned int doctor_id{};
     std::cin >> doctor_id;
+    resource_uci_patient.list_all_data();
     std::cout << MESSAGE_CREATE_APPOINTMENT_PATIENT_ID_PROMPT;
     unsigned int patient_id{};
     std::cin >> patient_id;
+    resource_uci_room.list_all_data();
     std::cout << MESSAGE_CREATE_APPOINTMENT_ROOM_ID_PROMPT;
     unsigned int room_id{};
     std::cin >> room_id;

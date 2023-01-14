@@ -11,6 +11,7 @@ public:
     AR_UCI_Patient_Administration(
         AR_UCI_Patient_Administration_OB &presenter, AR_DAI_Patient_Repository &repository);
     void list_all();
+    void list_all_data();
     void create(std::string first_name, std::string last_name);
     void update(unsigned int id, std::string first_name, std::string last_name);
     void remove(unsigned int id);

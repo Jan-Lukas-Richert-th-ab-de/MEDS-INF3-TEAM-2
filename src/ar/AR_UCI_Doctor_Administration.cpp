@@ -22,6 +22,19 @@ void AR_UCI_Doctor_Administration::list_all()
   }
   resource_presenter.present_all(output_data);
 };
+void AR_UCI_Doctor_Administration::list_all_data()
+{
+  std::vector<std::map<std::string, std::string>> output_data;
+  std::vector<ER_Doctor> all_Doctors = resource_repository.find_all();
+  sort_Doctors_by_id(all_Doctors);
+  for (auto current_Doctor : all_Doctors)
+  {
+    std::map<std::string, std::string> data_map_for_current_Doctor =
+        get_data_map_for_Doctor(current_Doctor);
+    output_data.push_back(data_map_for_current_Doctor);
+  }
+  resource_presenter.present_all_data(output_data);
+};
 void AR_UCI_Doctor_Administration::create(std::string first_name, std::string last_name, std::string doctors_specialties)
 {
   ER_Doctor a_Doctor{first_name, last_name, doctors_specialties};

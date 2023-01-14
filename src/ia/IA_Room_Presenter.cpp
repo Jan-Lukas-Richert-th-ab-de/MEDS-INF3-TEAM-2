@@ -6,3 +6,7 @@ void IA_Room_Presenter::present_all(const std::vector<std::map<std::string, std:
 {
     resource_view.show_list_view(data);
 };
+void IA_Room_Presenter::present_all_data(const std::vector<std::map<std::string, std::string>> &data)
+{
+    resource_view.show_list_view_data(data);
+};

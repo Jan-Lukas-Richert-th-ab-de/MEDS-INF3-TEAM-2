@@ -8,6 +8,7 @@ class FD_Patient_View : public FD_Resource_View
 {
 public:
     void show_list_view(const std::vector<std::map<std::string, std::string>> &data);
+    void show_list_view_data(const std::vector<std::map<std::string, std::string>> &data);
 
 private:
     void show_list_empty_message();

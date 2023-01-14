@@ -62,7 +62,7 @@ int main()
     IA_Room_Controller room_controller{room_administration_use_case};
     IA_Doctor_Controller doctor_controller{doctor_administration_use_case};
     IA_Patient_Controller patient_controller{patient_administration_use_case};
-    IA_Appointment_Controller appointment_controller{appointment_administration_use_case};
+    IA_Appointment_Controller appointment_controller{appointment_administration_use_case, doctor_administration_use_case, patient_administration_use_case, room_administration_use_case};
     IA_test_Doctor_Controller test_Doctor_Controller{doctor_controller};
     IA_test_Room_Controller test_Room_Controller{room_controller};
     IA_test_Patient_Controller test_Patient_Controller{patient_controller};

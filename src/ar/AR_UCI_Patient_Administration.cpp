@@ -22,6 +22,19 @@ void AR_UCI_Patient_Administration::list_all()
   }
   resource_presenter.present_all(output_data);
 };
+void AR_UCI_Patient_Administration::list_all_data()
+{
+  std::vector<std::map<std::string, std::string>> output_data;
+  std::vector<ER_Patient> all_Patients = resource_repository.find_all();
+  sort_Patients_by_id(all_Patients);
+  for (auto current_Patient : all_Patients)
+  {
+    std::map<std::string, std::string> data_map_for_current_Patient =
+        get_data_map_for_Patient(current_Patient);
+    output_data.push_back(data_map_for_current_Patient);
+  }
+  resource_presenter.present_all_data(output_data);
+};
 void AR_UCI_Patient_Administration::create(std::string first_name, std::string last_name)
 {
   ER_Patient a_Patient{first_name, last_name};

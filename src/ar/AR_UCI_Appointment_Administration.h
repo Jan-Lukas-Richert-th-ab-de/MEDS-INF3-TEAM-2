@@ -14,6 +14,7 @@ public:
     AR_UCI_Appointment_Administration(
         AR_UCI_Appointment_Administration_OB &presenter, AR_DAI_Appointment_Repository &repository, AR_DAI_Doctor_Repository &doctor_repository, AR_DAI_Patient_Repository &patient_repository, AR_DAI_Room_Repository &room_repository);
     void list_all();
+    void list_all_data();
     void create(std::string day, std::string month, std::string year, std::string time_start, std::string time, unsigned int doctor_id, unsigned int patient_id, unsigned int room_id);
     void update(unsigned int id, std::string day, std::string month, std::string year, std::string time_start, std::string time, unsigned int doctor_id, unsigned int patient_id, unsigned int room_id);
     void remove(unsigned int id);
