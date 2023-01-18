@@ -1,30 +1,37 @@
-#include "ER_Appointment.h"
-#include "ER_Doctor.h"
-#include "ER_Room.h"
-#include "AR_DAI_Appointment_Repository.h"
-#include "AR_DAI_Doctor_Repository.h"
-#include "AR_DAI_Room_Repository.h"
 #include "AR_UCI_Summary_Statistics_Creation.h"
-#include <vector>
-#include <map>
-#include <cmath>
-#include <string>
 #include <algorithm>
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+#include "FD_Resource_View.h"
+#include "AR_DAI_Doctor_Repository.h"
+#include "AR_DAI_Appointment_Repository.h"
+#include "AR_DAI_Room_Repository.h"
+#include "ER_doctor.h"
+#include "ER_Room.h"
+#include "ER_appointment.h"
+#include "AR_UCI_Summary_Statistics_Creation_OB.h"
+#include "AR_UCI_Summary_Statistics_Creation_IB.h"
+#include <ctime>
+#include <sstream>
+#include <iomanip>
+
 
 AR_UCI_Summary_Statistics_Creation::AR_UCI_Summary_Statistics_Creation(
-AR_UCI_Summary_Statistics_Creation_OB& presenter,
-AR_DAI_Appointment_Repository& appointment_repository,
-AR_DAI_Doctor_Repository& doctor_repository,
-AR_DAI_Room_Repository& room_repository)
-: resource_presenter(presenter),
-doctor_resource_repository(doctor_repository),
-room_resource_repository(room_repository),
-appointment_resource_repository(appointment_repository) {}
+AR_UCI_Summary_Statistics_Creation_OB &presenter,
+AR_DAI_Appointment_Repository &appointment_repository,
+AR_DAI_Doctor_Repository &doctor_repository,
+AR_DAI_Room_Repository &room_repository)
+: presenter(presenter),
+doctor_repository(doctor_repository),
+room_repository(room_repository),
+appointment_repository(appointment_repository) {}
 
 void AR_UCI_Summary_Statistics_Creation::list_all() {
-std::vector<ER_Doctor> doctors = doctor_resource_repository.find_all();
-std::vector<ER_Room> rooms = room_resource_repository.find_all();
-std::vector<ER_Appointment> appointments = appointment_resource_repository.find_all();
+std::vector<ER_Doctor> doctors = doctor_repository.find_all();
+std::vector<ER_Room> rooms = room_repository.find_all();
+std::vector<ER_Appointment> appointments = appointment_repository.find_all();
 
 std::vector<std::map<std::string, std::string>> data;
 for (const auto& doctor : doctors) {
@@ -46,86 +53,139 @@ std::map<std::string, std::string> row;
 row["ID"] = std::to_string(appointment.get_id());
 row["Date"] = appointment.get_date();
 row["Time"] = appointment.get_time();
-row["Doctor"] = appointment.get_doctor();
-row["Room"] = appointment.get_room();
+//row["Doctor"] = appointment.get_doctor_name();
+//row["Room"] = appointment.get_room_name();
 data.push_back(row);
 }
 
-resource_presenter.present_all(data);
+presenter.present_all(data);
 }
 
-void AR_UCI_Summary_Statistics_Creation::report_room_occupancy_Summary_Statistics(unsigned int id, std::string day, std::string month, std::string year) {
-std::vector<ER_Appointment> appointments = appointment_resource_repository.find_all();
-std::vector<ER_Room> rooms = room_resource_repository.find_all();
-std::string week = ""; // Replace with code to determine week based on day, month, and year
-std::map<std::string, double> room_occupancy = get_average_room_occupancy(appointments, rooms, week);
+void AR_UCI_Summary_Statistics_Creation::report_doctor_Summary_Statistics(unsigned int id, const std::string &day, const std::string &month, const std::string &year) {
+    std::vector<ER_Appointment> appointments = appointment_repository.find_all();
+    std::vector<ER_Doctor> doctors = doctor_repository.find_all();
 
-std::vector<std::map<std::string, std::string>> data;
-for (const auto& [room_name, occupancy] : room_occupancy) {
-std::map<std::string, std::string> row;
-row["Name"] = room_name;
-row["Occupancy"] = std::to_string(occupancy);
-data.push_back(row);
+    double total_room_duration = 0;
+    int total_room_appointments = 0;
+    double total_doctor_duration = 0;
+    int total_doctor_appointments = 0;
+
+    for (const ER_Appointment &appointment : appointments) {
+        if (appointment.get_day() == day && appointment.get_month() == month && appointment.get_year() == year) {
+            if (appointment.get_doctor() == id) {
+                total_doctor_duration += stoi(appointment.get_time());
+                total_doctor_appointments++;
+            }
+           
+        }
+    }
+
+    double avg_room_duration = total_room_duration / total_room_appointments;
+    double avg_doctor_duration = total_doctor_duration / total_doctor_appointments;
+
+    std::vector<std::map<std::string, std::string>> data;
+    std::map<std::string, std::string> row;
+    row["ID"] = std::to_string(id);
+    row["Name"] = doctors[id - 1].get_full_name();
+    row["Specialization"] = doctors[id - 1].get_doctors_specialties();
+    row["Avg Doctor Duration"] = std::to_string(avg_doctor_duration);
+    data.push_back(row);
+    presenter.present_all(data);
+   
+presenter.present_report_doctor_Summary_Statistics(data);
+}
+void AR_UCI_Summary_Statistics_Creation:: report_room_occupancy_Summary_Statistics(unsigned int id, const std::string& day, const std::string& month, const std::string& year) {
+    std::vector<ER_Appointment> appointments = appointment_repository.find_all();
+    std::vector<ER_Room> rooms = room_repository.find_all();
+
+    double total_room_duration = 0;
+    int total_room_appointments = 0;
+    double total_doctor_duration = 0;
+    int total_doctor_appointments = 0;
+
+    for (const ER_Appointment &appointment : appointments) {
+        if (appointment.get_day() == day && appointment.get_month() == month && appointment.get_year() == year) {
+       
+            if (appointment.get_room() == id) {
+                total_room_duration += stoi(appointment.get_time());
+                total_room_appointments++;
+            }
+        }
+    }
+
+    double avg_room_duration = total_room_duration / total_room_appointments;
+    double avg_doctor_duration = total_doctor_duration / total_doctor_appointments;
+
+    std::vector<std::map<std::string, std::string>> data;
+    std::map<std::string, std::string> row;
+    row["ID"] = std::to_string(id);
+    row["Name"] = rooms[id - 1].get_full_name();
+    row["Number"] = rooms[id - 1].get_room_number();
+    row["Avg Room Duration"] = std::to_string(avg_room_duration);
+    data.push_back(row);
+    presenter.present_all(data);
+   
+presenter.present_report_room_occupancy_Summary_Statistics(data);
+}
+void AR_UCI_Summary_Statistics_Creation::report_doctor_Summary_Statistics_pre_week(unsigned int id, const std::string &day, const std::string &month, const std::string &year) {
+    std::vector<ER_Appointment> appointments = appointment_repository.find_all();
+    std::vector<ER_Doctor> doctors = doctor_repository.find_all();
+
+    double total_doctor_duration = 0;
+    int total_doctor_appointments = 0;
+
+    for (const ER_Appointment &appointment : appointments) {
+if (appointment.get_month() == month && appointment.get_year() == year &&stoi( appointment.get_day()) >= stoi (day) && stoi( appointment.get_day()) <= (stoi(day) + 7)) {         
+       if (appointment.get_doctor() == id) {
+                total_doctor_duration += stoi(appointment.get_time());
+                total_doctor_appointments++;
+            }
+           
+        }
+    }
+
+    double avg_doctor_duration = total_doctor_duration / total_doctor_appointments;
+
+    std::vector<std::map<std::string, std::string>> data;
+    std::map<std::string, std::string> row;
+    row["ID"] = std::to_string(id);
+    row["Name"] = doctors[id - 1].get_full_name();
+    row["Specialization"] = doctors[id - 1].get_doctors_specialties();
+    row["Avg Doctor Duration"] = std::to_string(avg_doctor_duration);
+    data.push_back(row);
+    presenter.present_all(data);
+   
+presenter.present_report_doctor_Summary_Statistics_per_week(data);
+}
+void AR_UCI_Summary_Statistics_Creation:: report_room_occupancy_Summary_Statistics_pre_week(unsigned int id, const std::string& day, const std::string& month, const std::string& year) {
+    std::vector<ER_Appointment> appointments = appointment_repository.find_all();
+    std::vector<ER_Room> rooms = room_repository.find_all();
+
+    double total_room_duration = 0;
+    int total_room_appointments = 0;
+
+    for (const ER_Appointment &appointment : appointments) {
+if (appointment.get_month() == month && appointment.get_year() == year &&stoi( appointment.get_day()) >= stoi (day) && stoi( appointment.get_day()) <= (stoi(day) + 7)) {         
+       
+            if (appointment.get_room() == id) {
+                total_room_duration += stoi(appointment.get_time());
+                total_room_appointments++;
+            }
+        }
+    }
+
+    double avg_room_duration = total_room_duration / total_room_appointments;
+
+    std::vector<std::map<std::string, std::string>> data;
+    std::map<std::string, std::string> row;
+    row["ID"] = std::to_string(id);
+    row["Name"] = rooms[id - 1].get_full_name();
+    row["Number"] = rooms[id - 1].get_room_number();
+    row["Avg Room Duration"] = std::to_string(avg_room_duration);
+    data.push_back(row);
+    presenter.present_all(data);
+   
+presenter.present_report_room_occupancy_Summary_Statistics_per_week(data);
 }
 
-resource_presenter.present_report_room_occupancy_Summary_Statistics(data);
-}
 
-void AR_UCI_Summary_Statistics_Creation::report_doctor_Summary_Statistics(unsigned int id, std::string day, std::string month, std::string year) {
-std::vector<ER_Appointment> appointments = appointment_resource_repository.find_all();
-std::vector<ER_Doctor> doctors = doctor_resource_repository.find_all();
-std::string week = ""; // Replace with code to determine week based on day, month, and year
-std::map<std::string, double> doctor_statistics = get_doctor_statistics(appointments, doctors, week);
-
-std::vector<std::map<std::string, std::string>> data;
-for (const auto& [doctor_name, statistics] : doctor_statistics) {
-std::map<std::string, std::string> row;
-row["Name"] = doctor_name;
-row["Statistics"] = std::to_string(statistics);
-data.push_back(row);
-}
-
-resource_presenter.present_report_doctor_Summary_Statistics(data);
-}
-
-std::map<std::string, double> AR_UCI_Summary_Statistics_Creation::get_average_room_occupancy(
-const std::vector<ER_Appointment>& appointments,
-const std::vector<ER_Room>& rooms,
-const std::string& week) {
-std::map<std::string, double> room_occupancy;
-for (const auto& room : rooms) {
-double total_duration = 0;
-int appointment_count = 0;
-for (const auto& appointment : appointments) {
-if (appointment.get_room() == room.get_room_id() /*&& appointment.get_week() == week*/) {
-  int time = std::stoi(appointment.get_time());
-total_duration += time;
-appointment_count++;
-}
-}
-double average_duration = total_duration / appointment_count;
-room_occupancy[room.get_full_name()] = average_duration;
-}
-return room_occupancy;
-}
-
-std::map<std::string, double> AR_UCI_Summary_Statistics_Creation::get_doctor_statistics(
-const std::vector<ER_Appointment>& appointments,
-const std::vector<ER_Doctor>& doctors,
-const std::string& week) {
-std::map<std::string, double> doctor_statistics;
-for (const auto& doctor : doctors) {
-double total_duration = 0;
-int appointment_count = 0;
-for (const auto& appointment : appointments) {
-if (appointment.get_id() == doctor.get_id() /*&& appointment.get_week() == week*/) {
-  int time = std::stoi(appointment.get_time());
-total_duration += time;
-appointment_count++;
-}
-}
-double average_duration = total_duration / appointment_count;
-doctor_statistics[doctor.get_full_name()] = average_duration;
-}
-return doctor_statistics;
-}

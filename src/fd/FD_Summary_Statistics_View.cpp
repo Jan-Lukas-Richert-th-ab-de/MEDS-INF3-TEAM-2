@@ -1,70 +1,94 @@
 #include "FD_Summary_Statistics_View.h"
-
 #include <iostream>
 #include <iomanip>
 
-  
+void FD_Summary_Statistics_View::show_list_view(const std::vector<std::map<std::string, std::string>> &data) {
+   
+show_header();
+show_column_header();
+if (data.empty()){
+std::cout << "No data found." << std::endl;
+} else {
 
-void FD_Summary_Statistics_View::show_list_view(const std::vector<std::map<std::string, std::string>> &data)
-{
-    show_header();
-    show_list_header();
-    if (data.size() == 0)
-    {
-        show_list_empty_message();
-    }
-    else
-    {
-        show_column_header();
-    }
-    show_list_contents(data);
-    show_separator();
-    show_menu();
-};
+}
+show_separator();
+show_menu();
+}
 
-void FD_Summary_Statistics_View::show_list_empty_message()
-{
-    std::cout << "No data stored!" << '\n';
-};
-void FD_Summary_Statistics_View::show_list_header()
-{
-    std::cout << "Data List:" << '\n';
-};
-void FD_Summary_Statistics_View::show_column_header()
-{
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "ID";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Description";
-  
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Total Appointments";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Average Appointments";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(20) << "Average duration";
-    std::cout << '\n';
-};
-void FD_Summary_Statistics_View::show_list_contents(const std::vector<std::map<std::string, std::string>> &data)
-{
-    for (auto current_element : data)
-    {
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["id"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["description"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["appointment_count"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["doctor_statistics","room_occupancy"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["average_duration"];
-        std::cout << '\n';
-    };
-};
+
+void FD_Summary_Statistics_View::show_doctor_summary(const std::vector<std::map<std::string, std::string>> &data) {
+   system("cls");
+
+if (data.empty()){
+show_list_empty_message();
+} else {
+std::cout << "Average occupancy time of a doctor per day: " << std::endl;
+for (const auto& row : data) {
+std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Name: " << row.at("Name") << std::endl;
+std::cout << "specialization: " << row.at("Specialization") << std::endl;
+//std::cout << Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
+std::cout << "Average duration of use of the doctor: " << row.at("Avg Doctor Duration") << std::endl;
+}
+}}
 
 
 
+inline void FD_Summary_Statistics_View::show_room_occupancy_summary(const std::vector<std::map<std::string, std::string>> &data) {
+   system("cls");
+
+if (data.empty()){
+show_list_empty_message();
+} else {
+    
+std::cout << "Average occupancy time of a room per day: " << std::endl;
+
+for (const auto& row : data) {
+std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Name: " << row.at("Name") << std::endl;
+std::cout << "Number: " << row.at("Number") << std::endl;
+std::cout << "Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
+}
+}
+}
+void FD_Summary_Statistics_View::show_doctor_summary_per_week(const std::vector<std::map<std::string, std::string>> &data) {
+   system("cls");
+
+if (data.empty()){
+   show_list_empty_message();
+} else {
+std::cout << "Average occupancy time of a doctor per day: " << std::endl;
+for (const auto& row : data) {
+std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Name: " << row.at("Name") << std::endl;
+std::cout << "specialization: " << row.at("Specialization") << std::endl;
+//std::cout << Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
+std::cout << "Average duration of use of the doctor: " << row.at("Avg Doctor Duration") << std::endl;
+}
+}}
+
+inline void FD_Summary_Statistics_View::show_room_occupancy_summary_per_week(const std::vector<std::map<std::string, std::string>> &data) {
+   system("cls");
+
+if (data.empty()){
+show_list_empty_message();
+} else {
+    
+std::cout << "Average occupancy time of a room per day: " << std::endl;
+
+for (const auto& row : data) {
+std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Name: " << row.at("Name") << std::endl;
+std::cout << "Number: " << row.at("Number") << std::endl;
+std::cout << "Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
+}
+}
+}
 
 
-
-
-
+void FD_Summary_Statistics_View::show_column_header() {
+std::cout << std::left << std::setfill('-') << std::setw(60) << "" << std::endl;
+}
+inline void FD_Summary_Statistics_View::show_list_empty_message() {
+std::cout << "No data stored!" << '\n';
+}
