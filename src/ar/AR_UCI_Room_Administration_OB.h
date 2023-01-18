@@ -7,6 +7,7 @@ class AR_UCI_Room_Administration_OB
 {
 public:
    virtual void present_all(const std::vector<std::map<std::string, std::string>> &data) = 0;
+   virtual void present_all_data(const std::vector<std::map<std::string, std::string>> &data) = 0;
 
    virtual ~AR_UCI_Room_Administration_OB() = default;
    AR_UCI_Room_Administration_OB() = default;

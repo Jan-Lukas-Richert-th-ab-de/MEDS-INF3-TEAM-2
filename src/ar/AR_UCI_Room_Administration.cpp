@@ -22,6 +22,21 @@ void AR_UCI_Room_Administration::list_all()
   }
   resource_presenter.present_all(output_data);
 };
+
+void AR_UCI_Room_Administration::list_all_data()
+{
+  std::vector<std::map<std::string, std::string>> output_data;
+  std::vector<ER_Room> all_rooms = resource_repository.find_all();
+  sort_rooms_by_id(all_rooms);
+  for (auto current_room : all_rooms)
+  {
+    std::map<std::string, std::string> data_map_for_current_room =
+        get_data_map_for_room(current_room);
+    output_data.push_back(data_map_for_current_room);
+  }
+  resource_presenter.present_all_data(output_data);
+};
+
 void AR_UCI_Room_Administration::create(std::string room_description, std::string room_number)
 {
   ER_Room a_room{room_description, room_number};

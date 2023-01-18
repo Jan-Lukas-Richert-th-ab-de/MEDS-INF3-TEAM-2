@@ -18,6 +18,21 @@ void FD_Room_View::show_list_view(const std::vector<std::map<std::string, std::s
     show_separator();
     show_menu();
 };
+void FD_Room_View::show_list_view_data(const std::vector<std::map<std::string, std::string>> &data)
+{
+    show_header();
+    show_list_header();
+    if (data.size() == 0)
+    {
+        show_list_empty_message();
+    }
+    else
+    {
+        show_column_header();
+    }
+    show_list_contents(data);
+    show_separator();
+};
 
 void FD_Room_View::show_list_empty_message()
 {

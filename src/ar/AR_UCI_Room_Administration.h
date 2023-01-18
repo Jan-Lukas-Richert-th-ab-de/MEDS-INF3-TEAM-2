@@ -11,6 +11,7 @@ public:
     AR_UCI_Room_Administration(
         AR_UCI_Room_Administration_OB &presenter, AR_DAI_Room_Repository &repository);
     void list_all();
+    void list_all_data();
     void create(std::string room_description, std::string room_number);
     void update(unsigned int id, std::string room_description, std::string room_number);
     void remove(unsigned int id);

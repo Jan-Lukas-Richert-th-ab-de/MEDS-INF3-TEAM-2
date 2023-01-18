@@ -6,6 +6,7 @@ class AR_UCI_Appointment_Administration_IB
 {
 public:
    virtual void list_all() = 0;
+   virtual void list_all_data() = 0;
    virtual void create(std::string day, std::string month, std::string year, std::string time_start, std::string time, unsigned int doctor_id, unsigned int patient_id, unsigned int room_id) = 0;                  // d, m +y +ts, +t
    virtual void update(unsigned int id, std::string day, std::string month, std::string year, std::string time_start, std::string time, unsigned int doctor_id, unsigned int patient_id, unsigned int room_id) = 0; // d, m +y +ts, +t
    virtual void remove(unsigned int id) = 0;
