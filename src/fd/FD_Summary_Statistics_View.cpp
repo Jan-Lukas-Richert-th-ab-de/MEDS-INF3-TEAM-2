@@ -22,14 +22,14 @@ void FD_Summary_Statistics_View::show_doctor_summary(const std::vector<std::map<
 if (data.empty()){
 show_list_empty_message();
 } else {
+   
 std::cout << "Average occupancy time of a doctor per day: " << std::endl;
 for (const auto& row : data) {
 std::cout << "ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "specialization: " << row.at("Specialization") << std::endl;
-//std::cout << Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
-std::cout << "Average duration of use of the doctor: " << row.at("Avg Doctor Duration") << std::endl;
-}
+double avgDoctorDuration = std::stod(row.at("Avg Doctor Duration"));
+std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgDoctorDuration<< " minutes" << std::endl;}
 }}
 
 
@@ -47,7 +47,8 @@ for (const auto& row : data) {
 std::cout << "ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "Number: " << row.at("Number") << std::endl;
-std::cout << "Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
+double avgR = std::stod(row.at("Avg Room Duration"));
+std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgR << " minutes"<<std::endl;
 }
 }
 }
@@ -62,9 +63,8 @@ for (const auto& row : data) {
 std::cout << "ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "specialization: " << row.at("Specialization") << std::endl;
-//std::cout << Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
-std::cout << "Average duration of use of the doctor: " << row.at("Avg Doctor Duration") << std::endl;
-}
+double avgDoctorDuration = std::stod(row.at("Avg Doctor Duration"));
+std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgDoctorDuration << " minutes"<< std::endl;}
 }}
 
 inline void FD_Summary_Statistics_View::show_room_occupancy_summary_per_week(const std::vector<std::map<std::string, std::string>> &data) {
@@ -80,7 +80,8 @@ for (const auto& row : data) {
 std::cout << "ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "Number: " << row.at("Number") << std::endl;
-std::cout << "Average occupancy of the consulting room: " << row.at("Avg Room Duration") << std::endl;
+double avgR = std::stod(row.at("Avg Room Duration"));
+std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgR << " minutes"<< std::endl;
 }
 }
 }
