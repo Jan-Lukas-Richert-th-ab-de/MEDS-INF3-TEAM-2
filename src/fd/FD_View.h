@@ -36,4 +36,16 @@ class FD_View_S : public FD_View
    const std::array<std::string, 5> OPTIONS_LIST{
        "room occupancy Statistics pro day","room occupancy Statistics pro week", "doctor Summary Statistics pro day", "doctor Summary Statistics pro week", "->back to main menu"};
 };
+class FD_View_R : public FD_View 
+
+{  protected:
+   void show_separator();
+   void show_menu();
+   
+private:
+   const std::string OPTIONS_HEADER{"Options:"};
+   const std::array<std::string, 5> OPTIONS_LIST{
+       "room repot","room repot in week", "doctor repot","doctor repot in week", "Quit"};
+};
+
 #endif /* FD_VIEW_H */

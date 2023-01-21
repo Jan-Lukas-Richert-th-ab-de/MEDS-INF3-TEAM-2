@@ -33,5 +33,19 @@ public:
       FD_Resource_View_S(const FD_Resource_View_S &) = default;
       FD_Resource_View_S &operator=(const FD_Resource_View_S &) = default;
 };
+class FD_Resource_View_R : public FD_View_R {
 
+ public:
+      virtual void show_list_view(const std::vector<std::map<std::string, std::string>> &data)=0;
+      virtual void show_view_report_room(const std::vector<std::map<std::string, std::string>> &data)=0;
+      virtual void show_view_report_doctor(const std::vector<std::map<std::string, std::string>> &data)=0;
+      virtual void show_view_report_room_week(const std::vector<std::map<std::string, std::string>> &data)=0;
+      virtual void show_view_report_doctor_week(const std::vector<std::map<std::string, std::string>> &data)=0;
+
+ 
+      virtual ~FD_Resource_View_R() = default;
+      FD_Resource_View_R() = default;
+      FD_Resource_View_R(const FD_Resource_View_R&) = default;
+      FD_Resource_View_R& operator=(const FD_Resource_View_R&) = default;
+};
 #endif /* FD_RESOURCE_VIEW_H */

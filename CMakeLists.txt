@@ -37,7 +37,7 @@ target_sources(ar
         src/ar/AR_UCI_Doctor_Administration.cpp
         src/ar/AR_UCI_Patient_Administration.cpp
         src/ar/AR_UCI_Appointment_Administration.cpp
-        
+        src/ar/AR_UCI_Standard_Reporting.cpp
         src/ar/AR_UCI_Summary_Statistics_Creation.cpp
     PUBLIC
         src/ar/AR_UCI_Room_Administration_IB.h
@@ -56,7 +56,9 @@ target_sources(ar
         src/ar/AR_UCI_Appointment_Administration_OB.h
         src/ar/AR_UCI_Appointment_Administration.h
         src/ar/AR_DAI_Appointment_Repository.h
-       
+        src/ar/AR_UCI_Standard_Reporting_OB.h
+        src/ar/AR_UCI_Standard_Reporting.h
+        src/ar/AR_UCI_Standard_Reporting_IB.h
         
         src/ar/AR_UCI_Summary_Statistics_Creation_IB.h
         src/ar/AR_UCI_Summary_Statistics_Creation_OB.h
@@ -86,8 +88,9 @@ target_sources(ia
         src/ia/IA_test_Patient_Controller.cpp
         src/ia/IA_test_Doctor_Controller.cpp
         src/ia/IA_test_Appointment_Controller.cpp
-       
-        
+        src/ia/IA_Standard_Reporting_Controller.cpp
+        src/ia/IA_Standard_Reporting_Presenter.cpp
+        src/ia/IA_test_Standard_Reporting_Controller.cpp
 
         src/ia/IA_Summary_Statistics_Controller.cpp
         src/ia/IA_Summary_Statistics_Presenter.cpp
@@ -113,8 +116,9 @@ target_sources(ia
         src/ia/IA_Summary_Statistics_Controller.h
         src/ia/IA_Summary_Statistics_Presenter.h
         src/ia/IA_test_Summary_Statistics_Controller.h
-        
-        
+        src/ia/IA_Standard_Reporting_Controller.h
+        src/ia/IA_Standard_Reporting_Presenter.h
+        src/ia/IA_test_Standard_Reporting_Controller.h
         src/ia/IA_Master_Controller_test.h
 
 
@@ -142,7 +146,7 @@ target_sources(fd
         src/fd/FD_general_utility_functions.cpp
         src/fd/FD_Text_File_Record_Storage.cpp
         src/fd/FD_Summary_Statistics_View.cpp
-        
+        src/fd/FD_Standard_Reporting_View.cpp
     PUBLIC
         src/fd/FD_View.h
         src/fd/FD_View_test.h
@@ -159,7 +163,7 @@ target_sources(fd
         src/fd/FD_general_utility_functions.h
         src/fd/FD_Text_File_Record_Storage.h
         src/fd/FD_Summary_Statistics_View.h
-        
+        src/fd/FD_Standard_Reporting_View.h
 )
 target_include_directories(fd PRIVATE src/er)
 target_include_directories(fd PRIVATE src/ar)
