@@ -13,7 +13,7 @@ public:
     void show_list_view(const std::vector<std::map<std::string, std::string>> &data)override;
 
     void show_room_occupancy_summary(const std::vector<std::map<std::string, std::string>> &data)override;
-        void show_room_occupancy_summary_per_week(const std::vector<std::map<std::string, std::string>> &data)override;
+    void show_room_occupancy_summary_per_week(const std::vector<std::map<std::string, std::string>> &data)override;
 
     void show_doctor_summary(const std::vector<std::map<std::string, std::string>> &data)override;
     void show_doctor_summary_per_week(const std::vector<std::map<std::string, std::string>> &data)override;
