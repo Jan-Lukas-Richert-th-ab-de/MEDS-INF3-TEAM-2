@@ -38,6 +38,14 @@
 #include "AR_UCI_Summary_Statistics_Creation.h"
 #include "AR_UCI_Summary_Statistics_Creation_OB.h"
 #include "IA_test_Summary_Statistics_Controller.h"
+#include "AR_UCI_Standard_Reporting_IB.h"
+#include "AR_UCI_Standard_Reporting_OB.h"
+#include "AR_UCI_Standard_Reporting.h"
+#include "IA_Standard_Reporting_Controller.h"
+#include "IA_Standard_Reporting_Presenter.h"
+#include "IA_test_Standard_Reporting_Controller.h"
+#include "FD_Standard_Reporting_View.h"
+
 using namespace std;
 
 int main()
@@ -78,13 +86,21 @@ int main()
     IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistics_use_case};
 
     IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
+    // Standard Reporting
+    FD_Standard_Reporting_View standard_reporting_view{};
+    IA_Standard_Reporting_Presenter standard_reporting_presenter{standard_reporting_view};
+    AR_UCI_Standard_Reporting standard_reporting_use_case{standard_reporting_presenter, appointment_repository, doctor_repository, room_repository};
+    IA_Standard_Reporting_Controller standard_reporting_controller{standard_reporting_use_case};
+    IA_test_Standard_Reporting_Controller test_Standard_Reporting_Controller{standard_reporting_controller};
+    
+   
 
     // Appointment
 
     FD_View main_view{};
     FD_View_test test_view{};
     IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
-                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter, test_Summary_Statistics_Controller};
+                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter, test_Summary_Statistics_Controller, test_Standard_Reporting_Controller};
 
     application_master_controller_test.control_application_start();
 }
