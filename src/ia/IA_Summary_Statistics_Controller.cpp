@@ -91,6 +91,9 @@ void IA_Summary_Statistics_Controller::control_report_doctor_Summary_Statistics_
             std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         }
     } while(!regex_match(try_regex_date, pattern));
+        resource_uci.report_doctor_Summary_Statistics_pre_week(id, day, month, year );
+
+    
 };
 void IA_Summary_Statistics_Controller::control_report_room_occupancy_Summary_Statistics_per_week()
 {

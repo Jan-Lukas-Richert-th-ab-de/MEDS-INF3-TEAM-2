@@ -85,7 +85,7 @@ void AR_UCI_Summary_Statistics_Creation::report_doctor_Summary_Statistics(unsign
 
     std::vector<std::map<std::string, std::string>> data;
     std::map<std::string, std::string> row;
-    row["ID"] = std::to_string(id);
+    row["ID"] = std::to_string(doctors[id - 1].get_id());
     row["Name"] = doctors[id - 1].get_full_name();
     row["Specialization"] = doctors[id - 1].get_doctors_specialties();
     row["Avg Doctor Duration"] = std::to_string(avg_doctor_duration);
@@ -100,8 +100,6 @@ void AR_UCI_Summary_Statistics_Creation:: report_room_occupancy_Summary_Statisti
 
     double total_room_duration = 0;
     int total_room_appointments = 0;
-    double total_doctor_duration = 0;
-    int total_doctor_appointments = 0;
 
     for (const ER_Appointment &appointment : appointments) {
         if (appointment.get_day() == day && appointment.get_month() == month && appointment.get_year() == year) {
@@ -114,16 +112,14 @@ void AR_UCI_Summary_Statistics_Creation:: report_room_occupancy_Summary_Statisti
     }
 
     double avg_room_duration = total_room_duration / total_room_appointments;
-    double avg_doctor_duration = total_doctor_duration / total_doctor_appointments;
 
     std::vector<std::map<std::string, std::string>> data;
     std::map<std::string, std::string> row;
-    row["ID"] = std::to_string(id);
+    row["ID"] = std::to_string(rooms[id - 1].get_room_id());
     row["Name"] = rooms[id - 1].get_full_name();
     row["Number"] = rooms[id - 1].get_room_number();
     row["Avg Room Duration"] = std::to_string(avg_room_duration);
     data.push_back(row);
-    presenter.present_all(data);
    
 presenter.present_report_room_occupancy_Summary_Statistics(data);
 }
@@ -135,7 +131,7 @@ void AR_UCI_Summary_Statistics_Creation::report_doctor_Summary_Statistics_pre_we
     int total_doctor_appointments = 0;
 
     for (const ER_Appointment &appointment : appointments) {
-if (appointment.get_month() == month && appointment.get_year() == year &&stoi( appointment.get_day()) >= stoi (day) && stoi( appointment.get_day()) <= (stoi(day) + 7)) {         
+if (appointment.get_month() == month && appointment.get_year() == year  && stoi( appointment.get_day()) <= (stoi(day) + 7)) {         
        if (appointment.get_doctor() == id) {
                 total_doctor_duration += stoi(appointment.get_time());
                 total_doctor_appointments++;
@@ -148,12 +144,11 @@ if (appointment.get_month() == month && appointment.get_year() == year &&stoi( a
 
     std::vector<std::map<std::string, std::string>> data;
     std::map<std::string, std::string> row;
-    row["ID"] = std::to_string(id);
+    row["ID"] = std::to_string(doctors[id - 1].get_id());
     row["Name"] = doctors[id - 1].get_full_name();
     row["Specialization"] = doctors[id - 1].get_doctors_specialties();
     row["Avg Doctor Duration"] = std::to_string(avg_doctor_duration);
     data.push_back(row);
-    presenter.present_all(data);
    
 presenter.present_report_doctor_Summary_Statistics_per_week(data);
 }
@@ -165,7 +160,7 @@ void AR_UCI_Summary_Statistics_Creation:: report_room_occupancy_Summary_Statisti
     int total_room_appointments = 0;
 
     for (const ER_Appointment &appointment : appointments) {
-if (appointment.get_month() == month && appointment.get_year() == year &&stoi( appointment.get_day()) >= stoi (day) && stoi( appointment.get_day()) <= (stoi(day) + 7)) {         
+if (appointment.get_month() == month && appointment.get_year() == year  && stoi( appointment.get_day()) <= (stoi(day) + 7)) {         
        
             if (appointment.get_room() == id) {
                 total_room_duration += stoi(appointment.get_time());
@@ -178,12 +173,11 @@ if (appointment.get_month() == month && appointment.get_year() == year &&stoi( a
 
     std::vector<std::map<std::string, std::string>> data;
     std::map<std::string, std::string> row;
-    row["ID"] = std::to_string(id);
+    row["ID"] = std::to_string(rooms[id - 1].get_room_id());
     row["Name"] = rooms[id - 1].get_full_name();
     row["Number"] = rooms[id - 1].get_room_number();
     row["Avg Room Duration"] = std::to_string(avg_room_duration);
     data.push_back(row);
-    presenter.present_all(data);
    
 presenter.present_report_room_occupancy_Summary_Statistics_per_week(data);
 }

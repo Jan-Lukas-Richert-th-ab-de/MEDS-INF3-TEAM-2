@@ -1,6 +1,7 @@
 #include "FD_Summary_Statistics_View.h"
 #include <iostream>
 #include <iomanip>
+#include "ER_appointment.h"
 
 void FD_Summary_Statistics_View::show_list_view(const std::vector<std::map<std::string, std::string>> &data) {
    
@@ -18,18 +19,18 @@ show_menu();
 
 void FD_Summary_Statistics_View::show_doctor_summary(const std::vector<std::map<std::string, std::string>> &data) {
    system("cls");
-
-if (data.empty()){
+//when (data.size() > 0) { show data in table view and 
+    if (data.size() == 0){
 show_list_empty_message();
 } else {
    
 std::cout << "Average occupancy time of a doctor per day: " << std::endl;
 for (const auto& row : data) {
-std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Doctor ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "specialization: " << row.at("Specialization") << std::endl;
 double avgDoctorDuration = std::stod(row.at("Avg Doctor Duration"));
-std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgDoctorDuration<< " minutes" << std::endl;}
+std::cout << "Average use of the doctor: " << std::setprecision(2) << std::fixed << avgDoctorDuration<< " minutes" << std::endl;}
 }}
 
 
@@ -37,51 +38,51 @@ std::cout << "Average duration of use of the doctor: " << std::setprecision(2) <
 inline void FD_Summary_Statistics_View::show_room_occupancy_summary(const std::vector<std::map<std::string, std::string>> &data) {
    system("cls");
 
-if (data.empty()){
+    if (data.size() == 0){
 show_list_empty_message();
 } else {
     
 std::cout << "Average occupancy time of a room per day: " << std::endl;
 
 for (const auto& row : data) {
-std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Room ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "Number: " << row.at("Number") << std::endl;
 double avgR = std::stod(row.at("Avg Room Duration"));
-std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgR << " minutes"<<std::endl;
+std::cout << "Average duration of use of the room: " << std::setprecision(2) << std::fixed << avgR << " minutes"<<std::endl;
 }
 }
 }
 void FD_Summary_Statistics_View::show_doctor_summary_per_week(const std::vector<std::map<std::string, std::string>> &data) {
    system("cls");
 
-if (data.empty()){
+    if (data.size() == 0){
    show_list_empty_message();
 } else {
-std::cout << "Average occupancy time of a doctor per day: " << std::endl;
+std::cout << "Average occupancy time of a doctor per week: " << std::endl;
 for (const auto& row : data) {
-std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Doctor ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "specialization: " << row.at("Specialization") << std::endl;
 double avgDoctorDuration = std::stod(row.at("Avg Doctor Duration"));
-std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgDoctorDuration << " minutes"<< std::endl;}
+std::cout << "Average use of the doctor: " << std::setprecision(2) << std::fixed << avgDoctorDuration<< " minutes" << std::endl;}
 }}
 
 inline void FD_Summary_Statistics_View::show_room_occupancy_summary_per_week(const std::vector<std::map<std::string, std::string>> &data) {
    system("cls");
 
-if (data.empty()){
+    if (data.size() == 0){
 show_list_empty_message();
 } else {
     
 std::cout << "Average occupancy time of a room per day: " << std::endl;
 
 for (const auto& row : data) {
-std::cout << "ID: " << row.at("ID") << std::endl;
+std::cout << "Room ID: " << row.at("ID") << std::endl;
 std::cout << "Name: " << row.at("Name") << std::endl;
 std::cout << "Number: " << row.at("Number") << std::endl;
 double avgR = std::stod(row.at("Avg Room Duration"));
-std::cout << "Average duration of use of the doctor: " << std::setprecision(2) << std::fixed << avgR << " minutes"<< std::endl;
+std::cout << "Average duration of use of the room: " << std::setprecision(2) << std::fixed << avgR << " minutes"<< std::endl;
 }
 }
 }
