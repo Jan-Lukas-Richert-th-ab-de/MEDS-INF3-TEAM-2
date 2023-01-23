@@ -1,16 +1,16 @@
-#include "IA_test_Room_Controller.h"
+#include "IA_Display_Room_Controller.h"
 #include <iostream>
 
-IA_test_Room_Controller::IA_test_Room_Controller(IA_Room_Controller &a_room_Controller)
+IA_Display_Room_Controller::IA_Display_Room_Controller(IA_Room_Controller &a_room_Controller)
     : room_Controller(a_room_Controller){};
 
-void IA_test_Room_Controller::control_application_start()
+void IA_Display_Room_Controller::control_application_start()
 {
     system("cls");
     chooce_Room();
 };
 
-void IA_test_Room_Controller::chooce_Room()
+void IA_Display_Room_Controller::chooce_Room()
 {
     while (true)
     {
@@ -43,11 +43,11 @@ void IA_test_Room_Controller::chooce_Room()
     }
 };
 
-void IA_test_Room_Controller::show_menu_message_prompt()
+void IA_Display_Room_Controller::show_menu_message_prompt()
 {
     std::cout << "Please enter the number of the option you choose: ";
 };
-void IA_test_Room_Controller::show_menu_message_unexpected_input()
+void IA_Display_Room_Controller::show_menu_message_unexpected_input()
 {
     std::cout << "Unexpected Input! Please try again!\n";
 };

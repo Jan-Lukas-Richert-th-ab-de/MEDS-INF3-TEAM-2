@@ -2,10 +2,10 @@
 #define IA_TEST_APPOINTMENT_CONTROLLER
 #include "IA_Appointment_Controller.h"
 
-class IA_test_Appointment_Controller
+class IA_Display_Appointment_Controller
 {
 public:
-    IA_test_Appointment_Controller(
+    IA_Display_Appointment_Controller(
         IA_Appointment_Controller &a_appointment_Controller);
     void control_application_start();
     void chooce_Appointment();

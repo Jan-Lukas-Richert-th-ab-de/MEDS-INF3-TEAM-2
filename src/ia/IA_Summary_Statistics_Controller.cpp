@@ -3,25 +3,27 @@
 #include <string>
 #include <regex>
 
-IA_Summary_Statistics_Controller::IA_Summary_Statistics_Controller (AR_UCI_Summary_Statistics_Creation_IB &uci)
-    : resource_uci(uci){};
+IA_Summary_Statistics_Controller::IA_Summary_Statistics_Controller(AR_UCI_Summary_Statistics_Creation_IB &uci, AR_UCI_Doctor_Administration_IB &doctor_uci, AR_UCI_Patient_Administration_IB &patient_uci, AR_UCI_Room_Administration_IB &room_uci)
+    : resource_uci(uci), resource_doctor_uci(doctor_uci), resource_patient_uci(patient_uci), resource_room_uci(room_uci){};
 void IA_Summary_Statistics_Controller::control_list_all()
 {
     resource_uci.list_all();
 };
 void IA_Summary_Statistics_Controller::control_report_doctor_Summary_Statistics()
 {
-    
-            const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
+
+    const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
     std::string try_regex_date{};
-   
+
     std::cout << MESSAGE_CREATE_Summary_Statistics_D_ID_PROMPT;
+    resource_doctor_uci.list_all_data();
     unsigned int id{};
     std::cin >> id;
-    std::string  day{};
-   std::string  month{};
+    std::string day{};
+    std::string month{};
     std::string year{};
-    do {
+    do
+    {
         try_regex_date = "";
         std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         std::cin >> day >> month >> year;
@@ -30,28 +32,29 @@ void IA_Summary_Statistics_Controller::control_report_doctor_Summary_Statistics(
         try_regex_date.append(month);
         try_regex_date.append(".");
         try_regex_date.append(year);
-        if (!regex_match(try_regex_date, pattern)) {
+        if (!regex_match(try_regex_date, pattern))
+        {
             std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         }
-    } while(!regex_match(try_regex_date, pattern));
-    resource_uci.report_doctor_Summary_Statistics(id, day, month, year );
+    } while (!regex_match(try_regex_date, pattern));
+    resource_uci.report_doctor_Summary_Statistics(id, day, month, year);
 };
-
-
 
 void IA_Summary_Statistics_Controller::control_report_room_occupancy_Summary_Statistics()
 {
-   
-            const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
+
+    const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
     std::string try_regex_date{};
-   
+
     std::cout << MESSAGE_CREATE_Summary_Statistics_ID_PROMPT;
+    resource_room_uci.list_all_data();
     unsigned int id{};
     std::cin >> id;
-    std::string  day{};
-   std::string  month{};
+    std::string day{};
+    std::string month{};
     std::string year{};
-    do {
+    do
+    {
         try_regex_date = "";
         std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         std::cin >> day >> month >> year;
@@ -60,25 +63,28 @@ void IA_Summary_Statistics_Controller::control_report_room_occupancy_Summary_Sta
         try_regex_date.append(month);
         try_regex_date.append(".");
         try_regex_date.append(year);
-        if (!regex_match(try_regex_date, pattern)) {
+        if (!regex_match(try_regex_date, pattern))
+        {
             std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         }
-    } while(!regex_match(try_regex_date, pattern));
-    resource_uci.report_room_occupancy_Summary_Statistics(id, day, month, year );
+    } while (!regex_match(try_regex_date, pattern));
+    resource_uci.report_room_occupancy_Summary_Statistics(id, day, month, year);
 };
 void IA_Summary_Statistics_Controller::control_report_doctor_Summary_Statistics_per_week()
 {
-    
-            const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
+
+    const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
     std::string try_regex_date{};
-   
+
     std::cout << MESSAGE_CREATE_Summary_Statistics_D_ID_PROMPT;
+    resource_doctor_uci.list_all_data();
     unsigned int id{};
     std::cin >> id;
-    std::string  day{};
-   std::string  month{};
+    std::string day{};
+    std::string month{};
     std::string year{};
-    do {
+    do
+    {
         try_regex_date = "";
         std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         std::cin >> day >> month >> year;
@@ -87,27 +93,28 @@ void IA_Summary_Statistics_Controller::control_report_doctor_Summary_Statistics_
         try_regex_date.append(month);
         try_regex_date.append(".");
         try_regex_date.append(year);
-        if (!regex_match(try_regex_date, pattern)) {
+        if (!regex_match(try_regex_date, pattern))
+        {
             std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         }
-    } while(!regex_match(try_regex_date, pattern));
-        resource_uci.report_doctor_Summary_Statistics_pre_week(id, day, month, year );
-
-    
+    } while (!regex_match(try_regex_date, pattern));
+    resource_uci.report_doctor_Summary_Statistics_pre_week(id, day, month, year);
 };
 void IA_Summary_Statistics_Controller::control_report_room_occupancy_Summary_Statistics_per_week()
 {
-    
-            const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
+
+    const std::__cxx11::regex pattern{R"((3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.(20\d{2}))"};
     std::string try_regex_date{};
-   
+
     std::cout << MESSAGE_CREATE_Summary_Statistics_ID_PROMPT;
+    resource_room_uci.list_all_data();
     unsigned int id{};
     std::cin >> id;
-    std::string  day{};
-   std::string  month{};
+    std::string day{};
+    std::string month{};
     std::string year{};
-    do {
+    do
+    {
         try_regex_date = "";
         std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         std::cin >> day >> month >> year;
@@ -116,9 +123,10 @@ void IA_Summary_Statistics_Controller::control_report_room_occupancy_Summary_Sta
         try_regex_date.append(month);
         try_regex_date.append(".");
         try_regex_date.append(year);
-        if (!regex_match(try_regex_date, pattern)) {
+        if (!regex_match(try_regex_date, pattern))
+        {
             std::cout << MESSAGE_CREATE_Summary_Statistics_DATE_PROMPT;
         }
-    } while(!regex_match(try_regex_date, pattern));
-    resource_uci.report_room_occupancy_Summary_Statistics_pre_week(id, day, month, year );
+    } while (!regex_match(try_regex_date, pattern));
+    resource_uci.report_room_occupancy_Summary_Statistics_pre_week(id, day, month, year);
 };

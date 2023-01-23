@@ -1,17 +1,17 @@
-#include "IA_test_Doctor_Controller.h"
+#include "IA_Display_Doctor_Controller.h"
 #include <iostream>
 
-IA_test_Doctor_Controller::IA_test_Doctor_Controller(IA_Doctor_Controller &a_doctor_Controller)
+IA_Display_Doctor_Controller::IA_Display_Doctor_Controller(IA_Doctor_Controller &a_doctor_Controller)
     : doctor_Controller(a_doctor_Controller){};
 
-void IA_test_Doctor_Controller::control_application_start()
+void IA_Display_Doctor_Controller::control_application_start()
 {
     system("cls");
     // doctor_Controller.control_list_all();
     choose_Doctor();
 };
 
-void IA_test_Doctor_Controller::choose_Doctor()
+void IA_Display_Doctor_Controller::choose_Doctor()
 {
     while (true)
     {
@@ -44,11 +44,11 @@ void IA_test_Doctor_Controller::choose_Doctor()
     }
 };
 
-void IA_test_Doctor_Controller::show_menu_message_prompt()
+void IA_Display_Doctor_Controller::show_menu_message_prompt()
 {
     std::cout << "Please enter the number of the option you choose: ";
 };
-void IA_test_Doctor_Controller::show_menu_message_unexpected_input()
+void IA_Display_Doctor_Controller::show_menu_message_unexpected_input()
 {
     std::cout << "Unexpected Input! Please try again!\n";
 };

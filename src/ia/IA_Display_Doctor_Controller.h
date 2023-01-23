@@ -2,10 +2,10 @@
 #define IA_TEST_DOCTOR_CONTROLLER
 #include "IA_Doctor_Controller.h"
 
-class IA_test_Doctor_Controller
+class IA_Display_Doctor_Controller
 {
 public:
-    IA_test_Doctor_Controller(
+    IA_Display_Doctor_Controller(
         IA_Doctor_Controller &a_doctor_Controller);
     void control_application_start();
     void choose_Doctor();

@@ -83,11 +83,11 @@ target_sources(ia
         src/ia/IA_Patient_Controller.cpp
         src/ia/IA_Appointment_Presenter.cpp
         src/ia/IA_Appointment_Controller.cpp
-        src/ia/IA_test_Room_Controller.cpp
-        src/ia/IA_test_Room_Presenter.cpp
-        src/ia/IA_test_Patient_Controller.cpp
-        src/ia/IA_test_Doctor_Controller.cpp
-        src/ia/IA_test_Appointment_Controller.cpp
+        src/ia/IA_Display_Room_Controller.cpp
+        src/ia/IA_Options_Presenter.cpp
+        src/ia/IA_Display_Patient_Controller.cpp
+        src/ia/IA_Display_Doctor_Controller.cpp
+        src/ia/IA_Display_Appointment_Controller.cpp
         src/ia/IA_Standard_Reporting_Controller.cpp
         src/ia/IA_Standard_Reporting_Presenter.cpp
         src/ia/IA_test_Standard_Reporting_Controller.cpp
@@ -95,9 +95,7 @@ target_sources(ia
         src/ia/IA_Summary_Statistics_Controller.cpp
         src/ia/IA_Summary_Statistics_Presenter.cpp
         src/ia/IA_test_Summary_Statistics_Controller.cpp
-        src/ia/IA_Master_Controller_test.cpp
-
-        
+        src/ia/IA_Master_Controller.cpp
     PUBLIC
         src/ia/IA_Room_Presenter.h
         src/ia/IA_Room_Controller.h
@@ -107,11 +105,11 @@ target_sources(ia
         src/ia/IA_Patient_Controller.h
         src/ia/IA_Appointment_Presenter.h
         src/ia/IA_Appointment_Controller.h
-        src/ia/IA_test_Room_Controller.h
-        src/ia/IA_test_Room_Presenter.h
-        src/ia/IA_test_Patient_Controller.h
-        src/ia/IA_test_Doctor_Controller.h
-        src/ia/IA_test_Appointment_Controller.h
+        src/ia/IA_Display_Room_Controller.h
+        src/ia/IA_Options_Presenter.h
+        src/ia/IA_Display_Patient_Controller.h
+        src/ia/IA_Display_Doctor_Controller.h
+        src/ia/IA_Display_Appointment_Controller.h
         
         src/ia/IA_Summary_Statistics_Controller.h
         src/ia/IA_Summary_Statistics_Presenter.h
@@ -119,7 +117,7 @@ target_sources(ia
         src/ia/IA_Standard_Reporting_Controller.h
         src/ia/IA_Standard_Reporting_Presenter.h
         src/ia/IA_test_Standard_Reporting_Controller.h
-        src/ia/IA_Master_Controller_test.h
+        src/ia/IA_Master_Controller.h
 
 
 )

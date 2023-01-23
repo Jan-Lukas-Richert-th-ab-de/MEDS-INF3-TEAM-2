@@ -2,10 +2,10 @@
 #define IA_TEST_ROOM_CONTROLLER
 #include "IA_Room_Controller.h"
 
-class IA_test_Room_Controller
+class IA_Display_Room_Controller
 {
 public:
-    IA_test_Room_Controller(
+    IA_Display_Room_Controller(
         IA_Room_Controller &a_room_Controller);
     void control_application_start();
     void chooce_Room();

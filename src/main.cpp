@@ -17,11 +17,11 @@
 #include "AR_UCI_Doctor_Administration.h"
 #include "AR_UCI_Patient_Administration.h"
 #include "IA_Room_Controller.h"
-#include "IA_test_Doctor_Controller.h"
-#include "IA_test_Patient_Controller.h"
-#include "IA_test_Room_Controller.h"
-#include "IA_test_Appointment_Controller.h"
-#include "IA_Master_Controller_test.h"
+#include "IA_Display_Doctor_Controller.h"
+#include "IA_Display_Patient_Controller.h"
+#include "IA_Display_Room_Controller.h"
+#include "IA_Display_Appointment_Controller.h"
+#include "IA_Master_Controller.h"
 #include "AR_DAI_Appointment_Repository.h"
 #include "AR_UCI_Appointment_Administration_IB.h"
 #include "AR_UCI_Appointment_Administration_OB.h"
@@ -71,36 +71,34 @@ int main()
     IA_Doctor_Controller doctor_controller{doctor_administration_use_case};
     IA_Patient_Controller patient_controller{patient_administration_use_case};
     IA_Appointment_Controller appointment_controller{appointment_administration_use_case, doctor_administration_use_case, patient_administration_use_case, room_administration_use_case}; // noch andere dazu
-    IA_test_Doctor_Controller test_Doctor_Controller{doctor_controller};
-    IA_test_Room_Controller test_Room_Controller{room_controller};
-    IA_test_Patient_Controller test_Patient_Controller{patient_controller};
-    IA_test_Appointment_Controller test_Appointment_Controller{appointment_controller};
+    IA_Display_Doctor_Controller test_Doctor_Controller{doctor_controller};
+    IA_Display_Room_Controller test_Room_Controller{room_controller};
+    IA_Display_Patient_Controller test_Patient_Controller{patient_controller};
+    IA_Display_Appointment_Controller test_Appointment_Controller{appointment_controller};
     FD_Resource_View_test resource_view_test{};
-    IA_test_Room_Presenter test_Room_Presenter{resource_view_test};
+    IA_Options_Presenter Options_Presenter{resource_view_test};
 
     FD_Summary_Statistics_View Summary_Statistic_view{};
     IA_Summary_Statistics_Presenter Summary_Statistic_presenter{Summary_Statistic_view};
 
     AR_UCI_Summary_Statistics_Creation Summary_Statistics_use_case(Summary_Statistic_presenter, appointment_repository, doctor_repository, room_repository);
 
-    IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistics_use_case};
+    IA_Summary_Statistics_Controller summary_statistics_controller{Summary_Statistics_use_case, doctor_administration_use_case, patient_administration_use_case, room_administration_use_case};
 
     IA_test_Summary_Statistics_Controller test_Summary_Statistics_Controller{summary_statistics_controller};
     // Standard Reporting
     FD_Standard_Reporting_View standard_reporting_view{};
     IA_Standard_Reporting_Presenter standard_reporting_presenter{standard_reporting_view};
     AR_UCI_Standard_Reporting standard_reporting_use_case{standard_reporting_presenter, appointment_repository, doctor_repository, room_repository};
-    IA_Standard_Reporting_Controller standard_reporting_controller{standard_reporting_use_case};
+    IA_Standard_Reporting_Controller standard_reporting_controller{standard_reporting_use_case, doctor_administration_use_case, patient_administration_use_case, room_administration_use_case};
     IA_test_Standard_Reporting_Controller test_Standard_Reporting_Controller{standard_reporting_controller};
-    
-   
 
     // Appointment
 
     FD_View main_view{};
     FD_View_test test_view{};
-    IA_Master_Controller_test application_master_controller_test{test_Room_Controller, test_Doctor_Controller,
-                                                                 test_Patient_Controller, test_Appointment_Controller, test_Room_Presenter, test_Summary_Statistics_Controller, test_Standard_Reporting_Controller};
+    IA_Master_Controller application_master_controller{test_Room_Controller, test_Doctor_Controller,
+                                                       test_Patient_Controller, test_Appointment_Controller, Options_Presenter, test_Summary_Statistics_Controller, test_Standard_Reporting_Controller};
 
-    application_master_controller_test.control_application_start();
+    application_master_controller.control_application_start();
 }
