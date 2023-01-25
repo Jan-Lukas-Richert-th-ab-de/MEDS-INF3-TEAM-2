@@ -91,13 +91,13 @@ std::string ER_Appointment::get_date() const
 {
 	std::string result{""};
 	result.append(day);
-	result.append(" ");
+	result.append(".");
 	result.append(month);
-	result.append(" ");
+	result.append(".");
 	result.append(year);
-	result.append(".");
+	result.append("     -");
 	result.append(time_start);
-	result.append(".");
+	result.append("          -");
 	result.append(time);
 
 	return result;

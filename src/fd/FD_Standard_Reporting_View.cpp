@@ -24,34 +24,37 @@ show_list_empty_message();
 
     
 
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Appointment ID";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(25) << "Doctor Name";
+    std::cout << std::left << std::setfill(' ') << std::setw(21) << "Doctor Name";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room Number";
+    std::cout << std::left << std::setfill(' ') << std::setw(14) << "Date";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Date";
+
+    // std::cout << std::left << std::setfill(' ') << std::setw(20) << "Month";
+    // std::cout << " . ";
+    // std::cout << std::left << std::setfill(' ') << std::setw(10) << "Month";
+    // std::cout << " . ";
+    // std::cout << std::left << std::setfill(' ') << std::setw(10) << "Year";
+    // std::cout << " . ";
+    std::cout << std::left << std::setfill(' ') << std::setw(9) << "Time Start";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(11) << "Duration";
     std::cout << " - ";
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Patient ID";
+    std::cout << " - ";
+    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room ID";
     std::cout << '\n';
     for(auto current_element : data){
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["ID"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(25) << current_element["Doctor Name"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["Doctor Name"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["Room Number"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Date"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Time"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(41) << current_element["Date"];
         std::cout << " - ";
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Patient ID"];
+        std::cout << " - ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
         std::cout << '\n';
     }
 }
@@ -71,34 +74,30 @@ show_list_empty_message();
 
     
 
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Appointment ID";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(25) << "Doctor Name";
+    std::cout << std::left << std::setfill(' ') << std::setw(21) << "Doctor Name";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room Number";
+    std::cout << std::left << std::setfill(' ') << std::setw(14) << "Date";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Date";
+    std::cout << std::left << std::setfill(' ') << std::setw(9) << "Time Start";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(11) << "Duration";
     std::cout << " - ";
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Patient ID";
+    std::cout << " - ";
+    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room ID";
     std::cout << '\n';
     for(auto current_element : data){
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["ID"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(25) << current_element["Doctor Name"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["Doctor Name"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["Room Number"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Date"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Time"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(41) << current_element["Date"];
         std::cout << " - ";
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Patient ID"];
+        std::cout << " - ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
         std::cout << '\n';
     }
 }
@@ -112,35 +111,30 @@ show_list_empty_message();
    system("cls");
 
     
-
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Appointment ID";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(25) << "Doctor Name";
+    std::cout << std::left << std::setfill(' ') << std::setw(21) << "Doctor Name";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room Number";
+    std::cout << std::left << std::setfill(' ') << std::setw(14) << "Date";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Date";
+    std::cout << std::left << std::setfill(' ') << std::setw(9) << "Time Start";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(11) << "Duration";
     std::cout << " - ";
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Patient ID";
+    std::cout << " - ";
+    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room ID";
     std::cout << '\n';
     for(auto current_element : data){
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["ID"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(25) << current_element["Doctor Name"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["Doctor Name"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["Room Number"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Date"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Time"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(41) << current_element["Date"];
         std::cout << " - ";
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Patient ID"];
+        std::cout << " - ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
         std::cout << '\n';
     }
 }
@@ -155,34 +149,30 @@ show_list_empty_message();
 
     
 
-    std::cout << std::left << std::setfill(' ') << std::setw(3) << "ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Appointment ID";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(25) << "Doctor Name";
+    std::cout << std::left << std::setfill(' ') << std::setw(21) << "Doctor Name";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room Number";
+    std::cout << std::left << std::setfill(' ') << std::setw(14) << "Date";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Date";
+    std::cout << std::left << std::setfill(' ') << std::setw(9) << "Time Start";
     std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Time";
-    std::cout << " - ";
-    std::cout << std::left << std::setfill(' ') << std::setw(10) << "Room ID";
+    std::cout << std::left << std::setfill(' ') << std::setw(11) << "Duration";
     std::cout << " - ";
     std::cout << std::left << std::setfill(' ') << std::setw(10) << "Patient ID";
+    std::cout << " - ";
+    std::cout << std::left << std::setfill(' ') << std::setw(15) << "Room ID";
     std::cout << '\n';
     for(auto current_element : data){
-        std::cout << std::left << std::setfill(' ') << std::setw(3) << current_element["ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["ID"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(25) << current_element["Doctor Name"];
+        std::cout << std::left << std::setfill(' ') << std::setw(20) << current_element["Doctor Name"];
         std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(15) << current_element["Room Number"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Date"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Time"];
-        std::cout << " - ";
-        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
+        std::cout << std::left << std::setfill(' ') << std::setw(41) << current_element["Date"];
         std::cout << " - ";
         std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Patient ID"];
+        std::cout << " - ";
+        std::cout << std::left << std::setfill(' ') << std::setw(10) << current_element["Room ID"];
         std::cout << '\n';
     }
 }

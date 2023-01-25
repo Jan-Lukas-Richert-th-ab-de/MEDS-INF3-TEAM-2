@@ -40,12 +40,11 @@ void IA_test_Standard_Reporting_Controller::chooce_Standard_Reporting()
         Standard_Reporting_Controller.control_report_doctor_timeplan_week();
             continue;
         }
-       
-     if (choice == '5')
-        {system("cls");
+         if (choice == '5')
+        {
             break;
         }
-        show_menu_message_prompt();
+        show_menu_message_unexpected_input();
     }
 };
 
@@ -56,6 +55,5 @@ void IA_test_Standard_Reporting_Controller::show_menu_message_prompt()
 void IA_test_Standard_Reporting_Controller::show_menu_message_unexpected_input()
 {
     std::cout << "Unexpected Input! Please try again!\n";
-    system("pause");
-    system("cls");
+   
 };

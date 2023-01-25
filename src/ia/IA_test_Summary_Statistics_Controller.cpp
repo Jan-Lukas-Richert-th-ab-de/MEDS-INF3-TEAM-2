@@ -5,7 +5,7 @@ IA_test_Summary_Statistics_Controller::IA_test_Summary_Statistics_Controller(IA_
     : Summary_Statistics_Controller(a_Summary_Statistics_Controller){};
 
 void IA_test_Summary_Statistics_Controller::control_application_start()
-{system("cls and color 0A");
+{system("cls");
     chooce_Summary_Statistics();
 };
 void IA_test_Summary_Statistics_Controller::chooce_Summary_Statistics()
