@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # set project name
-project(roomlist_test)
+project(Arztpraxis-Gemeinschafts-Terminplanung)
 
 # get external library DocTest
 include(FetchContent)  
@@ -183,7 +183,11 @@ target_sources(${CMAKE_PROJECT_NAME}_test
     PRIVATE
     src/test/base_config_main_test.cpp
     src/test/FD_DA_Room_Repository_FileBasedImpl_test.cpp
+    src/test/FD_DA_Doctor_Repository_FileBasedImpl_test.cpp
+    src/test/FD_DA_Patient_Repository_FileBasedImpl_test.cpp
     src/test/ER_Room_test.cpp
+    src/test/ER_Doctor_test.cpp
+    src/test/ER_Patient_test.cpp
 )
 target_include_directories(${CMAKE_PROJECT_NAME}_test PRIVATE
                            src/er PRIVATE src/ar PRIVATE src/ia PRIVATE src/fd 

@@ -73,8 +73,7 @@ TEST_CASE("save three rooms, update second room, find all")
     CHECK((all_stored_rooms.at(1)).get_room_id() == 3);
     CHECK((all_stored_rooms.at(1)).get_room_description() == "Untersuchung");
     CHECK((all_stored_rooms.at(2)).get_room_id() == 2);
-    CHECK((all_stored_rooms.at(2)).get_room_description() == "CT");
-    CHECK((all_stored_rooms.at(2)).get_room_description() == "Meier");
+    CHECK((all_stored_rooms.at(2)).get_room_description() == "Abbstellraum");
     a_room_repo.remove_all();
 }
 
