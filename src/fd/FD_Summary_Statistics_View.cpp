@@ -75,7 +75,7 @@ inline void FD_Summary_Statistics_View::show_room_occupancy_summary_per_week(con
 show_list_empty_message();
 } else {
     
-std::cout << "Average occupancy time of a room per day: " << std::endl;
+std::cout << "Average occupancy time of a room per week: " << std::endl;
 
 for (const auto& row : data) {
 std::cout << "Room ID: " << row.at("ID") << std::endl;
