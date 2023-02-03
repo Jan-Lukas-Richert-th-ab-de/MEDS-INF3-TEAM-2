@@ -1,5 +1,5 @@
-#ifndef IA_MASTER_CONTROLLER_TEST
-#define IA_MASTER_CONTROLLER_TEST
+#ifndef IA_MASTER_CONTROLLER
+#define IA_MASTER_CONTROLLER
 #include "IA_Display_Room_Controller.h"
 #include "IA_Display_Doctor_Controller.h"
 #include "IA_Display_Patient_Controller.h"

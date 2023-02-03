@@ -7,7 +7,7 @@ TEST_CASE("save patient, find patient")
 {
     ER_Patient a_patient{"Maria", "Musterfrau"};
     FD_DA_Patient_Repository_FileBasedImpl a_patient_repo{};
-    a_patient_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
+    a_patient_repo.set_storage_file_name("DOCTOR_LIST_TEST_DATA.txt");
     a_patient_repo.remove_all();
     ER_Patient a_created_patient = a_patient_repo.save(a_patient);
     ER_Patient a_restored_patient = a_patient_repo.find(a_created_patient.get_id());
@@ -20,7 +20,7 @@ TEST_CASE("save patient, find patient")
 TEST_CASE("save two patients, find second patient")
 {
     FD_DA_Patient_Repository_FileBasedImpl a_patient_repo{};
-    a_patient_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
+    a_patient_repo.set_storage_file_name("DOCTOR_LIST_TEST_DATA.txt");
     a_patient_repo.remove_all();
     ER_Patient a_patient{"Maria", "Musterfrau"};
     ER_Patient a_created_patient = a_patient_repo.save(a_patient);
@@ -34,7 +34,7 @@ TEST_CASE("save two patients, find second patient")
 TEST_CASE("save three patients, remove second patient, find all")
 {
     FD_DA_Patient_Repository_FileBasedImpl a_patient_repo{};
-    a_patient_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
+    a_patient_repo.set_storage_file_name("DOCTOR_LIST_TEST_DATA.txt");
     a_patient_repo.remove_all();
     ER_Patient a_patient{"Maria", "Musterfrau"};
     ER_Patient a_created_patient = a_patient_repo.save(a_patient);
@@ -55,7 +55,7 @@ TEST_CASE("save three patients, remove second patient, find all")
 TEST_CASE("save three patients, update second patient, find all")
 {
     FD_DA_Patient_Repository_FileBasedImpl a_patient_repo{};
-    a_patient_repo.set_storage_file_name("PERSON_LIST_TEST_DATA.txt");
+    a_patient_repo.set_storage_file_name("DOCTOR_LIST_TEST_DATA.txt");
     a_patient_repo.remove_all();
     ER_Patient a_patient{"Maria", "Musterfrau"};
     ER_Patient a_created_patient = a_patient_repo.save(a_patient);
